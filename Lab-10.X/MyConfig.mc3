@@ -1,12 +1,12 @@
 <config configVersion="1.1" device="PIC18F26K22" coreVersion="5.0.1">
    <usedClasses class="java.util.HashMap">
       <entry>
-         <string>System Module</string>
-         <string>class com.microchip.mcc.mcu8.systemManager.SystemManager</string>
-      </entry>
-      <entry>
          <string>TMR0</string>
          <string>class com.microchip.mcc.mcu8.modules.tmr0_v1.TMR0</string>
+      </entry>
+      <entry>
+         <string>System Module</string>
+         <string>class com.microchip.mcc.mcu8.systemManager.SystemManager</string>
       </entry>
       <entry>
          <string>INTERNAL OSCILLATOR</string>
@@ -46,12 +46,12 @@
    </usedLibraries>
    <tokenMap class="java.util.HashMap">
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ECCP1" name="pwmDelay"/>
-         <value>0.0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART1" name="SWTXBufferSize"/>
          <value>8</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ECCP1" name="pwmDelay"/>
+         <value>0.0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="WPUB" settingAlias="WPUB5"/>
@@ -903,7 +903,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART1" registerAlias="RCI" settingAlias="enable"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART1" registerAlias="TXI" settingAlias="priority"/>
@@ -1067,7 +1067,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART1" registerAlias="TXI" settingAlias="enable"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG2H" settingAlias="WDTPS" alias="4096"/>
@@ -3335,7 +3335,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART1" name="templateNameValue"/>
-         <value>eusart_interrupt</value>
+         <value>eusart_noninterrupt</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RB7"/>
@@ -3703,7 +3703,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART1" name="eusartInterrupts"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="CONFIG3H" settingAlias="P2BMX" alias="PORTC0"/>
@@ -3981,19 +3981,15 @@
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>c6c4dcb009b71242917803db65588c91679533d922f8b8fe3057aa172b309dda</hash>
+         <hash>f9968ccfedbc05713bf5c800e01e8e024c54ba87b782ebaeccde35215694b754</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\device_config.h</file>
          <hash>be6d08ce86e26c9b207d581cd5055c1a4e3136771deb2bf304dae54c6b0745c3</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>aea92397d3bc7da0123028dff9f8448d8c6027c735ba7e597e15d00d50ac0bbb</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\eusart1.h</file>
-         <hash>dc33d4c68fc3b9a5f71371e15540f42672c28c3101a33d28a96c4bc3937c0a84</hash>
+         <hash>d8eef716e49e39f1ef63fcb15922a5cf883eedbc4610811ee989654590da7cf5</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr0.h</file>
@@ -4004,12 +4000,12 @@
          <hash>e95b20f3a89bc83ec733a7fa21fa081ead6cf355ec9f069304e4aaae5a6b39c5</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\device_config.c</file>
-         <hash>51eae04c3cac4d6e4b414eba8b39247c03ec7ffb9c1ef2e2848f06e1a445ea53</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\tmr2.h</file>
          <hash>7de7506f6422b493bd9b9a2fa1c2e861f908bbef08c5e13f8efc19623a118bbc</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\device_config.c</file>
+         <hash>51eae04c3cac4d6e4b414eba8b39247c03ec7ffb9c1ef2e2848f06e1a445ea53</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr2.c</file>
@@ -4020,12 +4016,12 @@
          <hash>3169fc4244e559c88024f664d9eaf2ceb58956114a4461af023787169c0c4878</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\epwm1.h</file>
-         <hash>77c5d6c55389ec64ab8614b0b669cb37f9a0d0f7001a95dfe93e124d44178579</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\tmr0.c</file>
          <hash>0dfda46aaec8cc4a471e86395e5ea21127c89114fcdf5bddb9689cf3c7335e9f</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\epwm1.h</file>
+         <hash>77c5d6c55389ec64ab8614b0b669cb37f9a0d0f7001a95dfe93e124d44178579</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
@@ -4037,15 +4033,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.c</file>
-         <hash>e710b80cfd7218dfc1a1531825bf416fd1344d09d21d72604585919b354d1504</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>07ff308e0ac3b30a8a959ab830d19b88fc38f0eda463702b44d6a15906206d03</hash>
+         <hash>580d0a13d10f39155b287473f6c51fb9d9330032caa79aab7a3814437f239eff</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\eusart1.c</file>
-         <hash>a0b0ea865ff6c7e9572dc46a923cfd54c95634c3525d74038c7f0aaf81daa6d6</hash>
+         <hash>2e3edf36ceb15e53b5ccfee4a4674558f56fbef04432b16c069debe97478a438</hash>
       </entry>
    </generatedFileHashHistoryMap>
    <mc3libFileHashHistoryMap class="java.util.HashMap"/>

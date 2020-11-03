@@ -50,7 +50,6 @@
 void SYSTEM_Initialize(void)
 {
 
-    INTERRUPT_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
     EPWM1_Initialize();
