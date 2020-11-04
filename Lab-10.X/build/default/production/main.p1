@@ -1,11 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"73 ./mcc_generated_files/mcc.h
-[; ;./mcc_generated_files/mcc.h: 73: void SYSTEM_Initialize(void);
+"76 ./mcc_generated_files/mcc.h
+[; ;./mcc_generated_files/mcc.h: 76: void SYSTEM_Initialize(void);
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"122 ./mcc_generated_files/epwm1.h
-[; ;./mcc_generated_files/epwm1.h: 122: void EPWM1_LoadDutyValue(uint16_t dutyValue);
-[v _EPWM1_LoadDutyValue `(v ~T0 @X0 0 ef1`us ]
+"7362 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7362:     struct {
+[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S374 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"7372
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7372:     struct {
+[s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S375 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"7361
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7361: typedef union {
+[u S373 `S374 1 `S375 1 ]
+[n S373 . . . ]
+"7383
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7383: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS373 ~T0 @X0 0 e@3978 ]
 "236 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 236: void TMR0_WriteTimer(uint16_t timerVal);
 [v _TMR0_WriteTimer `(v ~T0 @X0 0 ef1`us ]
@@ -28,20 +40,101 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16161
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 16161: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS800 ~T0 @X0 0 e@4082 ]
+[v F6145 `(v ~T0 @X0 0 tf ]
+"309 ./mcc_generated_files/tmr0.h
+[; ;./mcc_generated_files/tmr0.h: 309:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F6145 ]
+"6 main.c
+[; ;main.c: 6: 
+[v _myTMR0ISR `(v ~T0 @X0 0 ef ]
+"8
+[; ;main.c: 8: 
+[v _printAscii `(v ~T0 @X0 0 e? ]
 "111 C:\Program Files\Microchip\xc8\v2.30\pic\include\c99\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"65 ./mcc_generated_files/spi2.h
+[; ;./mcc_generated_files/spi2.h: 65: void SPI2_Close(void);
+[v _SPI2_Close `(v ~T0 @X0 0 ef ]
+"67 main.c
+[; ;main.c: 67:         printf("%c\r\n", cmd);
+[c E6082 0 .. ]
+[n E6082 . SPI2_DEFAULT  ]
+"64 ./mcc_generated_files/spi2.h
+[; ;./mcc_generated_files/spi2.h: 64: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
+[v _SPI2_Open `(a ~T0 @X0 0 ef1`E6082 ]
 "207 ./mcc_generated_files/eusart1.h
 [; ;./mcc_generated_files/eusart1.h: 207: _Bool EUSART1_is_rx_ready(void);
 [v _EUSART1_is_rx_ready `(a ~T0 @X0 0 ef ]
 "322
 [; ;./mcc_generated_files/eusart1.h: 322: uint8_t EUSART1_Read(void);
 [v _EUSART1_Read `(uc ~T0 @X0 0 ef ]
+"2 ./sdCard.h
+[; ;./sdCard.h: 2: void SDCARD_WriteBlock(uint32_t addr, uint8_t sdCardBuffer[]);
+[v _SDCARD_WriteBlock `(v ~T0 @X0 0 ef2`ul`*uc ]
+"6
+[; ;./sdCard.h: 6: uint8_t SDCARD_PollWriteComplete(void);
+[v _SDCARD_PollWriteComplete `(uc ~T0 @X0 0 ef ]
+"7 main.c
+[; ;main.c: 7: 
+[v _incrementAddress `(ul ~T0 @X0 0 ef1`ul ]
+"1 ./sdCard.h
+[; ;./sdCard.h: 1: void SDCARD_ReadBlock(uint32_t addr, uint8_t sdCardBuffer[]);
+[v _SDCARD_ReadBlock `(v ~T0 @X0 0 ef2`ul`*uc ]
+"3
+[; ;./sdCard.h: 3: void SDCARD_Initialize(uint8_t verbose);
+[v _SDCARD_Initialize `(v ~T0 @X0 0 ef1`uc ]
+"8
+[; ;./sdCard.h: 8: void hexDumpBuffer(uint8_t sdCardBuffer[]);
+[v _hexDumpBuffer `(v ~T0 @X0 0 ef1`*uc ]
+"12820 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12820:     struct {
+[s S623 :1 `uc 1 :1 `uc 1 ]
+[n S623 . . GO_NOT_DONE ]
+"12824
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12824:     struct {
+[s S624 :1 `uc 1 :1 `uc 1 :5 `uc 1 ]
+[n S624 . ADON GO_nDONE CHS ]
+"12829
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12829:     struct {
+[s S625 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S625 . . GO CHS0 CHS1 CHS2 CHS3 CHS4 ]
+"12838
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12838:     struct {
+[s S626 :1 `uc 1 :1 `uc 1 ]
+[n S626 . . DONE ]
+"12842
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12842:     struct {
+[s S627 :1 `uc 1 :1 `uc 1 ]
+[n S627 . . NOT_DONE ]
+"12846
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12846:     struct {
+[s S628 :1 `uc 1 :1 `uc 1 ]
+[n S628 . . nDONE ]
+"12850
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12850:     struct {
+[s S629 :1 `uc 1 :1 `uc 1 ]
+[n S629 . . GO_DONE ]
+"12854
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12854:     struct {
+[s S630 :1 `uc 1 :1 `uc 1 ]
+[n S630 . . GODONE ]
+"12819
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12819: typedef union {
+[u S622 `S623 1 `S624 1 `S625 1 `S626 1 `S627 1 `S628 1 `S629 1 `S630 1 ]
+[n S622 . . . . . . . . . ]
+"12859
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12859: extern volatile ADCON0bits_t ADCON0bits __attribute__((address(0xFC2)));
+[v _ADCON0bits `VS622 ~T0 @X0 0 e@4034 ]
 "197 ./mcc_generated_files/tmr0.h
 [; ;./mcc_generated_files/tmr0.h: 197: uint16_t TMR0_ReadTimer(void);
 [v _TMR0_ReadTimer `(us ~T0 @X0 0 ef ]
-"310
-[; ;./mcc_generated_files/tmr0.h: 310: _Bool TMR0_HasOverflowOccured(void);
-[v _TMR0_HasOverflowOccured `(a ~T0 @X0 0 ef ]
+"336 main.c
+[; ;main.c: 336:     static myTMR0states_t state = MIC_IDLE;
+[c E6200 0 1 2 .. ]
+[n E6200 . MIC_IDLE MIC_AWAIT_BUFFER MIC_ACQUIRE  ]
+"12966 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12966: extern volatile unsigned char ADRESH __attribute__((address(0xFC4)));
+[v _ADRESH `Vuc ~T0 @X0 0 e@4036 ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -777,452 +870,1371 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16609
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 16609: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"21 main.c
-[; ;main.c: 21: 
+"3 main.c
+[; ;main.c: 3: 
 [p n 520      ]
-"22
-[; ;main.c: 22:     printf("inLab 10\r\n");
+"4
+[; ;main.c: 4: typedef enum {MIC_IDLE, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
 [p n 1498     ]
+"18
+[; ;main.c: 18: uint8_t buffer1Full = 0;
+[v _sdCardBuffer `uc ~T0 @X0 -> 512 `i e ]
+"19
+[; ;main.c: 19: uint8_t buffer2Full = 0;
+[v _sdCardBuffer1 `uc ~T0 @X0 -> 512 `i e ]
+"20
+[; ;main.c: 20: uint8_t fillBuffer1 = 1;
+[v _sdCardBuffer2 `uc ~T0 @X0 -> 512 `i e ]
+"21
+[; ;main.c: 21: uint8_t startCollect = 0;
+[v _sin `Cuc ~T0 @X0 -> 26 `i e ]
+[i _sin
+:U ..
+-> -> 128 `i `uc
+-> -> 159 `i `uc
+-> -> 187 `i `uc
+-> -> 213 `i `uc
+-> -> 233 `i `uc
+-> -> 248 `i `uc
+-> -> 255 `i `uc
+-> -> 255 `i `uc
+-> -> 248 `i `uc
+-> -> 233 `i `uc
+-> -> 213 `i `uc
+-> -> 187 `i `uc
+-> -> 159 `i `uc
+-> -> 128 `i `uc
+-> -> 97 `i `uc
+-> -> 69 `i `uc
+-> -> 43 `i `uc
+-> -> 23 `i `uc
+-> -> 8 `i `uc
+-> -> 1 `i `uc
+-> -> 1 `i `uc
+-> -> 8 `i `uc
+-> -> 23 `i `uc
+-> -> 43 `i `uc
+-> -> 69 `i `uc
+-> -> 97 `i `uc
+..
+]
+"24
+[; ;main.c: 24: uint16_t sampleRate = 1600;
+[v _buffer1Full `uc ~T0 @X0 1 e ]
+[i _buffer1Full
+-> -> 0 `i `uc
+]
+"25
+[; ;main.c: 25: 
+[v _buffer2Full `uc ~T0 @X0 1 e ]
+[i _buffer2Full
+-> -> 0 `i `uc
+]
+"26
+[; ;main.c: 26: 
+[v _fillBuffer1 `uc ~T0 @X0 1 e ]
+[i _fillBuffer1
+-> -> 1 `i `uc
+]
+"27
+[; ;main.c: 27: 
+[v _startCollect `uc ~T0 @X0 1 e ]
+[i _startCollect
+-> -> 0 `i `uc
+]
+"28
+[; ;main.c: 28: 
+[v _stopCollect `uc ~T0 @X0 1 e ]
+[i _stopCollect
+-> -> 0 `i `uc
+]
+"29
+[; ;main.c: 29: 
+[v _collecting `uc ~T0 @X0 1 e ]
+[i _collecting
+-> -> 0 `i `uc
+]
+"30
+[; ;main.c: 30: 
+[v _sampleRate `us ~T0 @X0 1 e ]
+[i _sampleRate
+-> -> 1600 `i `us
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"31
-[; ;main.c: 31:             switch (cmd) {
+"37
+[; ;main.c: 37: 
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-[v F6133 `uc ~T0 @X0 -> 32 `i s ]
-[i F6133
-:U ..
-"33
-[; ;main.c: 33: 
--> -> 128 `i `uc
--> -> 153 `i `uc
--> -> 177 `i `uc
--> -> 199 `i `uc
--> -> 219 `i `uc
--> -> 234 `i `uc
--> -> 246 `i `uc
--> -> 254 `i `uc
--> -> 255 `i `uc
--> -> 254 `i `uc
--> -> 246 `i `uc
--> -> 234 `i `uc
--> -> 219 `i `uc
--> -> 199 `i `uc
--> -> 177 `i `uc
--> -> 153 `i `uc
--> -> 128 `i `uc
--> -> 103 `i `uc
--> -> 79 `i `uc
--> -> 57 `i `uc
--> -> 37 `i `uc
--> -> 22 `i `uc
--> -> 10 `i `uc
--> -> 2 `i `uc
--> -> 0 `i `uc
--> -> 2 `i `uc
--> -> 10 `i `uc
--> -> 22 `i `uc
--> -> 37 `i `uc
--> -> 57 `i `uc
--> -> 79 `i `uc
--> -> 103 `i `uc
-..
-]
-[v _sin `uc ~T0 @X0 -> 32 `i a ]
-[e = _sin F6133 ]
-"34
-[; ;main.c: 34: 
-[v _i `uc ~T0 @X0 1 a ]
-"35
-[; ;main.c: 35: 
-[v _index `us ~T0 @X0 1 a ]
-"36
-[; ;main.c: 36:                 case '?':
-[v _cmd `uc ~T0 @X0 1 a ]
-"37
-[; ;main.c: 37:                     printf("-------------------------------------------------\r\n");
-[v _volumeAdjust `uc ~T0 @X0 1 a ]
-[e = _volumeAdjust -> -> 1 `i `uc ]
 "39
-[; ;main.c: 39:                     printf("?: help menu\r\n");
-[e ( _SYSTEM_Initialize ..  ]
+[; ;main.c: 39: 
+[v _status `uc ~T0 @X0 1 a ]
 "40
-[; ;main.c: 40:                     printf("o: k\r\n");
-[e ( _EPWM1_LoadDutyValue (1 -> -> 0 `i `us ]
+[; ;main.c: 40:     SYSTEM_Initialize();
+[v _i `us ~T0 @X0 1 a ]
+"41
+[; ;main.c: 41:     do { LATBbits.LATB4 = 1; } while(0);
+[v _sdCardAddress `ul ~T0 @X0 1 a ]
+[e = _sdCardAddress -> -> -> 0 `i `l `ul ]
 "42
-[; ;main.c: 42:                     printf("z: Clear the terminal\r\n");
-[e ( _TMR0_WriteTimer (1 -> -> 0 `i `us ]
-"43
-[; ;main.c: 43:                     printf("+/-: increase/decrease volume\r\n");
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+[; ;main.c: 42: 
+[v _cmd `uc ~T0 @X0 1 a ]
+[v _letter `uc ~T0 @X0 1 a ]
 "44
-[; ;main.c: 44:                     printf("s: step through sine wave table with PIC 8-bit PWM\r\n");
-[e $U 834  ]
-[e :U 835 ]
-[e :U 834 ]
-[e $ == -> . . _INTCONbits 0 2 `i -> 0 `i 835  ]
-[e :U 836 ]
+[; ;main.c: 44:     TMR0_WriteTimer(0x0000);
+[e = _letter -> -> 48 `ui `uc ]
 "46
-[; ;main.c: 46:                     printf("p: Generate a sine wave using PWM + LPF\r\n");
-[e ( _printf :s 1C ]
+[; ;main.c: 46:     while (INTCONbits.TMR0IF == 0);
+[e ( _SYSTEM_Initialize ..  ]
 "47
-[; ;main.c: 47:                     printf("-------------------------------------------------\r\n");
-[e ( _printf :s 2C ]
-"48
-[; ;main.c: 48:                     break;
-[e ( _printf :s 3C ]
-"49
-[; ;main.c: 49: 
-[e ( _printf :s 4C ]
-"51
-[; ;main.c: 51: 
-{
+[; ;main.c: 47: 
 [e :U 837 ]
 {
-"53
-[; ;main.c: 53:                 case 'o':
-[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 840  ]
-{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 836 ]
+"50
+[; ;main.c: 50:     (INTCONbits.GIE = 1);
+[e ( _TMR0_WriteTimer (1 -> -> 0 `i `us ]
+"51
+[; ;main.c: 51:     (INTCONbits.PEIE = 1);
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"52
+[; ;main.c: 52: 
+[e $U 838  ]
+[e :U 839 ]
+[e :U 838 ]
+[e $ == -> . . _INTCONbits 0 2 `i -> 0 `i 839  ]
+[e :U 840 ]
 "54
-[; ;main.c: 54:                     printf("o:	ok\r\n");
-[e = _cmd -> ( _EUSART1_Read ..  `uc ]
-"55
-[; ;main.c: 55:                     break;
-[e $U 842  ]
-{
-"60
-[; ;main.c: 60:                 case 'Z':
-[e :U 843 ]
+[; ;main.c: 54: 
+[e ( _TMR0_SetInterruptHandler (1 &U _myTMR0ISR ]
+"56
+[; ;main.c: 56:     printf("SD card testing\r\n");
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+"57
+[; ;main.c: 57:     printf("Dev'21\r\n");
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+"59
+[; ;main.c: 59: 
+[e ( _printAscii ..  ]
 "61
-[; ;main.c: 61:                     for (i = 0; i < 40; i++) printf("\n");
-[e ( _printf :s 5C ]
+[; ;main.c: 61:     SPI2_Open(SPI2_DEFAULT);
+[e ( _printf :s 1C ]
 "62
-[; ;main.c: 62:                     __asm("reset");
-[e ( _printf :s 6C ]
+[; ;main.c: 62: 
+[e ( _printf :s 2C ]
 "63
-[; ;main.c: 63:                     break;
-[e ( _printf :s 7C ]
+[; ;main.c: 63:     for (;;) {
+[e ( _printf :s 3C ]
 "64
-[; ;main.c: 64: 
-[e ( _printf :s 8C ]
-"65
-[; ;main.c: 65: 
-[e ( _printf :s 9C ]
+[; ;main.c: 64:         printf("> ");
+[e ( _printf :s 4C ]
 "66
-[; ;main.c: 66: 
-[e ( _printf :s 10C ]
+[; ;main.c: 66:         cmd = EUSART1_Read();
+[e ( _SPI2_Close ..  ]
 "67
-[; ;main.c: 67: 
-[e ( _printf :s 11C ]
-"68
-[; ;main.c: 68:                 case 'z':
-[e ( _printf :s 12C ]
+[; ;main.c: 67:         printf("%c\r\n", cmd);
+[e ( _SPI2_Open (1 . `E6082 0 ]
 "69
-[; ;main.c: 69:                     for (i = 0; i < 40; i++) printf("\n");
-[e ( _printf :s 13C ]
+[; ;main.c: 69: 
+{
+[e :U 841 ]
+{
 "70
-[; ;main.c: 70:                     break;
-[e ( _printf :s 14C ]
+[; ;main.c: 70: 
+[e ( _printf :s 5C ]
 "71
 [; ;main.c: 71: 
-[e ( _printf :s 15C ]
+[e $U 844  ]
+[e :U 845 ]
+[e :U 844 ]
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 845  ]
+[e :U 846 ]
 "72
 [; ;main.c: 72: 
-[e $U 841  ]
-"77
-[; ;main.c: 77:                 case '-':
-[e :U 844 ]
-"78
-[; ;main.c: 78:                     volumeAdjust += 1;
-[e ( _printf :s 16C ]
+[e = _cmd -> ( _EUSART1_Read ..  `uc ]
+"73
+[; ;main.c: 73:             case '?':
+[e ( _printf , (. :s 6C -> _cmd `i ]
+"74
+[; ;main.c: 74:                 printf("\r\n-------------------------------------------------\r\n");
+[e $U 848  ]
+{
 "79
-[; ;main.c: 79:                     break;
-[e $U 841  ]
-"84
-[; ;main.c: 84:                 case 'S':
-[e :U 845 ]
-"85
-[; ;main.c: 85:                     printf("Connect jumper over the RC2/LPF_in header pins.\r\n");
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 40 `i 846  ]
-[e $U 847  ]
-[e :U 846 ]
-[e ( _printf :s 17C ]
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 40 `i 846  ]
-[e :U 847 ]
-}
-"86
-[; ;main.c: 86:                     printf("Connect Channel 1 scope probe to RC2.\r\n");
-[; <" reset ;# ">
-"87
-[; ;main.c: 87:                     printf("Connect Channel 2 scope probe to LPF_out.\r\n");
-[e $U 841  ]
-"92
-[; ;main.c: 92:                     while ((EUSART1_is_rx_ready()) == 0);
+[; ;main.c: 79:                 printf("\r\n");
 [e :U 849 ]
-"93
-[; ;main.c: 93:                     (void) EUSART1_Read();
-{
-[e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 40 `i 850  ]
-[e $U 851  ]
-[e :U 850 ]
+"80
+[; ;main.c: 80:                 printf("-------------------------------------------------\r\n");
+[e ( _printf :s 7C ]
+"81
+[; ;main.c: 81:                 printf("?: help menu\r\n");
+[e ( _printf :s 8C ]
+"82
+[; ;main.c: 82:                 printf("o: k\r\n");
+[e ( _printf , (. :s 9C >> _sdCardAddress -> 16 `i ]
+"83
+[; ;main.c: 83:                 printf("Z: Reset processor\r\n");
+[e ( _printf :s 10C ]
+"84
+[; ;main.c: 84:                 printf("z: Clear the terminal\r\n");
+[e ( _printf , (. :s 11C & _sdCardAddress -> -> 65535 `ui `ul ]
+"85
+[; ;main.c: 85:                 printf("-------------------------------------------------\r\n");
+[e ( _printf :s 12C ]
+"86
+[; ;main.c: 86:                 printf("i: Initialize SD card\r\n");
+[e ( _printf :s 13C ]
+"87
+[; ;main.c: 87:                 printf("-------------------------------------------------\r\n");
+[e ( _printf :s 14C ]
+"88
+[; ;main.c: 88:                 printf("a/A decrease/increase read address\r\n");
+[e ( _printf :s 15C ]
+"89
+[; ;main.c: 89:                 printf("r: read a block of %d bytes from SD card\r\n", 512);
+[e ( _printf :s 16C ]
+"90
+[; ;main.c: 90:                 printf("1: write a perfect 26 value sine wave to the SD card\r\n", 512);
+[e ( _printf :s 17C ]
+"91
+[; ;main.c: 91:                 printf("-------------------------------------------------\r\n");
 [e ( _printf :s 18C ]
-[e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 40 `i 850  ]
-[e :U 851 ]
-}
-"94
-[; ;main.c: 94: 
-[e $U 841  ]
-"97
-[; ;main.c: 97:                     printf("Press any key to exit.\r\n");
-[e :U 853 ]
-"98
-[; ;main.c: 98:                     while ((EUSART1_is_rx_ready()) == 0);
-[e =- _volumeAdjust -> -> 1 `i `uc ]
-"99
-[; ;main.c: 99:                     (void) EUSART1_Read();
-[e $U 841  ]
-"101
-[; ;main.c: 101:                     break;
-[e :U 854 ]
-"102
-[; ;main.c: 102: 
-[e =+ _volumeAdjust -> -> 1 `i `uc ]
-"103
-[; ;main.c: 103: 
-[e $U 841  ]
-"108
-[; ;main.c: 108:                     printf("Connect jumper over the RC2/LPF_in header pins.\r\n");
-[e :U 855 ]
-"109
-[; ;main.c: 109:                     printf("Connect Channel 1 scope probe to RC2.\r\n");
+"92
+[; ;main.c: 92:                 printf("+/- Increase/Decrease the sample rate by 10 us\r\n");
 [e ( _printf :s 19C ]
-"110
-[; ;main.c: 110:                     printf("Connect Channel 2 scope probe to LPF_out.\r\n");
+"93
+[; ;main.c: 93:                 printf("W: Write microphone => SD card at 1600 us\r\n");
 [e ( _printf :s 20C ]
-"111
-[; ;main.c: 111:                     printf("Press ""x"" to exit.\r\n");
+"94
+[; ;main.c: 94:                 printf("s: spool memory to a csv file\r\n");
 [e ( _printf :s 21C ]
-"113
-[; ;main.c: 113: 
-[e ( _EPWM1_LoadDutyValue (1 -> -> 0 `i `us ]
-"114
-[; ;main.c: 114:                     index = 0;
-[e ( _printf :s 22C ]
-"115
-[; ;main.c: 115:                     do {
-[e ( _printf :s 23C ]
-"116
-[; ;main.c: 116:                         EPWM1_LoadDutyValue(sin[index]);
-[e $U 856  ]
-[e :U 857 ]
-[e :U 856 ]
-[e $ == -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 857  ]
-[e :U 858 ]
-"117
-[; ;main.c: 117:                         printf("Current LoadDutyValue = %d\r\n", sin[index]);
-[e ( _EUSART1_Read ..  ]
-"119
-[; ;main.c: 119:                         index = (index + 1)&0b00011111;
-[e ( _EPWM1_LoadDutyValue (1 -> -> 256 `i `us ]
-"120
-[; ;main.c: 120:                     } while (EUSART1_Read() != 'x');
+"95
+[; ;main.c: 95:                 printf("-------------------------------------------------\r\n");
+[e ( _printf , (. :s 22C -> 512 `i ]
+"96
+[; ;main.c: 96:                 break;
+[e ( _printf , (. :s 23C -> 512 `i ]
+"97
+[; ;main.c: 97: 
 [e ( _printf :s 24C ]
-"121
-[; ;main.c: 121: 
+"98
+[; ;main.c: 98: 
 [e ( _printf :s 25C ]
-"122
-[; ;main.c: 122:                     EPWM1_LoadDutyValue(0);
-[e $U 859  ]
-[e :U 860 ]
-[e :U 859 ]
-[e $ == -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 860  ]
-[e :U 861 ]
-"123
-[; ;main.c: 123:                     printf("Exit PWM\r\n");
-[e ( _EUSART1_Read ..  ]
-"125
-[; ;main.c: 125: 
-[e $U 841  ]
-"131
-[; ;main.c: 131:                     printf("Connect Channel 1 scope probe to RC2.\r\n");
-[e :U 862 ]
-"132
-[; ;main.c: 132:                     printf("Connect Channel 2 scope probe to LPF_out.\r\n");
+"99
+[; ;main.c: 99: 
 [e ( _printf :s 26C ]
-"133
-[; ;main.c: 133:                     printf("Press any key to exit.\r\n");
+"100
+[; ;main.c: 100: 
 [e ( _printf :s 27C ]
-"134
-[; ;main.c: 134: 
+"101
+[; ;main.c: 101:             case 'o':
 [e ( _printf :s 28C ]
-"135
-[; ;main.c: 135:                     while ((EUSART1_is_rx_ready()) == 0) {
+"102
+[; ;main.c: 102:                 printf("o:	ok\r\n");
+[e $U 847  ]
+"107
+[; ;main.c: 107: 
+[e :U 850 ]
+"108
+[; ;main.c: 108:             case 'Z':
 [e ( _printf :s 29C ]
-"136
-[; ;main.c: 136: 
-[e ( _printf :s 30C ]
-"138
-[; ;main.c: 138:                         INTCONbits.TMR0IF = 0;
-[e = _index -> -> 0 `i `us ]
-"139
-[; ;main.c: 139:                         while (TMR0_HasOverflowOccured() == 0);
-[e :U 865 ]
+"109
+[; ;main.c: 109:                 for (i = 0; i < 40; i++) printf("\n");
+[e $U 847  ]
+"114
+[; ;main.c: 114: 
+[e :U 851 ]
+"115
+[; ;main.c: 115: 
 {
-"140
-[; ;main.c: 140: 
-[e ( _EPWM1_LoadDutyValue (1 -> *U + &U _sin * -> _index `ux -> -> # *U &U _sin `ui `ux `us ]
-"141
-[; ;main.c: 141: 
-[e ( _printf , (. :s 31C -> *U + &U _sin * -> _index `ux -> -> # *U &U _sin `ui `ux `i ]
-"142
-[; ;main.c: 142:                         EPWM1_LoadDutyValue(sin[index] >> volumeAdjust);
-[e $U 866  ]
-[e :U 867 ]
-[e :U 866 ]
-[e $ == -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 867  ]
-[e :U 868 ]
-"143
-[; ;main.c: 143:                         index = (index + 1)&0b00011111;
-[e = _index -> & + -> _index `ui -> -> 1 `i `ui -> -> 31 `i `ui `us ]
-"144
-[; ;main.c: 144: 
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 40 `i `ui 852  ]
+[e $U 853  ]
+[e :U 852 ]
+[e ( _printf :s 30C ]
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 40 `i `ui 852  ]
+[e :U 853 ]
 }
-[e $ != -> ( _EUSART1_Read ..  `ui -> 120 `ui 865  ]
+"116
+[; ;main.c: 116:             case 'z':
+[; <" reset ;# ">
+"117
+[; ;main.c: 117:                 for (i = 0; i < 40; i++) printf("\n");
+[e $U 847  ]
+"122
+[; ;main.c: 122:                 for (uint16_t i = 0; i < 512; i++) {
+[e :U 855 ]
+"123
+[; ;main.c: 123:                     sdCardBuffer[i] = sin[sinIndex];
+{
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 40 `i `ui 856  ]
+[e $U 857  ]
+[e :U 856 ]
+[e ( _printf :s 31C ]
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 40 `i `ui 856  ]
+[e :U 857 ]
+}
+"124
+[; ;main.c: 124:                     if (++sinIndex >= sizeof(sin))
+[e $U 847  ]
+"126
+[; ;main.c: 126:                 }
+[e :U 859 ]
+{
+"127
+[; ;main.c: 127: 
+[v F6223 `uc ~T0 @X0 1 s sinIndex ]
+[i F6223
+-> -> 0 `i `uc
+]
+"128
+[; ;main.c: 128:                 SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
+{
+[v _i `us ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 860  ]
+[e $U 861  ]
+[e :U 860 ]
+{
+"129
+[; ;main.c: 129:                 while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+[e = *U + &U _sdCardBuffer * -> _i `ux -> -> # *U &U _sdCardBuffer `ui `ux *U + &U _sin * -> F6223 `ux -> -> # *U &U _sin `ui `ux ]
+"130
+[; ;main.c: 130: 
+[e $ ! >= -> =+ F6223 -> -> 1 `i `uc `ui -> # _sin `ui 863  ]
+"131
+[; ;main.c: 131:                 printf("Write block sin wave values:\r\n");
+[e = F6223 -> -> 0 `i `uc ]
+[e :U 863 ]
+"132
+[; ;main.c: 132:                 printf("    Address:    ");
+}
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 860  ]
+[e :U 861 ]
+}
+"134
+[; ;main.c: 134:                 printf(":");
+[e ( _SDCARD_WriteBlock (2 , _sdCardAddress &U _sdCardBuffer ]
+"135
+[; ;main.c: 135:                 printf("%04x", sdCardAddress & 0X0000FFFF);
+[e $U 864  ]
+[e :U 865 ]
 [e :U 864 ]
+[e $ == -> = _status ( _SDCARD_PollWriteComplete ..  `i -> 255 `i 865  ]
+[e :U 866 ]
+"137
+[; ;main.c: 137:                 printf("    Status:     %02x\r\n", status);
+[e ( _printf :s 32C ]
+"138
+[; ;main.c: 138: 
+[e ( _printf :s 33C ]
+"139
+[; ;main.c: 139:                 sdCardAddress = incrementAddress(sdCardAddress);
+[e ( _printf , (. :s 34C >> _sdCardAddress -> 16 `i ]
+"140
+[; ;main.c: 140:             }
+[e ( _printf :s 35C ]
+"141
+[; ;main.c: 141:                 break;
+[e ( _printf , (. :s 36C & _sdCardAddress -> -> 65535 `ui `ul ]
+"142
+[; ;main.c: 142: 
+[e ( _printf :s 37C ]
+"143
+[; ;main.c: 143:             case '+':
+[e ( _printf , (. :s 38C -> _status `i ]
+"145
+[; ;main.c: 145:                 break;
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
 "146
 [; ;main.c: 146: 
-[e ( _EPWM1_LoadDutyValue (1 -> -> 0 `i `us ]
+}
 "147
-[; ;main.c: 147:                     EPWM1_LoadDutyValue(0);
-[e ( _printf :s 32C ]
-"148
-[; ;main.c: 148:                     (void) EUSART1_Read();
-[e $U 841  ]
+[; ;main.c: 147:             case '-':
+[e $U 847  ]
+"149
+[; ;main.c: 149:                     sampleRate = sampleRate - 160;
+[e :U 867 ]
+"150
+[; ;main.c: 150:                 } else {
+[e = _sampleRate -> + -> _sampleRate `ui -> -> 160 `i `ui `us ]
+"151
+[; ;main.c: 151:                     sampleRate = sampleRate;
+[e $U 847  ]
 "153
-[; ;main.c: 153: 
-[e :U 869 ]
+[; ;main.c: 153:                 break;
+[e :U 868 ]
 "154
 [; ;main.c: 154: 
-[e ( _printf :s 33C ]
-"155
-[; ;main.c: 155:                 default:
-[e ( _printf :s 34C ]
-"156
-[; ;main.c: 156:                     printf("Unknown key %c\r\n", cmd);
-[e ( _printf :s 35C ]
-"157
-[; ;main.c: 157:                     break;
-[e ( _printf :s 36C ]
-"159
-[; ;main.c: 159: 
-[e $U 870  ]
-[e :U 871 ]
+[e $ ! > -> _sampleRate `ui -> -> 320 `i `ui 869  ]
 {
-"161
-[; ;main.c: 161:     }
-[e ( _TMR0_WriteTimer (1 -> - + -> ( _TMR0_ReadTimer ..  `ui -> 65535 `ui -> -> 3200 `i `ui `us ]
-"162
-[; ;main.c: 162: }
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"163
-[e $U 873  ]
-[e :U 874 ]
-[e :U 873 ]
-[e $ == -> ( _TMR0_HasOverflowOccured ..  `i -> 0 `i 874  ]
-[e :U 875 ]
-"166
-[e ( _EPWM1_LoadDutyValue (1 -> >> -> *U + &U _sin * -> _index `ux -> -> # *U &U _sin `ui `ux `i -> _volumeAdjust `i `us ]
-"167
-[e = _index -> & + -> _index `ui -> -> 1 `i `ui -> -> 31 `i `ui `us ]
-"169
+"155
+[; ;main.c: 155:             case 'W': {
+[e = _sampleRate -> - -> _sampleRate `ui -> -> 160 `i `ui `us ]
+"156
+[; ;main.c: 156:                 printf("Press any key to start recording audio and press any key to stop recording.");
+}
+[e $U 870  ]
+[e :U 869 ]
+{
+"157
+[; ;main.c: 157:                 while (!(EUSART1_is_rx_ready()));
+[e = _sampleRate _sampleRate ]
+"158
+[; ;main.c: 158:                 EUSART1_Read();
 }
 [e :U 870 ]
 "159
 [; ;main.c: 159: 
-[e $ == -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 871  ]
+[e $U 847  ]
+"161
+[; ;main.c: 161:                     if (buffer1Full) {
+[e :U 871 ]
+{
+"162
+[; ;main.c: 162:                         SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+[e ( _printf :s 39C ]
+"163
+[; ;main.c: 163:                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+[e $U 872  ]
+[e :U 873 ]
 [e :U 872 ]
-"171
-[e ( _EPWM1_LoadDutyValue (1 -> -> 0 `i `us ]
-"172
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 873  ]
+[e :U 874 ]
+"164
+[; ;main.c: 164:                         buffer1Full = 0;
 [e ( _EUSART1_Read ..  ]
-"173
-[e ( _printf :s 37C ]
-"174
-[e $U 841  ]
-"179
+"166
+[; ;main.c: 166:                     }
+[e $U 875  ]
 [e :U 876 ]
+{
+"167
+[; ;main.c: 167:                     if (buffer2Full) {
+[e $ ! != -> _buffer1Full `i -> 0 `i 878  ]
+{
+"168
+[; ;main.c: 168:                         SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+[e ( _SDCARD_WriteBlock (2 , _sdCardAddress &U _sdCardBuffer1 ]
+"169
+[; ;main.c: 169:                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+[e $U 879  ]
+[e :U 880 ]
+[e :U 879 ]
+[e $ == -> = _status ( _SDCARD_PollWriteComplete ..  `i -> 255 `i 880  ]
+[e :U 881 ]
+"170
+[; ;main.c: 170:                         buffer2Full = 0;
+[e = _buffer1Full -> -> 0 `i `uc ]
+"171
+[; ;main.c: 171:                         sdCardAddress = incrementAddress(sdCardAddress);
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
+"172
+[; ;main.c: 172:                     }
+}
+[e :U 878 ]
+"173
+[; ;main.c: 173:                 }
+[e $ ! != -> _buffer2Full `i -> 0 `i 882  ]
+{
+"174
+[; ;main.c: 174:                 EUSART1_Read();
+[e ( _SDCARD_WriteBlock (2 , _sdCardAddress &U _sdCardBuffer2 ]
+"175
+[; ;main.c: 175:                 stopCollect = 1;
+[e $U 883  ]
+[e :U 884 ]
+[e :U 883 ]
+[e $ == -> = _status ( _SDCARD_PollWriteComplete ..  `i -> 255 `i 884  ]
+[e :U 885 ]
+"176
+[; ;main.c: 176: 
+[e = _buffer2Full -> -> 0 `i `uc ]
+"177
+[; ;main.c: 177:                 while (buffer1Full || buffer2Full || collecting) {
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
+"178
+[; ;main.c: 178:                     if (buffer1Full) {
+}
+[e :U 882 ]
+"179
+[; ;main.c: 179:                         SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+}
+[e :U 875 ]
+"166
+[; ;main.c: 166:                     }
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 876  ]
+[e :U 877 ]
 "180
-[e ( _printf , (. :s 38C -> _cmd `i ]
+[; ;main.c: 180:                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+[e ( _EUSART1_Read ..  ]
 "181
-[e $U 841  ]
-"182
+[; ;main.c: 181:                         buffer1Full = 0;
+[e = _stopCollect -> -> 1 `i `uc ]
+"183
+[; ;main.c: 183:                     }
+[e $U 886  ]
+[e :U 887 ]
+{
+"184
+[; ;main.c: 184:                     if (buffer2Full) {
+[e $ ! != -> _buffer1Full `i -> 0 `i 889  ]
+{
+"185
+[; ;main.c: 185:                         SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+[e ( _SDCARD_WriteBlock (2 , _sdCardAddress &U _sdCardBuffer1 ]
+"186
+[; ;main.c: 186:                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+[e $U 890  ]
+[e :U 891 ]
+[e :U 890 ]
+[e $ == -> = _status ( _SDCARD_PollWriteComplete ..  `i -> 255 `i 891  ]
+[e :U 892 ]
+"187
+[; ;main.c: 187:                         buffer2Full = 0;
+[e = _buffer1Full -> -> 0 `i `uc ]
+"188
+[; ;main.c: 188:                         sdCardAddress = incrementAddress(sdCardAddress);
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
+"189
+[; ;main.c: 189:                     }
+}
+[e :U 889 ]
+"190
+[; ;main.c: 190:                 }
+[e $ ! != -> _buffer2Full `i -> 0 `i 893  ]
+{
+"191
+[; ;main.c: 191:             }
+[e ( _SDCARD_WriteBlock (2 , _sdCardAddress &U _sdCardBuffer2 ]
+"192
+[; ;main.c: 192:                 break;
+[e $U 894  ]
+[e :U 895 ]
+[e :U 894 ]
+[e $ == -> = _status ( _SDCARD_PollWriteComplete ..  `i -> 255 `i 895  ]
+[e :U 896 ]
+"193
+[; ;main.c: 193: 
+[e = _buffer2Full -> -> 0 `i `uc ]
+"194
+[; ;main.c: 194:             case 's':
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
+"195
+[; ;main.c: 195: 
+}
+[e :U 893 ]
+"196
+[; ;main.c: 196:                 printf("You may terminate spooling at anytime with a key press.\r\n");
+}
+[e :U 886 ]
+"183
+[; ;main.c: 183:                     }
+[e $ || || != -> _buffer1Full `i -> 0 `i != -> _buffer2Full `i -> 0 `i != -> _collecting `i -> 0 `i 887  ]
+[e :U 888 ]
+"197
+[; ;main.c: 197:                 printf("To spool terminal contents into a file follow these instructions:\r\n");
+}
+"198
+[; ;main.c: 198:                 printf("\r\n");
+[e $U 847  ]
+"200
+[; ;main.c: 200:                 printf("Select:     Change settings...\r\n");
+[e :U 897 ]
+"202
+[; ;main.c: 202:                 printf("Select:     Session logging: All session output\r\n");
+[e ( _printf :s 40C ]
+"203
+[; ;main.c: 203:                 printf("Log file name: Browse and provide a .csv extension to your file name\r\n");
+[e ( _printf :s 41C ]
+"204
+[; ;main.c: 204:                 printf("Select:     Apply\r\n");
+[e ( _printf :s 42C ]
+"205
+[; ;main.c: 205:                 printf("Press any key to start\r\n");
+[e ( _printf :s 43C ]
+"206
+[; ;main.c: 206: 
+[e ( _printf :s 44C ]
+"207
+[; ;main.c: 207:                 while (!(EUSART1_is_rx_ready()));
+[e ( _printf :s 45C ]
+"208
+[; ;main.c: 208:                 EUSART1_Read();
+[e ( _printf :s 46C ]
+"209
+[; ;main.c: 209: 
+[e ( _printf :s 47C ]
+"210
+[; ;main.c: 210:                 SDCARD_ReadBlock(sdCardAddress , sdCardBuffer);
+[e ( _printf :s 48C ]
+"211
+[; ;main.c: 211:                 sdCardAddress = incrementAddress(sdCardAddress);
+[e ( _printf :s 49C ]
+"213
+[; ;main.c: 213:                 uint16_t iterator = 0;
+[e $U 898  ]
+[e :U 899 ]
+[e :U 898 ]
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 899  ]
+[e :U 900 ]
+"214
+[; ;main.c: 214:                 while ((!(EUSART1_is_rx_ready())) && (iterator != 512)) {
+[e ( _EUSART1_Read ..  ]
+"216
+[; ;main.c: 216:                     printf("%d\r\n", printVal);
+[e ( _SDCARD_ReadBlock (2 , _sdCardAddress &U _sdCardBuffer ]
+"217
+[; ;main.c: 217:                     iterator++;
+[e = _sdCardAddress ( _incrementAddress (1 _sdCardAddress ]
+"219
+[; ;main.c: 219:                 if ((EUSART1_is_rx_ready()))
+[v _iterator `us ~T0 @X0 1 a ]
+[e = _iterator -> -> 0 `i `us ]
+"220
+[; ;main.c: 220:                     EUSART1_Read();
+[e $U 901  ]
+[e :U 902 ]
+{
+"221
+[; ;main.c: 221: 
+[v _printVal `us ~T0 @X0 1 a ]
+[e = _printVal -> *U + &U _sdCardBuffer * -> _iterator `ux -> -> # *U &U _sdCardBuffer `ui `ux `us ]
+"222
+[; ;main.c: 222:                 printf("Spooled 512 out of the 512 blocks.\r\n");
+[e ( _printf , (. :s 50C -> _printVal `ui ]
+"223
+[; ;main.c: 223:                 printf("To close the file follow these instructions: \r\n");
+[e ++ _iterator -> -> 1 `i `us ]
+"224
+[; ;main.c: 224:                 printf("Right mouse click on the upper left of the PuTTY window\r\n");
+}
+[e :U 901 ]
+"220
+[; ;main.c: 220:                     EUSART1_Read();
+[e $ && ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i != -> _iterator `ui -> -> 512 `i `ui 902  ]
+[e :U 903 ]
+"225
+[; ;main.c: 225:                 printf("Select:     Change settings...\r\n");
+[e $ ! != -> ( _EUSART1_is_rx_ready ..  `i -> 0 `i 904  ]
+"226
+[; ;main.c: 226:                 printf("Select:     Logging\r\n");
+[e ( _EUSART1_Read ..  ]
+[e :U 904 ]
+"228
+[; ;main.c: 228:                 printf("Select:     Apply \r\n");
+[e ( _printf :s 51C ]
+"229
+[; ;main.c: 229: 
+[e ( _printf :s 52C ]
+"230
+[; ;main.c: 230:                 break;
+[e ( _printf :s 53C ]
+"231
+[; ;main.c: 231: 
+[e ( _printf :s 54C ]
+"232
+[; ;main.c: 232: 
+[e ( _printf :s 55C ]
+"233
+[; ;main.c: 233: 
+[e ( _printf :s 56C ]
+"234
+[; ;main.c: 234: 
+[e ( _printf :s 57C ]
+"236
+[; ;main.c: 236: 
+[e $U 847  ]
+"243
+[; ;main.c: 243: 
+[e :U 905 ]
+"244
+[; ;main.c: 244: 
+[e ( _SPI2_Close ..  ]
+"245
+[; ;main.c: 245: 
+[e ( _SPI2_Open (1 . `E6082 0 ]
+"246
+[; ;main.c: 246:             case 'A':
+[e ( _SDCARD_Initialize (1 -> -> 1 `i `uc ]
+"247
+[; ;main.c: 247:             case 'a':
+[e $U 847  ]
+"252
+[; ;main.c: 252:                         sdCardAddress = 0x04000000 - 512;
+[e :U 906 ]
+"253
+[; ;main.c: 253:                     } else {
+[e :U 907 ]
+"254
+[; ;main.c: 254:                         printf("Decreased address\r\n");
+[e $ ! == -> _cmd `ui -> 97 `ui 908  ]
+{
+"255
+[; ;main.c: 255:                     }
+[e =- _sdCardAddress -> -> -> 512 `i `l `ul ]
+"256
+[; ;main.c: 256:                 } else {
+[e $ ! >= _sdCardAddress -> -> 67108864 `l `ul 909  ]
+{
+"257
+[; ;main.c: 257:                     sdCardAddress += 512;
+[e ( _printf :s 58C ]
+"258
+[; ;main.c: 258:                     if (sdCardAddress >= 0x04000000) {
+[e = _sdCardAddress -> - -> 67108864 `l -> -> 512 `i `l `ul ]
+"259
+[; ;main.c: 259:                         printf("Overflowed to low address\r\n");
+}
+[e $U 910  ]
+[e :U 909 ]
+{
+"260
+[; ;main.c: 260:                         sdCardAddress = 0x00000000;
+[e ( _printf :s 59C ]
+"261
+[; ;main.c: 261:                     } else {
+}
+[e :U 910 ]
+"262
+[; ;main.c: 262:                         printf("Increased address\r\n");
+}
+[e $U 911  ]
+[e :U 908 ]
+{
+"263
+[; ;main.c: 263:                     }
+[e =+ _sdCardAddress -> -> -> 512 `i `l `ul ]
+"264
+[; ;main.c: 264:                 }
+[e $ ! >= _sdCardAddress -> -> 67108864 `l `ul 912  ]
+{
+"265
+[; ;main.c: 265: 
+[e ( _printf :s 60C ]
+"266
+[; ;main.c: 266: 
+[e = _sdCardAddress -> -> -> 0 `i `l `ul ]
+"267
+[; ;main.c: 267:                 printf("SD card address:  ");
+}
+[e $U 913  ]
+[e :U 912 ]
+{
+"268
+[; ;main.c: 268:                 printf("%04x", sdCardAddress >> 16);
+[e ( _printf :s 61C ]
+"269
+[; ;main.c: 269:                 printf(":");
+}
+[e :U 913 ]
+"270
+[; ;main.c: 270:                 printf("%04x", sdCardAddress & 0X0000FFFF);
+}
+[e :U 911 ]
+"273
+[; ;main.c: 273: 
+[e ( _printf :s 62C ]
+"274
+[; ;main.c: 274: 
+[e ( _printf , (. :s 63C >> _sdCardAddress -> 16 `i ]
+"275
+[; ;main.c: 275: 
+[e ( _printf :s 64C ]
+"276
+[; ;main.c: 276: 
+[e ( _printf , (. :s 65C & _sdCardAddress -> -> 65535 `ui `ul ]
+"277
+[; ;main.c: 277:             case 'r':
+[e ( _printf :s 66C ]
+"278
+[; ;main.c: 278:                 SDCARD_ReadBlock(sdCardAddress, sdCardBuffer);
+[e $U 847  ]
+"283
+[; ;main.c: 283:                 printf("%04x", sdCardAddress & 0X0000FFFF);
+[e :U 914 ]
+"284
+[; ;main.c: 284:                 printf("\r\n");
+[e ( _SDCARD_ReadBlock (2 , _sdCardAddress &U _sdCardBuffer ]
+"285
+[; ;main.c: 285:                 hexDumpBuffer(sdCardBuffer);
+[e ( _printf :s 67C ]
+"286
+[; ;main.c: 286:                 break;
+[e ( _printf :s 68C ]
+"287
+[; ;main.c: 287: 
+[e ( _printf , (. :s 69C >> _sdCardAddress -> 16 `i ]
+"288
+[; ;main.c: 288: 
+[e ( _printf :s 70C ]
+"289
+[; ;main.c: 289: 
+[e ( _printf , (. :s 71C & _sdCardAddress -> -> 65535 `ui `ul ]
+"290
+[; ;main.c: 290: 
+[e ( _printf :s 72C ]
+"291
+[; ;main.c: 291:             default:
+[e ( _hexDumpBuffer (1 &U _sdCardBuffer ]
+"292
+[; ;main.c: 292:                 printf("Unknown key %c\r\n", cmd);
+[e $U 847  ]
+"297
+[; ;main.c: 297: 
+[e :U 915 ]
+"298
+[; ;main.c: 298: uint32_t incrementAddress(uint32_t sdCardAddress)
+[e ( _printf , (. :s 73C -> _cmd `i ]
+"299
+[; ;main.c: 299: {
+[e $U 847  ]
+"300
+[; ;main.c: 300:     sdCardAddress += 512;
+}
+[e $U 847  ]
+[e :U 848 ]
+[e [\ -> _cmd `i , $ -> -> 63 `ui `i 849
+ , $ -> -> 111 `ui `i 850
+ , $ -> -> 90 `ui `i 851
+ , $ -> -> 122 `ui `i 855
+ , $ -> -> 49 `ui `i 859
+ , $ -> -> 43 `ui `i 867
+ , $ -> -> 45 `ui `i 868
+ , $ -> -> 87 `ui `i 871
+ , $ -> -> 115 `ui `i 897
+ , $ -> -> 105 `ui `i 905
+ , $ -> -> 65 `ui `i 906
+ , $ -> -> 97 `ui `i 907
+ , $ -> -> 114 `ui `i 914
+ 915 ]
+[e :U 847 ]
+"301
+[; ;main.c: 301:     if (sdCardAddress >= 0x04000000)
 }
 [e $U 841  ]
 [e :U 842 ]
-[e [\ -> _cmd `i , $ -> -> 63 `ui `i 843
- , $ -> -> 111 `ui `i 844
- , $ -> -> 90 `ui `i 845
- , $ -> -> 122 `ui `i 849
- , $ -> -> 43 `ui `i 853
- , $ -> -> 45 `ui `i 854
- , $ -> -> 83 `ui `i 855
- , $ -> -> 115 `ui `i 862
- , $ -> -> 112 `ui `i 869
- 876 ]
-[e :U 841 ]
-"184
 }
-[e :U 840 ]
-"185
+"302
+[; ;main.c: 302:         sdCardAddress = 0x00000000;
+[e :UE 834 ]
 }
-[e $U 837  ]
-[e :U 838 ]
+"304
+[; ;main.c: 304: }
+[v _incrementAddress `(ul ~T0 @X0 1 ef1`ul ]
+"305
+[; ;main.c: 305: 
+{
+[e :U _incrementAddress ]
+"304
+[; ;main.c: 304: }
+[v _sdCardAddress `ul ~T0 @X0 1 r1 ]
+"305
+[; ;main.c: 305: 
+[f ]
+"306
+[; ;main.c: 306: uint32_t decrementAddress(uint32_t sdCardAddress) {
+[e =+ _sdCardAddress -> -> -> 512 `i `l `ul ]
+"307
+[; ;main.c: 307:     sdCardAddress -= 512;
+[e $ ! >= _sdCardAddress -> -> 67108864 `l `ul 917  ]
+"308
+[; ;main.c: 308:     if (sdCardAddress >= 0x04000000)
+[e = _sdCardAddress -> -> -> 0 `i `l `ul ]
+[e :U 917 ]
+"309
+[; ;main.c: 309:         sdCardAddress = 0x04000000 - 512;
+[e ) _sdCardAddress ]
+[e $UE 916  ]
+"310
+[; ;main.c: 310:     return sdCardAddress;
+[e :UE 916 ]
 }
-"186
-[e :UE 833 ]
+"312
+[v _decrementAddress `(ul ~T0 @X0 1 ef1`ul ]
+{
+[e :U _decrementAddress ]
+[v _sdCardAddress `ul ~T0 @X0 1 r1 ]
+[f ]
+"313
+[e =- _sdCardAddress -> -> -> 512 `i `l `ul ]
+"314
+[e $ ! >= _sdCardAddress -> -> 67108864 `l `ul 919  ]
+"315
+[e = _sdCardAddress -> - -> 67108864 `l -> -> 512 `i `l `ul ]
+[e :U 919 ]
+"316
+[e ) _sdCardAddress ]
+[e $UE 918  ]
+"317
+[e :UE 918 ]
 }
-[p f _printf 9961600 ]
-[a 4C 13 10 62 32 0 ]
-[a 7C 63 58 32 104 101 108 112 32 109 101 110 117 13 10 0 ]
-[a 2C 65 110 97 108 111 103 32 119 97 118 101 102 111 114 109 32 103 101 110 101 114 97 116 111 114 13 10 0 ]
-[a 9C 90 58 32 82 101 115 101 116 32 112 114 111 99 101 115 115 111 114 13 10 0 ]
-[a 10C 122 58 32 67 108 101 97 114 32 116 104 101 32 116 101 114 109 105 110 97 108 13 10 0 ]
-[a 16C 111 58 9 111 107 13 10 0 ]
-[a 8C 111 58 32 107 13 10 0 ]
-[a 11C 43 47 45 58 32 105 110 99 114 101 97 115 101 47 100 101 99 114 101 97 115 101 32 118 111 108 117 109 101 13 10 0 ]
-[a 31C 67 117 114 114 101 110 116 32 76 111 97 100 68 117 116 121 86 97 108 117 101 32 61 32 37 100 13 10 0 ]
-[a 38C 85 110 107 110 111 119 110 32 107 101 121 32 37 99 13 10 0 ]
-[a 32C 69 120 105 116 32 80 87 77 13 10 0 ]
-[a 37C 69 120 105 116 32 80 87 77 13 10 0 ]
-[a 12C 115 58 32 115 116 101 112 32 116 104 114 111 117 103 104 32 115 105 110 101 32 119 97 118 101 32 116 97 98 108 101 32 119 105 116 104 32 80 73 67 32 56 45 98 105 116 32 80 87 77 13 10 0 ]
-[a 14C 112 58 32 71 101 110 101 114 97 116 101 32 97 32 115 105 110 101 32 119 97 118 101 32 117 115 105 110 103 32 80 87 77 32 43 32 76 80 70 13 10 0 ]
+"331
+[; ;main.c: 331: void myTMR0ISR(void) {
+[v _myTMR0ISR `(v ~T0 @X0 1 ef ]
+{
+[e :U _myTMR0ISR ]
+[f ]
+"332
+[; ;main.c: 332:     ADCON0bits.GO_NOT_DONE = 1;
+[e = . . _ADCON0bits 0 1 -> -> 1 `i `uc ]
+"334
+[; ;main.c: 334:     TMR0_WriteTimer(0x10000 - (sampleRate - TMR0_ReadTimer()));
+[e ( _TMR0_WriteTimer (1 -> - -> 65536 `l -> - -> _sampleRate `ui -> ( _TMR0_ReadTimer ..  `ui `l `us ]
+"335
+[; ;main.c: 335:     static uint16_t bufferIndex = 0;
+[v F6232 `us ~T0 @X0 1 s bufferIndex ]
+[i F6232
+-> -> 0 `i `us
+]
+"336
+[; ;main.c: 336:     static myTMR0states_t state = MIC_IDLE;
+[v F6233 `E6200 ~T0 @X0 1 s state ]
+[i F6233
+. `E6200 0
+]
+"337
+[; ;main.c: 337:     static uint8_t *buffer = sdCardBuffer1;
+[v F6234 `*uc ~T0 @X0 1 s buffer ]
+[i F6234
+&U _sdCardBuffer1
+]
+"339
+[; ;main.c: 339:     uint8_t mic = ADRESH;
+[v _mic `uc ~T0 @X0 1 a ]
+[e = _mic _ADRESH ]
+"341
+[; ;main.c: 341:     switch(state) {
+[e $U 922  ]
+{
+"342
+[; ;main.c: 342:         case MIC_IDLE:
+[e :U 923 ]
+"343
+[; ;main.c: 343:             if (startCollect == 1) {
+[e $ ! == -> _startCollect `i -> 1 `i 924  ]
+{
+"344
+[; ;main.c: 344:                 collecting = 1;
+[e = _collecting -> -> 1 `i `uc ]
+"345
+[; ;main.c: 345:                 state = MIC_ACQUIRE;
+[e = F6233 . `E6200 2 ]
+"346
+[; ;main.c: 346:                 bufferIndex = 0;
+[e = F6232 -> -> 0 `i `us ]
+"347
+[; ;main.c: 347:                 buffer = sdCardBuffer1;
+[e = F6234 &U _sdCardBuffer1 ]
+"348
+[; ;main.c: 348:                 fillBuffer1 = 1;
+[e = _fillBuffer1 -> -> 1 `i `uc ]
+"349
+[; ;main.c: 349:                 startCollect = 1;
+[e = _startCollect -> -> 1 `i `uc ]
+"350
+[; ;main.c: 350:             }
+}
+[e :U 924 ]
+"351
+[; ;main.c: 351:             break;
+[e $U 921  ]
+"354
+[; ;main.c: 354:         case MIC_AWAIT_BUFFER:
+[e :U 925 ]
+"355
+[; ;main.c: 355:             if ((fillBuffer1 && buffer1Full) || (!fillBuffer1 && buffer2Full)) {
+[e $ ! || && != -> _fillBuffer1 `i -> 0 `i != -> _buffer1Full `i -> 0 `i && ! != -> _fillBuffer1 `i -> 0 `i != -> _buffer2Full `i -> 0 `i 926  ]
+{
+"356
+[; ;main.c: 356:                 break;
+[e $U 921  ]
+"357
+[; ;main.c: 357:             }
+}
+[e :U 926 ]
+"360
+[; ;main.c: 360:         case MIC_ACQUIRE:
+[e :U 927 ]
+"361
+[; ;main.c: 361:             buffer[bufferIndex++] = mic;
+[e = *U + F6234 * -> ++ F6232 -> -> 1 `i `us `ux -> -> # *U F6234 `ui `ux _mic ]
+"363
+[; ;main.c: 363:             if(bufferIndex == 512) {
+[e $ ! == -> F6232 `ui -> -> 512 `i `ui 928  ]
+{
+"364
+[; ;main.c: 364:                 if (fillBuffer1) {
+[e $ ! != -> _fillBuffer1 `i -> 0 `i 929  ]
+{
+"365
+[; ;main.c: 365:                     buffer1Full = 1;
+[e = _buffer1Full -> -> 1 `i `uc ]
+"366
+[; ;main.c: 366:                     buffer = sdCardBuffer2;
+[e = F6234 &U _sdCardBuffer2 ]
+"367
+[; ;main.c: 367:                     if (buffer2Full)
+[e $ ! != -> _buffer2Full `i -> 0 `i 930  ]
+"368
+[; ;main.c: 368:                         state = MIC_AWAIT_BUFFER;
+[e = F6233 . `E6200 1 ]
+[e :U 930 ]
+"369
+[; ;main.c: 369:                 } else {
+}
+[e $U 931  ]
+[e :U 929 ]
+{
+"370
+[; ;main.c: 370:                     buffer2Full = 1;
+[e = _buffer2Full -> -> 1 `i `uc ]
+"371
+[; ;main.c: 371:                     buffer = sdCardBuffer1;
+[e = F6234 &U _sdCardBuffer1 ]
+"372
+[; ;main.c: 372:                     if (buffer1Full)
+[e $ ! != -> _buffer1Full `i -> 0 `i 932  ]
+"373
+[; ;main.c: 373:                         state = MIC_AWAIT_BUFFER;
+[e = F6233 . `E6200 1 ]
+[e :U 932 ]
+"374
+[; ;main.c: 374:                 }
+}
+[e :U 931 ]
+"375
+[; ;main.c: 375:                 fillBuffer1 = !fillBuffer1;
+[e = _fillBuffer1 -> -> ! != -> _fillBuffer1 `i -> 0 `i `i `uc ]
+"376
+[; ;main.c: 376:                 bufferIndex = 0;
+[e = F6232 -> -> 0 `i `us ]
+"377
+[; ;main.c: 377:                 if (stopCollect) {
+[e $ ! != -> _stopCollect `i -> 0 `i 933  ]
+{
+"378
+[; ;main.c: 378:                     collecting = 0;
+[e = _collecting -> -> 0 `i `uc ]
+"379
+[; ;main.c: 379:                     state = MIC_IDLE;
+[e = F6233 . `E6200 0 ]
+"380
+[; ;main.c: 380:                 }
+}
+[e :U 933 ]
+"381
+[; ;main.c: 381:             }
+}
+[e :U 928 ]
+"383
+[; ;main.c: 383:             break;
+[e $U 921  ]
+"384
+[; ;main.c: 384:     }
+}
+[e $U 921  ]
+[e :U 922 ]
+[e [\ -> F6233 `ui , $ -> . `E6200 0 `ui 923
+ , $ -> . `E6200 1 `ui 925
+ , $ -> . `E6200 2 `ui 927
+ 921 ]
+[e :U 921 ]
+"385
+[; ;main.c: 385: }
+[e :UE 920 ]
+}
+"387
+[; ;main.c: 387: void printAscii() {
+[v _printAscii `(v ~T0 @X0 1 ef ]
+{
+[e :U _printAscii ]
+[f ]
+"388
+[; ;main.c: 388:     printf("                                                                                \r\n");
+[e ( _printf :s 74C ]
+"389
+[; ;main.c: 389:     printf("                                  777777777777                                  \r\n");
+[e ( _printf :s 75C ]
+"390
+[; ;main.c: 390:     printf("                            7777IIIIIIIIIIIIII?I7777                            \r\n");
+[e ( _printf :s 76C ]
+"391
+[; ;main.c: 391:     printf("                        777IIII77777777777777777IIIII777                        \r\n");
+[e ( _printf :s 77C ]
+"392
+[; ;main.c: 392:     printf("                     77III7777IIIIIII?????IIIIIII7777II?777                     \r\n");
+[e ( _printf :s 78C ]
+"393
+[; ;main.c: 393:     printf("                  77III777III???+++++++++++++++???III7777I?777                  \r\n");
+[e ( _printf :s 79C ]
+"394
+[; ;main.c: 394:     printf("                77II777II???++++++++++++++++++++++++??II777III77                \r\n");
+[e ( _printf :s 80C ]
+"395
+[; ;main.c: 395:     printf("              77II777II?+++++++++++++++++++++++++++++++??II77III77              \r\n");
+[e ( _printf :s 81C ]
+"396
+[; ;main.c: 396:     printf("             7II77II??+++++++++++++++++++++++++++++++++++??II77I?77             \r\n");
+[e ( _printf :s 82C ]
+"397
+[; ;main.c: 397:     printf("           77II77I??++++++++++++++++++++++++++++++++++++++++?II77II77           \r\n");
+[e ( _printf :s 83C ]
+"398
+[; ;main.c: 398:     printf("          77I77II?+++++++++++++++++++++++++++++++++++++++++++??I77I?77          \r\n");
+[e ( _printf :s 84C ]
+"399
+[; ;main.c: 399:     printf("         7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++?II7III7         \r\n");
+[e ( _printf :s 85C ]
+"400
+[; ;main.c: 400:     printf("        7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++++?II7III7        \r\n");
+[e ( _printf :s 86C ]
+"401
+[; ;main.c: 401:     printf("       7?III??++++++++++++++++++++++++++++++++++++++++++++++++++++?I7III7       \r\n");
+[e ( _printf :s 87C ]
+"402
+[; ;main.c: 402:     printf("      7IIII?++=...........+++++++++++++++++++++++++++:..........=++?III?77      \r\n");
+[e ( _printf :s 88C ]
+"403
+[; ;main.c: 403:     printf("     77I+=~.........................:+++++~.........................:=+I?77     \r\n");
+[e ( _printf :s 89C ]
+"404
+[; ;main.c: 404:     printf("     7?I=~,.........................................................,~=III7     \r\n");
+[e ( _printf :s 90C ]
+"405
+[; ;main.c: 405:     printf("    7III~,...........................................................,~II?77    \r\n");
+[e ( _printf :s 91C ]
+"406
+[; ;main.c: 406:     printf("    7?II?+...........................................................+?III?7    \r\n");
+[e ( _printf :s 92C ]
+"407
+[; ;main.c: 407:     printf("   77?II?+...........................+++++...........................+??II?77   \r\n");
+[e ( _printf :s 93C ]
+"408
+[; ;main.c: 408:     printf("   7?II?+++..........................+++++..........................~++?II?I7   \r\n");
+[e ( _printf :s 94C ]
+"409
+[; ;main.c: 409:     printf("   7?I??+++.........................+++++++.........................+++??I??7   \r\n");
+[e ( _printf :s 95C ]
+"410
+[; ;main.c: 410:     printf("  77????+++~........................+++++++.........................++++???+77  \r\n");
+[e ( _printf :s 96C ]
+"411
+[; ;main.c: 411:     printf("  77???+++++.......................+++++++++.......................+++++????77  \r\n");
+[e ( _printf :s 97C ]
+"412
+[; ;main.c: 412:     printf("  7I???++++++.....................=++++++++++.....................++++++????I7  \r\n");
+[e ( _printf :s 98C ]
+"413
+[; ;main.c: 413:     printf("  7I???++++++=...................~++++++++++++....................++++++???+I7  \r\n");
+[e ( _printf :s 99C ]
+"414
+[; ;main.c: 414:     printf("  7I+?+++++++++.................+++++++++++++++.................+++++++++?+?I7  \r\n");
+[e ( _printf :s 100C ]
+"415
+[; ;main.c: 415:     printf("  77+++++++++++++............=++++++++++++++++++++............++++++++++++++77  \r\n");
+[e ( _printf :s 101C ]
+"416
+[; ;main.c: 416:     printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
+[e ( _printf :s 102C ]
+"417
+[; ;main.c: 417:     printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
+[e ( _printf :s 103C ]
+"418
+[; ;main.c: 418:     printf("   7I+++++++++++++..+++++++++++++++++++++++++++++++++++++++..+++++++++++=++I7   \r\n");
+[e ( _printf :s 104C ]
+"419
+[; ;main.c: 419:     printf("   77+==++++++++++,..+++++++++++++++++++++++++++++++++++++...++++++++++===?77   \r\n");
+[e ( _printf :s 105C ]
+"420
+[; ;main.c: 420:     printf("    7?===++++++++++...+++++++++++++++++++++++++++++++++++...++++++++++===+I7    \r\n");
+[e ( _printf :s 106C ]
+"421
+[; ;main.c: 421:     printf("    77=~~=++++++++++...+++++++++++++++++++++++++++++++++...++++++++++=~~=?77    \r\n");
+[e ( _printf :s 107C ]
+"422
+[; ;main.c: 422:     printf("     7I~~~=++++++++++:...+++++++++++++++++++++++++++++~...++++++++++=~~~+I7     \r\n");
+[e ( _printf :s 108C ]
+"423
+[; ;main.c: 423:     printf("      7?~:~=+++++++++++...+++++++++++++++++++++++++++...+++++++++++=~:~+I7      \r\n");
+[e ( _printf :s 109C ]
+"424
+[; ;main.c: 424:     printf("      77=:::=++++++++++++....+++++++++++++++++++++=...~+++++++++++=~::=?77      \r\n");
+[e ( _printf :s 110C ]
+"425
+[; ;main.c: 425:     printf("       77=:,:=+++++++++++++.....+++++++++++++++.....+++++++++++++=:::~?77       \r\n");
+[e ( _printf :s 111C ]
+"426
+[; ;main.c: 426:     printf("        77=:,:~++++++++++++++=...................:++++++++++++++~:,:~?77        \r\n");
+[e ( _printf :s 112C ]
+"427
+[; ;main.c: 427:     printf("         77?:,,:=+++++++++++++++++...........+++++++++++++++++=~,,:+?77         \r\n");
+[e ( _printf :s 113C ]
+"428
+[; ;main.c: 428:     printf("           7I~,,,~=++++++++++++++++++++++++++++++++++++++++++~:,,:+I7           \r\n");
+[e ( _printf :s 114C ]
+"429
+[; ;main.c: 429:     printf("            77?:,,:~=++++++++++++++++++++++++++++++++++++++~:,,:+?77            \r\n");
+[e ( _printf :s 115C ]
+"430
+[; ;main.c: 430:     printf("             77I~:,,:~=+++++++++++++++++++++++++++++++++=~:,,:~+I77             \r\n");
+[e ( _printf :s 116C ]
+"431
+[; ;main.c: 431:     printf("               77I~:,,,:~=+++++++++++++++++++++++++++=~:,,,:~+I77               \r\n");
+[e ( _printf :s 117C ]
+"432
+[; ;main.c: 432:     printf("                 77I?:,,,,:~==+++++++++++++++++++==~:,,,,:+?I77                 \r\n");
+[e ( _printf :s 118C ]
+"433
+[; ;main.c: 433:     printf("                   777?=::,,,,::~~===========~~:::,,,::~+?777                   \r\n");
+[e ( _printf :s 119C ]
+"434
+[; ;main.c: 434:     printf("                      777I?~:::,,,,,,,:,,,,,,,,,:::~+?I777                      \r\n");
+[e ( _printf :s 120C ]
+"435
+[; ;main.c: 435:     printf("                         7777I??+~~~::::::~~~~++??I7777                         \r\n");
+[e ( _printf :s 121C ]
+"436
+[; ;main.c: 436:     printf("                              777777IIIIIIII777777                              \r\n");
+[e ( _printf :s 122C ]
+"437
+[; ;main.c: 437:     printf("                                                                                \r\n");
+[e ( _printf :s 123C ]
+"438
+[; ;main.c: 438:     printf("                                                                                \r\n");
+[e ( _printf :s 124C ]
+"439
+[; ;main.c: 439: }
+[e :UE 934 ]
+}
+[p f _printf 13140100 ]
+[a 9C 37 48 52 120 0 ]
+[a 11C 37 48 52 120 0 ]
+[a 34C 37 48 52 120 0 ]
+[a 36C 37 48 52 120 0 ]
+[a 63C 37 48 52 120 0 ]
+[a 65C 37 48 52 120 0 ]
+[a 69C 37 48 52 120 0 ]
+[a 71C 37 48 52 120 0 ]
+[a 10C 58 0 ]
+[a 35C 58 0 ]
+[a 64C 58 0 ]
+[a 70C 58 0 ]
+[a 39C 80 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 115 116 97 114 116 32 114 101 99 111 114 100 105 110 103 32 97 117 100 105 111 32 97 110 100 32 112 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 115 116 111 112 32 114 101 99 111 114 100 105 110 103 46 0 ]
+[a 5C 62 32 0 ]
+[a 8C 83 68 32 99 97 114 100 32 97 100 100 114 101 115 115 58 32 32 0 ]
+[a 62C 83 68 32 99 97 114 100 32 97 100 100 114 101 115 115 58 32 32 0 ]
+[a 33C 32 32 32 32 65 100 100 114 101 115 115 58 32 32 32 32 0 ]
+[a 68C 32 32 32 32 65 100 100 114 101 115 115 58 32 32 32 32 0 ]
+[a 48C 83 101 108 101 99 116 58 32 32 32 32 32 65 112 112 108 121 13 10 0 ]
+[a 38C 32 32 32 32 83 116 97 116 117 115 58 32 32 32 32 32 37 48 50 120 13 10 0 ]
+[a 43C 82 105 103 104 116 32 109 111 117 115 101 32 99 108 105 99 107 32 111 110 32 116 104 101 32 117 112 112 101 114 32 108 101 102 116 32 111 102 32 116 104 101 32 80 117 84 84 89 32 119 105 110 100 111 119 13 10 0 ]
+[a 53C 82 105 103 104 116 32 109 111 117 115 101 32 99 108 105 99 107 32 111 110 32 116 104 101 32 117 112 112 101 114 32 108 101 102 116 32 111 102 32 116 104 101 32 80 117 84 84 89 32 119 105 110 100 111 119 13 10 0 ]
+[a 14C 63 58 32 104 101 108 112 32 109 101 110 117 13 10 0 ]
+[a 46C 83 101 108 101 99 116 58 32 32 32 32 32 83 101 115 115 105 111 110 32 108 111 103 103 105 110 103 58 32 65 108 108 32 115 101 115 115 105 111 110 32 111 117 116 112 117 116 13 10 0 ]
+[a 49C 80 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 115 116 97 114 116 13 10 0 ]
+[a 25C 43 47 45 32 73 110 99 114 101 97 115 101 47 68 101 99 114 101 97 115 101 32 116 104 101 32 115 97 109 112 108 101 32 114 97 116 101 32 98 121 32 49 48 32 117 115 13 10 0 ]
+[a 26C 87 58 32 87 114 105 116 101 32 109 105 99 114 111 112 104 111 110 101 32 61 62 32 83 68 32 99 97 114 100 32 97 116 32 49 54 48 48 32 117 115 13 10 0 ]
+[a 60C 79 118 101 114 102 108 111 119 101 100 32 116 111 32 108 111 119 32 97 100 100 114 101 115 115 13 10 0 ]
+[a 58C 85 110 100 101 114 102 108 111 119 101 100 32 116 111 32 104 105 103 104 32 97 100 100 114 101 115 115 13 10 0 ]
+[a 61C 73 110 99 114 101 97 115 101 100 32 97 100 100 114 101 115 115 13 10 0 ]
+[a 59C 68 101 99 114 101 97 115 101 100 32 97 100 100 114 101 115 115 13 10 0 ]
+[a 21C 97 47 65 32 100 101 99 114 101 97 115 101 47 105 110 99 114 101 97 115 101 32 114 101 97 100 32 97 100 100 114 101 115 115 13 10 0 ]
+[a 16C 90 58 32 82 101 115 101 116 32 112 114 111 99 101 115 115 111 114 13 10 0 ]
+[a 17C 122 58 32 67 108 101 97 114 32 116 104 101 32 116 101 114 109 105 110 97 108 13 10 0 ]
+[a 29C 111 58 9 111 107 13 10 0 ]
+[a 15C 111 58 32 107 13 10 0 ]
+[a 2C 83 68 32 99 97 114 100 32 116 101 115 116 105 110 103 13 10 0 ]
+[a 45C 83 101 108 101 99 116 58 32 32 32 32 32 76 111 103 103 105 110 103 13 10 0 ]
+[a 55C 83 101 108 101 99 116 58 32 32 32 32 32 76 111 103 103 105 110 103 13 10 0 ]
+[a 56C 83 101 108 101 99 116 58 32 32 32 32 32 83 101 115 115 105 111 110 32 32 108 111 103 103 105 110 103 58 32 78 111 110 101 13 10 0 ]
+[a 47C 76 111 103 32 102 105 108 101 32 110 97 109 101 58 32 66 114 111 119 115 101 32 97 110 100 32 112 114 111 118 105 100 101 32 97 32 46 99 115 118 32 101 120 116 101 110 115 105 111 110 32 116 111 32 121 111 117 114 32 102 105 108 101 32 110 97 109 101 13 10 0 ]
+[a 27C 115 58 32 115 112 111 111 108 32 109 101 109 111 114 121 32 116 111 32 97 32 99 115 118 32 102 105 108 101 13 10 0 ]
+[a 4C 78 111 32 99 111 110 102 105 103 117 114 97 116 105 111 110 32 111 102 32 100 101 118 101 108 111 112 109 101 110 116 32 98 111 97 114 100 13 10 0 ]
+[a 22C 114 58 32 114 101 97 100 32 97 32 98 108 111 99 107 32 111 102 32 37 100 32 98 121 116 101 115 32 102 114 111 109 32 83 68 32 99 97 114 100 13 10 0 ]
+[a 19C 105 58 32 73 110 105 116 105 97 108 105 122 101 32 83 68 32 99 97 114 100 13 10 0 ]
+[a 23C 49 58 32 119 114 105 116 101 32 97 32 112 101 114 102 101 99 116 32 50 54 32 118 97 108 117 101 32 115 105 110 101 32 119 97 118 101 32 116 111 32 116 104 101 32 83 68 32 99 97 114 100 13 10 0 ]
+[a 50C 37 100 13 10 0 ]
+[a 73C 85 110 107 110 111 119 110 32 107 101 121 32 37 99 13 10 0 ]
+[a 6C 37 99 13 10 0 ]
+[a 41C 84 111 32 115 112 111 111 108 32 116 101 114 109 105 110 97 108 32 99 111 110 116 101 110 116 115 32 105 110 116 111 32 97 32 102 105 108 101 32 102 111 108 108 111 119 32 116 104 101 115 101 32 105 110 115 116 114 117 99 116 105 111 110 115 58 13 10 0 ]
+[a 32C 87 114 105 116 101 32 98 108 111 99 107 32 115 105 110 32 119 97 118 101 32 118 97 108 117 101 115 58 13 10 0 ]
+[a 1C 76 97 98 32 48 57 13 10 0 ]
 [a 3C 68 101 118 39 50 49 13 10 0 ]
-[a 1C 105 110 76 97 98 32 49 48 13 10 0 ]
-[a 21C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 50 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 76 80 70 95 111 117 116 46 13 10 0 ]
-[a 28C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 50 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 76 80 70 95 111 117 116 46 13 10 0 ]
-[a 35C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 50 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 76 80 70 95 111 117 116 46 13 10 0 ]
-[a 25C 80 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 101 120 105 116 46 13 10 0 ]
-[a 36C 80 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 101 120 105 116 46 13 10 0 ]
-[a 29C 80 114 101 115 115 32 120 32 116 111 32 101 120 105 116 46 13 10 0 ]
-[a 19C 67 111 110 110 101 99 116 32 106 117 109 112 101 114 32 111 118 101 114 32 116 104 101 32 82 67 50 47 76 80 70 95 105 110 32 104 101 97 100 101 114 32 112 105 110 115 46 13 10 0 ]
-[a 26C 67 111 110 110 101 99 116 32 106 117 109 112 101 114 32 111 118 101 114 32 116 104 101 32 82 67 50 47 76 80 70 95 105 110 32 104 101 97 100 101 114 32 112 105 110 115 46 13 10 0 ]
-[a 33C 67 111 110 110 101 99 116 32 106 117 109 112 101 114 32 111 118 101 114 32 116 104 101 32 82 67 50 47 76 80 70 95 105 110 32 104 101 97 100 101 114 32 112 105 110 115 46 13 10 0 ]
-[a 20C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 49 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 82 67 50 46 13 10 0 ]
-[a 27C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 49 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 82 67 50 46 13 10 0 ]
-[a 34C 67 111 110 110 101 99 116 32 67 104 97 110 110 101 108 32 49 32 115 99 111 112 101 32 112 114 111 98 101 32 116 111 32 82 67 50 46 13 10 0 ]
-[a 24C 67 117 114 114 101 110 116 108 121 32 103 101 110 101 114 97 116 105 110 103 32 97 32 49 48 48 37 37 32 100 117 116 121 32 99 121 99 108 101 32 80 87 77 32 119 97 118 101 102 111 114 109 32 111 110 32 82 67 50 46 13 10 0 ]
-[a 22C 67 117 114 114 101 110 116 108 121 32 103 101 110 101 114 97 116 105 110 103 32 97 32 48 37 37 32 100 117 116 121 32 99 121 99 108 101 32 80 87 77 32 119 97 118 101 102 111 114 109 32 111 110 32 82 67 50 46 13 10 0 ]
-[a 23C 80 114 101 115 115 32 97 110 121 32 107 101 121 32 116 111 32 99 104 97 110 103 101 32 116 104 105 115 32 116 111 32 49 48 48 37 46 13 10 0 ]
-[a 13C 83 58 32 115 105 110 103 108 101 32 115 116 101 112 32 80 87 77 32 100 117 116 121 32 99 121 99 108 101 32 102 114 111 109 32 48 37 37 32 116 111 32 49 48 48 37 37 46 13 10 0 ]
-[a 5C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
-[a 6C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
-[a 15C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
-[a 30C 80 114 101 115 115 32 97 110 121 32 111 116 104 101 114 32 107 101 121 32 116 111 32 115 116 101 112 32 116 104 114 111 117 103 104 32 115 105 110 101 32 116 97 98 108 101 46 13 10 10 0 ]
-[a 17C 10 0 ]
-[a 18C 10 0 ]
+[a 40C 89 111 117 32 109 97 121 32 116 101 114 109 105 110 97 116 101 32 115 112 111 111 108 105 110 103 32 97 116 32 97 110 121 116 105 109 101 32 119 105 116 104 32 97 32 107 101 121 32 112 114 101 115 115 46 13 10 0 ]
+[a 51C 83 112 111 111 108 101 100 32 53 49 50 32 111 117 116 32 111 102 32 116 104 101 32 53 49 50 32 98 108 111 99 107 115 46 13 10 0 ]
+[a 44C 83 101 108 101 99 116 58 32 32 32 32 32 67 104 97 110 103 101 32 115 101 116 116 105 110 103 115 46 46 46 13 10 0 ]
+[a 54C 83 101 108 101 99 116 58 32 32 32 32 32 67 104 97 110 103 101 32 115 101 116 116 105 110 103 115 46 46 46 13 10 0 ]
+[a 7C 13 10 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 13C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 18C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 20C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 24C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 28C 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 45 13 10 0 ]
+[a 57C 83 101 108 101 99 116 58 32 32 32 32 32 65 112 112 108 121 32 13 10 0 ]
+[a 52C 84 111 32 99 108 111 115 101 32 116 104 101 32 102 105 108 101 32 102 111 108 108 111 119 32 116 104 101 115 101 32 105 110 115 116 114 117 99 116 105 111 110 115 58 32 13 10 0 ]
+[a 67C 82 101 97 100 32 98 108 111 99 107 58 32 13 10 0 ]
+[a 98C 32 32 55 73 63 63 63 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 61 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 63 63 63 63 73 55 32 32 13 10 0 ]
+[a 100C 32 32 55 73 43 63 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 63 43 63 73 55 32 32 13 10 0 ]
+[a 99C 32 32 55 73 63 63 63 43 43 43 43 43 43 61 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 126 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 63 63 63 43 73 55 32 32 13 10 0 ]
+[a 97C 32 32 55 55 63 63 63 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 63 63 63 63 55 55 32 32 13 10 0 ]
+[a 96C 32 32 55 55 63 63 63 63 43 43 43 126 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 63 63 63 43 55 55 32 32 13 10 0 ]
+[a 101C 32 32 55 55 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 55 55 32 32 13 10 0 ]
+[a 94C 32 32 32 55 63 73 73 63 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 126 43 43 63 73 73 63 73 55 32 32 32 13 10 0 ]
+[a 104C 32 32 32 55 73 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 43 43 43 43 43 43 43 43 43 43 43 61 43 43 73 55 32 32 32 13 10 0 ]
+[a 95C 32 32 32 55 63 73 63 63 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 63 63 73 63 63 55 32 32 32 13 10 0 ]
+[a 102C 32 32 32 55 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 55 32 32 32 13 10 0 ]
+[a 103C 32 32 32 55 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 55 32 32 32 13 10 0 ]
+[a 93C 32 32 32 55 55 63 73 73 63 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 63 63 73 73 63 55 55 32 32 32 13 10 0 ]
+[a 105C 32 32 32 55 55 43 61 61 43 43 43 43 43 43 43 43 43 43 44 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 61 61 61 63 55 55 32 32 32 13 10 0 ]
+[a 106C 32 32 32 32 55 63 61 61 61 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 61 61 61 43 73 55 32 32 32 32 13 10 0 ]
+[a 92C 32 32 32 32 55 63 73 73 63 43 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 43 63 73 73 73 63 55 32 32 32 32 13 10 0 ]
+[a 91C 32 32 32 32 55 73 73 73 126 44 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 44 126 73 73 63 55 55 32 32 32 32 13 10 0 ]
+[a 107C 32 32 32 32 55 55 61 126 126 61 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 61 126 126 61 63 55 55 32 32 32 32 13 10 0 ]
+[a 90C 32 32 32 32 32 55 63 73 61 126 44 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 44 126 61 73 73 73 55 32 32 32 32 32 13 10 0 ]
+[a 108C 32 32 32 32 32 55 73 126 126 126 61 43 43 43 43 43 43 43 43 43 43 58 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 126 46 46 46 43 43 43 43 43 43 43 43 43 43 61 126 126 126 43 73 55 32 32 32 32 32 13 10 0 ]
+[a 89C 32 32 32 32 32 55 55 73 43 61 126 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 58 43 43 43 43 43 126 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 58 61 43 73 63 55 55 32 32 32 32 32 13 10 0 ]
+[a 109C 32 32 32 32 32 32 55 63 126 58 126 61 43 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 43 43 43 43 43 43 43 43 43 43 43 61 126 58 126 43 73 55 32 32 32 32 32 32 13 10 0 ]
+[a 88C 32 32 32 32 32 32 55 73 73 73 73 63 43 43 61 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 58 46 46 46 46 46 46 46 46 46 46 61 43 43 63 73 73 73 63 55 55 32 32 32 32 32 32 13 10 0 ]
+[a 110C 32 32 32 32 32 32 55 55 61 58 58 58 61 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 46 46 46 126 43 43 43 43 43 43 43 43 43 43 43 61 126 58 58 61 63 55 55 32 32 32 32 32 32 13 10 0 ]
+[a 87C 32 32 32 32 32 32 32 55 63 73 73 73 63 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 73 55 73 73 73 55 32 32 32 32 32 32 32 13 10 0 ]
+[a 111C 32 32 32 32 32 32 32 55 55 61 58 44 58 61 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 61 58 58 58 126 63 55 55 32 32 32 32 32 32 32 13 10 0 ]
+[a 86C 32 32 32 32 32 32 32 32 55 63 73 55 73 73 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 73 73 55 73 73 73 55 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 112C 32 32 32 32 32 32 32 32 55 55 61 58 44 58 126 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 46 58 43 43 43 43 43 43 43 43 43 43 43 43 43 43 126 58 44 58 126 63 55 55 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 85C 32 32 32 32 32 32 32 32 32 55 63 73 55 73 73 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 73 73 55 73 73 73 55 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 113C 32 32 32 32 32 32 32 32 32 55 55 63 58 44 44 58 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 46 46 46 46 46 46 46 46 46 46 46 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 126 44 44 58 43 63 55 55 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 84C 32 32 32 32 32 32 32 32 32 32 55 55 73 55 55 73 73 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 63 73 55 55 73 63 55 55 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 114C 32 32 32 32 32 32 32 32 32 32 32 55 73 126 44 44 44 126 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 126 58 44 44 58 43 73 55 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 83C 32 32 32 32 32 32 32 32 32 32 32 55 55 73 73 55 55 73 63 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 73 73 55 55 73 73 55 55 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 115C 32 32 32 32 32 32 32 32 32 32 32 32 55 55 63 58 44 44 58 126 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 126 58 44 44 58 43 63 55 55 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 116C 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 126 58 44 44 58 126 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 126 58 44 44 58 126 43 73 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 82C 32 32 32 32 32 32 32 32 32 32 32 32 32 55 73 73 55 55 73 73 63 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 63 73 73 55 55 73 63 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 81C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 73 55 55 55 73 73 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 63 73 73 55 55 73 73 73 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 117C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 126 58 44 44 44 58 126 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 126 58 44 44 44 58 126 43 73 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 80C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 73 55 55 55 73 73 63 63 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 63 73 73 55 55 55 73 73 73 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 118C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 63 58 44 44 44 44 58 126 61 61 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 61 61 126 58 44 44 44 44 58 43 63 73 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 79C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 73 73 55 55 55 73 73 73 63 63 63 43 43 43 43 43 43 43 43 43 43 43 43 43 43 43 63 63 63 73 73 73 55 55 55 55 73 63 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 119C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 63 61 58 58 44 44 44 44 58 58 126 126 61 61 61 61 61 61 61 61 61 61 61 126 126 58 58 58 44 44 44 58 58 126 43 63 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 78C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 73 73 73 55 55 55 55 73 73 73 73 73 73 73 63 63 63 63 63 73 73 73 73 73 73 73 55 55 55 55 73 73 63 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 120C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 73 63 126 58 58 58 44 44 44 44 44 44 44 58 44 44 44 44 44 44 44 44 44 58 58 58 126 43 63 73 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 77C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 73 73 73 73 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 55 73 73 73 73 73 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 121C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 55 73 63 63 43 126 126 126 58 58 58 58 58 58 126 126 126 126 43 43 63 63 73 55 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 76C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 55 73 73 73 73 73 73 73 73 73 73 73 73 73 73 63 73 55 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 122C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 55 55 55 73 73 73 73 73 73 73 73 55 55 55 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 75C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 55 55 55 55 55 55 55 55 55 55 55 55 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 74C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 123C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 124C 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 32 13 10 0 ]
+[a 12C 13 10 0 ]
+[a 37C 13 10 0 ]
+[a 42C 13 10 0 ]
+[a 66C 13 10 0 ]
+[a 72C 13 10 0 ]
+[a 30C 10 0 ]
+[a 31C 10 0 ]

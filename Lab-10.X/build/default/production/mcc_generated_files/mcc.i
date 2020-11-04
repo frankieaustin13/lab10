@@ -9130,18 +9130,15 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 49 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/device_config.h" 1
 # 50 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/pin_manager.h" 1
-# 108 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 120 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
+# 1 "mcc_generated_files/device_config.h" 1
 # 51 "mcc_generated_files/mcc.h" 2
-
+# 1 "mcc_generated_files/pin_manager.h" 1
+# 189 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+# 201 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_IOC(void);
+# 52 "mcc_generated_files/mcc.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9227,11 +9224,9 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 52 "mcc_generated_files/mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
 # 53 "mcc_generated_files/mcc.h" 2
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
+# 54 "mcc_generated_files/mcc.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\conio.h" 1 3
 
 
@@ -9263,51 +9258,13 @@ extern __bit kbhit(void);
 
 extern char * cgets(char *);
 extern void cputs(const char *);
-# 54 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/epwm1.h" 1
-# 96 "mcc_generated_files/epwm1.h"
-void EPWM1_Initialize(void);
-# 122 "mcc_generated_files/epwm1.h"
-void EPWM1_LoadDutyValue(uint16_t dutyValue);
 # 55 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/tmr2.h" 1
-# 103 "mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-# 132 "mcc_generated_files/tmr2.h"
-void TMR2_StartTimer(void);
-# 164 "mcc_generated_files/tmr2.h"
-void TMR2_StopTimer(void);
-# 199 "mcc_generated_files/tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 238 "mcc_generated_files/tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 290 "mcc_generated_files/tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 325 "mcc_generated_files/tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
+# 1 "mcc_generated_files/interrupt_manager.h" 1
+# 110 "mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
 # 56 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/tmr0.h" 1
-# 100 "mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 310 "mcc_generated_files/tmr0.h"
-_Bool TMR0_HasOverflowOccured(void);
-# 57 "mcc_generated_files/mcc.h" 2
-
-# 1 "mcc_generated_files/eusart1.h" 1
-# 57 "mcc_generated_files/eusart1.h"
+# 1 "mcc_generated_files/spi2.h" 1
+# 54 "mcc_generated_files/spi2.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9446,7 +9403,107 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 57 "mcc_generated_files/eusart1.h" 2
+# 54 "mcc_generated_files/spi2.h" 2
+
+
+
+
+
+typedef enum {
+    SPI2_DEFAULT
+} spi2_modes_t;
+
+void SPI2_Initialize(void);
+_Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
+void SPI2_Close(void);
+uint8_t SPI2_ExchangeByte(uint8_t data);
+void SPI2_ExchangeBlock(void *block, size_t blockSize);
+void SPI2_WriteBlock(void *block, size_t blockSize);
+void SPI2_ReadBlock(void *block, size_t blockSize);
+void SPI2_WriteByte(uint8_t byte);
+uint8_t SPI2_ReadByte(void);
+# 57 "mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/epwm1.h" 1
+# 96 "mcc_generated_files/epwm1.h"
+void EPWM1_Initialize(void);
+# 122 "mcc_generated_files/epwm1.h"
+void EPWM1_LoadDutyValue(uint16_t dutyValue);
+# 58 "mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/tmr2.h" 1
+# 103 "mcc_generated_files/tmr2.h"
+void TMR2_Initialize(void);
+# 132 "mcc_generated_files/tmr2.h"
+void TMR2_StartTimer(void);
+# 164 "mcc_generated_files/tmr2.h"
+void TMR2_StopTimer(void);
+# 199 "mcc_generated_files/tmr2.h"
+uint8_t TMR2_ReadTimer(void);
+# 238 "mcc_generated_files/tmr2.h"
+void TMR2_WriteTimer(uint8_t timerVal);
+# 290 "mcc_generated_files/tmr2.h"
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+# 325 "mcc_generated_files/tmr2.h"
+_Bool TMR2_HasOverflowOccured(void);
+# 59 "mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/adc.h" 1
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+
+
+
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_AN0 = 0x0,
+    MIC_PIN = 0x4,
+    channel_CTMU = 0x1D,
+    channel_DAC = 0x1E,
+    channel_FVRBuf2 = 0x1F
+} adc_channel_t;
+# 137 "mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 167 "mcc_generated_files/adc.h"
+void ADC_SelectChannel(adc_channel_t channel);
+# 194 "mcc_generated_files/adc.h"
+void ADC_StartConversion(void);
+# 226 "mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 259 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 289 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 60 "mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/tmr0.h" 1
+# 100 "mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 129 "mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 161 "mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 197 "mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
+# 272 "mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 309 "mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 345 "mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 61 "mcc_generated_files/mcc.h" 2
+# 1 "mcc_generated_files/eusart1.h" 1
 # 76 "mcc_generated_files/eusart1.h"
 typedef union {
     struct {
@@ -9477,20 +9534,22 @@ void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 58 "mcc_generated_files/mcc.h" 2
-# 73 "mcc_generated_files/mcc.h"
+# 62 "mcc_generated_files/mcc.h" 2
+# 76 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "mcc_generated_files/mcc.h"
+# 89 "mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 47 "mcc_generated_files/mcc.c" 2
-
+# 48 "mcc_generated_files/mcc.c" 2
 
 
 void SYSTEM_Initialize(void)
 {
 
+    INTERRUPT_Initialize();
+    SPI2_Initialize();
     PIN_MANAGER_Initialize();
     OSCILLATOR_Initialize();
+    ADC_Initialize();
     EPWM1_Initialize();
     TMR2_Initialize();
     TMR0_Initialize();

@@ -1,4 +1,4 @@
-# 1 "mcc_generated_files/eusart1.c"
+# 1 "mcc_generated_files/adc.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,10 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "mcc_generated_files/eusart1.c" 2
-# 50 "mcc_generated_files/eusart1.c"
-# 1 "mcc_generated_files/eusart1.h" 1
-# 54 "mcc_generated_files/eusart1.h"
+# 1 "mcc_generated_files/adc.c" 2
+# 51 "mcc_generated_files/adc.c"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -9130,9 +9128,10 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 55 "mcc_generated_files/eusart1.h" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
-# 56 "mcc_generated_files/eusart1.h" 2
+# 51 "mcc_generated_files/adc.c" 2
+
+# 1 "mcc_generated_files/adc.h" 1
+# 55 "mcc_generated_files/adc.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9218,137 +9217,48 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 57 "mcc_generated_files/eusart1.h" 2
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 55 "mcc_generated_files/adc.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
+# 56 "mcc_generated_files/adc.h" 2
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
 
 
 
 
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_AN0 = 0x0,
+    MIC_PIN = 0x4,
+    channel_CTMU = 0x1D,
+    channel_DAC = 0x1E,
+    channel_FVRBuf2 = 0x1F
+} adc_channel_t;
+# 137 "mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 167 "mcc_generated_files/adc.h"
+void ADC_SelectChannel(adc_channel_t channel);
+# 194 "mcc_generated_files/adc.h"
+void ADC_StartConversion(void);
+# 226 "mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 259 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 289 "mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 52 "mcc_generated_files/adc.c" 2
 
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 137 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long ssize_t;
-# 246 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef long long off_t;
-# 399 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 2 3
-# 52 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-int ungetc(int, FILE *);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-#pragma printf_check(printf) const
-#pragma printf_check(vprintf) const
-#pragma printf_check(sprintf) const
-#pragma printf_check(snprintf) const
-#pragma printf_check(vsprintf) const
-#pragma printf_check(vsnprintf) const
-
-int printf(const char *restrict, ...);
-int fprintf(FILE *restrict, const char *restrict, ...);
-int sprintf(char *restrict, const char *restrict, ...);
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-int scanf(const char *restrict, ...);
-int fscanf(FILE *restrict, const char *restrict, ...);
-int sscanf(const char *restrict, const char *restrict, ...);
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
+# 1 "mcc_generated_files/device_config.h" 1
+# 53 "mcc_generated_files/adc.c" 2
 
 
 
@@ -9356,162 +9266,77 @@ char *ctermid(char *);
 
 
 
-char *tempnam(const char *, const char *);
-# 58 "mcc_generated_files/eusart1.h" 2
-# 76 "mcc_generated_files/eusart1.h"
-typedef union {
-    struct {
-        unsigned perr : 1;
-        unsigned ferr : 1;
-        unsigned oerr : 1;
-        unsigned reserved : 5;
-    };
-    uint8_t status;
-}eusart1_status_t;
-# 111 "mcc_generated_files/eusart1.h"
-void EUSART1_Initialize(void);
-# 159 "mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_tx_ready(void);
-# 207 "mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_rx_ready(void);
-# 254 "mcc_generated_files/eusart1.h"
-_Bool EUSART1_is_tx_done(void);
-# 302 "mcc_generated_files/eusart1.h"
-eusart1_status_t EUSART1_get_last_status(void);
-# 322 "mcc_generated_files/eusart1.h"
-uint8_t EUSART1_Read(void);
-# 342 "mcc_generated_files/eusart1.h"
-void EUSART1_Write(uint8_t txData);
-# 362 "mcc_generated_files/eusart1.h"
-void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-# 380 "mcc_generated_files/eusart1.h"
-void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-# 398 "mcc_generated_files/eusart1.h"
-void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 51 "mcc_generated_files/eusart1.c" 2
+void (*ADC_InterruptHandler)(void);
 
-volatile eusart1_status_t eusart1RxLastError;
-
-
-
-
-
-void (*EUSART1_FramingErrorHandler)(void);
-void (*EUSART1_OverrunErrorHandler)(void);
-void (*EUSART1_ErrorHandler)(void);
-
-void EUSART1_DefaultFramingErrorHandler(void);
-void EUSART1_DefaultOverrunErrorHandler(void);
-void EUSART1_DefaultErrorHandler(void);
-
-void EUSART1_Initialize(void)
+void ADC_Initialize(void)
 {
 
 
 
-    BAUDCON1 = 0x08;
+    ADCON1 = 0x00;
 
 
-    RCSTA1 = 0x90;
+    ADCON2 = 0x26;
 
 
-    TXSTA1 = 0x24;
+    ADRESL = 0x00;
 
 
-    SPBRG1 = 0x82;
+    ADRESH = 0x00;
 
 
-    SPBRGH1 = 0x06;
-
-
-    EUSART1_SetFramingErrorHandler(EUSART1_DefaultFramingErrorHandler);
-    EUSART1_SetOverrunErrorHandler(EUSART1_DefaultOverrunErrorHandler);
-    EUSART1_SetErrorHandler(EUSART1_DefaultErrorHandler);
-
-    eusart1RxLastError.status = 0;
+    ADCON0 = 0x11;
 
 }
 
-_Bool EUSART1_is_tx_ready(void)
+void ADC_SelectChannel(adc_channel_t channel)
 {
-    return (_Bool)(PIR1bits.TX1IF && TXSTA1bits.TXEN);
+
+    ADCON0bits.CHS = channel;
+
+    ADCON0bits.ADON = 1;
 }
 
-_Bool EUSART1_is_rx_ready(void)
+void ADC_StartConversion(void)
 {
-    return (_Bool)(PIR1bits.RC1IF);
+
+    ADCON0bits.GO_nDONE = 1;
 }
 
-_Bool EUSART1_is_tx_done(void)
+
+_Bool ADC_IsConversionDone(void)
 {
-    return TXSTA1bits.TRMT;
+
+    return ((_Bool)(!ADCON0bits.GO_nDONE));
 }
 
-eusart1_status_t EUSART1_get_last_status(void){
-    return eusart1RxLastError;
-}
-
-uint8_t EUSART1_Read(void)
+adc_result_t ADC_GetConversionResult(void)
 {
-    while(!PIR1bits.RC1IF)
+
+     return ((adc_result_t)((ADRESH << 8) + ADRESL));
+}
+
+adc_result_t ADC_GetConversion(adc_channel_t channel)
+{
+
+    ADCON0bits.CHS = channel;
+
+
+    ADCON0bits.ADON = 1;
+
+
+    ADCON0bits.GO_nDONE = 1;
+
+
+    while (ADCON0bits.GO_nDONE)
     {
     }
 
-    eusart1RxLastError.status = 0;
 
-    if(1 == RCSTA1bits.OERR)
-    {
-
-
-        RCSTA1bits.CREN = 0;
-        RCSTA1bits.CREN = 1;
-    }
-
-    return RCREG1;
+    return ((adc_result_t)((ADRESH << 8) + ADRESL));
 }
 
-void EUSART1_Write(uint8_t txData)
+void ADC_TemperatureAcquisitionDelay(void)
 {
-    while(0 == PIR1bits.TX1IF)
-    {
-    }
-
-    TXREG1 = txData;
-}
-
-char getch(void)
-{
-    return EUSART1_Read();
-}
-
-void putch(char txData)
-{
-    EUSART1_Write(txData);
-}
-
-
-
-void EUSART1_DefaultFramingErrorHandler(void){}
-
-void EUSART1_DefaultOverrunErrorHandler(void){
-
-
-    RCSTA1bits.CREN = 0;
-    RCSTA1bits.CREN = 1;
-
-}
-
-void EUSART1_DefaultErrorHandler(void){
-}
-
-void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void)){
-    EUSART1_FramingErrorHandler = interruptHandler;
-}
-
-void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void)){
-    EUSART1_OverrunErrorHandler = interruptHandler;
-}
-
-void EUSART1_SetErrorHandler(void (* interruptHandler)(void)){
-    EUSART1_ErrorHandler = interruptHandler;
+    _delay((unsigned long)((200)*(64000000/4000000.0)));
 }

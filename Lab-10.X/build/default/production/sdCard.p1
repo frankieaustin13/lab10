@@ -1,43 +1,24 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"110 mcc_generated_files/interrupt_manager.h
-[; ;mcc_generated_files/interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
-[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"63 mcc_generated_files/spi2.h
-[; ;mcc_generated_files/spi2.h: 63: void SPI2_Initialize(void);
-[v _SPI2_Initialize `(v ~T0 @X0 0 ef ]
-"189 mcc_generated_files/pin_manager.h
-[; ;mcc_generated_files/pin_manager.h: 189: void PIN_MANAGER_Initialize (void);
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"89 mcc_generated_files/mcc.h
-[; ;mcc_generated_files/mcc.h: 89: void OSCILLATOR_Initialize(void);
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"137 mcc_generated_files/adc.h
-[; ;mcc_generated_files/adc.h: 137: void ADC_Initialize(void);
-[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
-"96 mcc_generated_files/epwm1.h
-[; ;mcc_generated_files/epwm1.h: 96: void EPWM1_Initialize(void);
-[v _EPWM1_Initialize `(v ~T0 @X0 0 ef ]
-"103 mcc_generated_files/tmr2.h
-[; ;mcc_generated_files/tmr2.h: 103: void TMR2_Initialize(void);
-[v _TMR2_Initialize `(v ~T0 @X0 0 ef ]
-"100 mcc_generated_files/tmr0.h
-[; ;mcc_generated_files/tmr0.h: 100: void TMR0_Initialize(void);
-[v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"111 mcc_generated_files/eusart1.h
-[; ;mcc_generated_files/eusart1.h: 111: void EUSART1_Initialize(void);
-[v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
-"15249 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 15249: extern volatile unsigned char OSCCON __attribute__((address(0xFD3)));
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"15192
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 15192: extern volatile unsigned char OSCCON2 __attribute__((address(0xFD2)));
-[v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
-"8267
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 8267: extern volatile unsigned char OSCTUNE __attribute__((address(0xF9B)));
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
-"18423
-[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 18423: extern volatile __bit PLLRDY __attribute__((address(0x7E97)));
-[v _PLLRDY `Vb ~T0 @X0 0 e@32407 ]
+"7362 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7362:     struct {
+[s S374 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S374 . LATB0 LATB1 LATB2 LATB3 LATB4 LATB5 LATB6 LATB7 ]
+"7372
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7372:     struct {
+[s S375 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S375 . LB0 LB1 LB2 LB3 LB4 LB5 LB6 LB7 ]
+"7361
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7361: typedef union {
+[u S373 `S374 1 `S375 1 ]
+[n S373 . . . ]
+"7383
+[; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 7383: extern volatile LATBbits_t LATBbits __attribute__((address(0xF8A)));
+[v _LATBbits `VS373 ~T0 @X0 0 e@3978 ]
+"66 ./mcc_generated_files/spi2.h
+[; ;./mcc_generated_files/spi2.h: 66: uint8_t SPI2_ExchangeByte(uint8_t data);
+[v _SPI2_ExchangeByte `(uc ~T0 @X0 0 ef1`uc ]
+"111 C:\Program Files\Microchip\xc8\v2.30\pic\include\c99\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -773,78 +754,566 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16609
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 16609: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"50 mcc_generated_files/mcc.c
-[; ;mcc_generated_files/mcc.c: 50: void SYSTEM_Initialize(void)
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
-"51
-[; ;mcc_generated_files/mcc.c: 51: {
+"4 sdCard.c
+[; ;sdCard.c: 4: 
+[p n 373 ]
+"13
+[; ;sdCard.c: 13:     SPI2_ExchangeByte(0x40 | 17);
+[v _SDCARD_ReadBlock `(v ~T0 @X0 1 ef2`ul`*uc ]
 {
-[e :U _SYSTEM_Initialize ]
+[e :U _SDCARD_ReadBlock ]
+[v _addr `ul ~T0 @X0 1 r1 ]
+[v _sdCardBuffer `*uc ~T0 @X0 1 r2 ]
 [f ]
-"53
-[; ;mcc_generated_files/mcc.c: 53:     INTERRUPT_Initialize();
-[e ( _INTERRUPT_Initialize ..  ]
-"54
-[; ;mcc_generated_files/mcc.c: 54:     SPI2_Initialize();
-[e ( _SPI2_Initialize ..  ]
-"55
-[; ;mcc_generated_files/mcc.c: 55:     PIN_MANAGER_Initialize();
-[e ( _PIN_MANAGER_Initialize ..  ]
-"56
-[; ;mcc_generated_files/mcc.c: 56:     OSCILLATOR_Initialize();
-[e ( _OSCILLATOR_Initialize ..  ]
-"57
-[; ;mcc_generated_files/mcc.c: 57:     ADC_Initialize();
-[e ( _ADC_Initialize ..  ]
-"58
-[; ;mcc_generated_files/mcc.c: 58:     EPWM1_Initialize();
-[e ( _EPWM1_Initialize ..  ]
-"59
-[; ;mcc_generated_files/mcc.c: 59:     TMR2_Initialize();
-[e ( _TMR2_Initialize ..  ]
-"60
-[; ;mcc_generated_files/mcc.c: 60:     TMR0_Initialize();
-[e ( _TMR0_Initialize ..  ]
-"61
-[; ;mcc_generated_files/mcc.c: 61:     EUSART1_Initialize();
-[e ( _EUSART1_Initialize ..  ]
-"62
-[; ;mcc_generated_files/mcc.c: 62: }
-[e :UE 834 ]
-}
-"64
-[; ;mcc_generated_files/mcc.c: 64: void OSCILLATOR_Initialize(void)
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
-"65
-[; ;mcc_generated_files/mcc.c: 65: {
-{
-[e :U _OSCILLATOR_Initialize ]
-[f ]
-"67
-[; ;mcc_generated_files/mcc.c: 67:     OSCCON = 0x70;
-[e = _OSCCON -> -> 112 `i `uc ]
-"69
-[; ;mcc_generated_files/mcc.c: 69:     OSCCON2 = 0x04;
-[e = _OSCCON2 -> -> 4 `i `uc ]
-"71
-[; ;mcc_generated_files/mcc.c: 71:     OSCTUNE = 0x40;
-[e = _OSCTUNE -> -> 64 `i `uc ]
-"73
-[; ;mcc_generated_files/mcc.c: 73:     while(PLLRDY == 0)
-[e $U 836  ]
+"15
+[; ;sdCard.c: 15:     SPI2_ExchangeByte((uint8_t) ((addr >> 16) & 0xFF));
+[v _i `us ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `us ]
+"17
+[; ;sdCard.c: 17:     SPI2_ExchangeByte((uint8_t) (addr & 0xFF));
 [e :U 837 ]
-"74
-[; ;mcc_generated_files/mcc.c: 74:     {
 {
-"75
-[; ;mcc_generated_files/mcc.c: 75:     }
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
 }
 [e :U 836 ]
-"73
-[; ;mcc_generated_files/mcc.c: 73:     while(PLLRDY == 0)
-[e $ == -> _PLLRDY `i -> 0 `i 837  ]
+"18
+[; ;sdCard.c: 18:     SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"19
+[; ;sdCard.c: 19: 
+[e ( _SPI2_ExchangeByte (1 -> | -> 64 `i -> 17 `i `uc ]
+"20
+[; ;sdCard.c: 20: 
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 24 `i -> -> -> 255 `i `l `ul `uc ]
+"21
+[; ;sdCard.c: 21:     while (SPI2_ExchangeByte(0xFF) == 0xFF);
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 16 `i -> -> -> 255 `i `l `ul `uc ]
+"22
+[; ;sdCard.c: 22: 
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+"23
+[; ;sdCard.c: 23: 
+[e ( _SPI2_ExchangeByte (1 -> & _addr -> -> -> 255 `i `l `ul `uc ]
+"24
+[; ;sdCard.c: 24:     while (SPI2_ExchangeByte(0xFF) == 0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"27
+[; ;sdCard.c: 27:     for (i = 0; i < 512; i++)
+[e $U 838  ]
+[e :U 839 ]
 [e :U 838 ]
-"76
-[; ;mcc_generated_files/mcc.c: 76: }
-[e :UE 835 ]
+[e $ == -> ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc `i -> 255 `i 839  ]
+[e :U 840 ]
+"30
+[; ;sdCard.c: 30: 
+[e $U 841  ]
+[e :U 842 ]
+[e :U 841 ]
+[e $ == -> ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc `i -> 255 `i 842  ]
+[e :U 843 ]
+"33
+[; ;sdCard.c: 33: 
+{
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 844  ]
+[e $U 845  ]
+[e :U 844 ]
+"34
+[; ;sdCard.c: 34:     do { LATBbits.LATB4 = 1; } while(0);
+[e = *U + _sdCardBuffer * -> _i `ux -> -> # *U _sdCardBuffer `ui `ux ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 844  ]
+[e :U 845 ]
 }
+"37
+[; ;sdCard.c: 37: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"38
+[; ;sdCard.c: 38: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"40
+[; ;sdCard.c: 40: 
+[e :U 849 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 848 ]
+"42
+[; ;sdCard.c: 42: void SDCARD_WriteBlock(uint32_t addr, uint8_t sdCardBuffer[]) {
+[e :UE 834 ]
+}
+"48
+[; ;sdCard.c: 48:     SPI2_ExchangeByte(0xFF);
+[v _SDCARD_WriteBlock `(v ~T0 @X0 1 ef2`ul`*uc ]
+{
+[e :U _SDCARD_WriteBlock ]
+[v _addr `ul ~T0 @X0 1 r1 ]
+[v _sdCardBuffer `*uc ~T0 @X0 1 r2 ]
+[f ]
+"50
+[; ;sdCard.c: 50:     SPI2_ExchangeByte((uint8_t) ((addr >> 24) & 0xFF));
+[v _i `us ~T0 @X0 1 a ]
+[e = _i -> -> 0 `i `us ]
+"52
+[; ;sdCard.c: 52:     SPI2_ExchangeByte((uint8_t) ((addr >> 8) & 0xFF));
+[e :U 853 ]
+{
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 852 ]
+"54
+[; ;sdCard.c: 54:     SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"55
+[; ;sdCard.c: 55: 
+[e ( _SPI2_ExchangeByte (1 -> | -> 64 `i -> 24 `i `uc ]
+"56
+[; ;sdCard.c: 56: 
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 24 `i -> -> -> 255 `i `l `ul `uc ]
+"57
+[; ;sdCard.c: 57:     while (SPI2_ExchangeByte(0xFF) == 0xFF);
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 16 `i -> -> -> 255 `i `l `ul `uc ]
+"58
+[; ;sdCard.c: 58: 
+[e ( _SPI2_ExchangeByte (1 -> & >> _addr -> 8 `i -> -> -> 255 `i `l `ul `uc ]
+"59
+[; ;sdCard.c: 59: 
+[e ( _SPI2_ExchangeByte (1 -> & _addr -> -> -> 255 `i `l `ul `uc ]
+"60
+[; ;sdCard.c: 60:     SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"63
+[; ;sdCard.c: 63: 
+[e $U 854  ]
+[e :U 855 ]
+[e :U 854 ]
+[e $ == -> ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc `i -> 255 `i 855  ]
+[e :U 856 ]
+"66
+[; ;sdCard.c: 66: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"67
+[; ;sdCard.c: 67: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"68
+[; ;sdCard.c: 68:     for (i = 0; i < 512; i++)
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"71
+[; ;sdCard.c: 71:     do { LATBbits.LATB4 = 1; } while(0);
+[e ( _SPI2_ExchangeByte (1 -> -> 254 `i `uc ]
+"74
+[; ;sdCard.c: 74: 
+{
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 857  ]
+[e $U 858  ]
+[e :U 857 ]
+"75
+[; ;sdCard.c: 75: 
+[e ( _SPI2_ExchangeByte (1 *U + _sdCardBuffer * -> _i `ux -> -> # *U _sdCardBuffer `ui `ux ]
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 857  ]
+[e :U 858 ]
+}
+"77
+[; ;sdCard.c: 77: 
+[e :U 862 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 861 ]
+"79
+[; ;sdCard.c: 79: 
+[e :UE 850 ]
+}
+"86
+[; ;sdCard.c: 86:     do { LATBbits.LATB4 = 1; } while(0);
+[v _SDCARD_PollWriteComplete `(uc ~T0 @X0 1 ef ]
+{
+[e :U _SDCARD_PollWriteComplete ]
+[f ]
+"88
+[; ;sdCard.c: 88:     if (status == 0xFF) {
+[v _status `uc ~T0 @X0 1 a ]
+"90
+[; ;sdCard.c: 90:     } else {
+[e :U 866 ]
+{
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 865 ]
+"91
+[; ;sdCard.c: 91: 
+[e = _status ( _SPI2_ExchangeByte (1 -> -> 13 `i `uc ]
+"92
+[; ;sdCard.c: 92:         (void) SPI2_ExchangeByte(0xFF);
+[e :U 869 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 868 ]
+"94
+[; ;sdCard.c: 94:         (void) SPI2_ExchangeByte(0xFF);
+[e $ ! == -> _status `i -> 255 `i 870  ]
+{
+"95
+[; ;sdCard.c: 95:         return (status);
+[e ) -> -> 255 `i `uc ]
+[e $UE 863  ]
+"96
+[; ;sdCard.c: 96:     }
+}
+[e $U 871  ]
+[e :U 870 ]
+{
+"98
+[; ;sdCard.c: 98: }
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"99
+[; ;sdCard.c: 99: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"100
+[; ;sdCard.c: 100: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"101
+[; ;sdCard.c: 101: 
+[e ) _status ]
+[e $UE 863  ]
+"102
+[; ;sdCard.c: 102: 
+}
+[e :U 871 ]
+"104
+[; ;sdCard.c: 104: 
+[e :UE 863 ]
+}
+"111
+[; ;sdCard.c: 111: 
+[v _SDCARD_Initialize `(v ~T0 @X0 1 ef1`uc ]
+{
+[e :U _SDCARD_Initialize ]
+[v _verbose `uc ~T0 @X0 1 r1 ]
+[f ]
+"113
+[; ;sdCard.c: 113:         SPI2_ExchangeByte(0xFF);
+[v _response `uc ~T0 @X0 1 a ]
+"118
+[; ;sdCard.c: 118:     do { LATBbits.LATB4 = 0; } while(0);
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 10 `i 873  ]
+[e $U 874  ]
+[e :U 873 ]
+{
+"119
+[; ;sdCard.c: 119:     SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"120
+[; ;sdCard.c: 120:     SPI2_ExchangeByte(0x40 | 0);
+}
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10 `i 873  ]
+[e :U 874 ]
+}
+"124
+[; ;sdCard.c: 124:     SPI2_ExchangeByte(0x00);
+[e :U 878 ]
+{
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 877 ]
+"125
+[; ;sdCard.c: 125:     SPI2_ExchangeByte(0x95);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"126
+[; ;sdCard.c: 126:     SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> | -> 64 `i -> 0 `i `uc ]
+"127
+[; ;sdCard.c: 127:     response = SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"128
+[; ;sdCard.c: 128:     do { LATBbits.LATB4 = 1; } while(0);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"129
+[; ;sdCard.c: 129:     if (verbose == 1) printf("CMD0, Reset Response: %x\r\n", response);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"130
+[; ;sdCard.c: 130: 
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"131
+[; ;sdCard.c: 131: 
+[e ( _SPI2_ExchangeByte (1 -> -> 149 `i `uc ]
+"132
+[; ;sdCard.c: 132: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"133
+[; ;sdCard.c: 133:     do {
+[e = _response ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"134
+[; ;sdCard.c: 134:         do { LATBbits.LATB4 = 0; } while(0);
+[e :U 881 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 880 ]
+"135
+[; ;sdCard.c: 135:         SPI2_ExchangeByte(0xFF);
+[e $ ! == -> _verbose `i -> 1 `i 882  ]
+[e ( _printf , (. :s 1C -> _response `i ]
+[e :U 882 ]
+"139
+[; ;sdCard.c: 139:         SPI2_ExchangeByte(0x00);
+[e :U 885 ]
+{
+"140
+[; ;sdCard.c: 140:         SPI2_ExchangeByte(0x00);
+[e :U 888 ]
+{
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 887 ]
+"141
+[; ;sdCard.c: 141:         SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"142
+[; ;sdCard.c: 142:         SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> | -> 64 `i -> 1 `i `uc ]
+"143
+[; ;sdCard.c: 143:         response = SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"144
+[; ;sdCard.c: 144:         do { LATBbits.LATB4 = 1; } while(0);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"145
+[; ;sdCard.c: 145:     } while (response != 0);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"146
+[; ;sdCard.c: 146:     if (verbose == 1) printf("CMD1, Init Response: %x\r\n", response);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"147
+[; ;sdCard.c: 147: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"148
+[; ;sdCard.c: 148: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"149
+[; ;sdCard.c: 149: 
+[e = _response ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"150
+[; ;sdCard.c: 150:     do {
+[e :U 891 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 890 ]
+"151
+[; ;sdCard.c: 151:         do { LATBbits.LATB4 = 0; } while(0);
+}
+[e $ != -> _response `i -> 0 `i 885  ]
+[e :U 884 ]
+"152
+[; ;sdCard.c: 152:         SPI2_ExchangeByte(0xFF);
+[e $ ! == -> _verbose `i -> 1 `i 892  ]
+[e ( _printf , (. :s 2C -> _response `i ]
+[e :U 892 ]
+"156
+[; ;sdCard.c: 156:         SPI2_ExchangeByte(0x02);
+[e :U 895 ]
+{
+"157
+[; ;sdCard.c: 157:         SPI2_ExchangeByte(0x00);
+[e :U 898 ]
+{
+[e = . . _LATBbits 0 4 -> -> 0 `i `uc ]
+}
+[e :U 897 ]
+"158
+[; ;sdCard.c: 158:         SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"159
+[; ;sdCard.c: 159:         SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> | -> 64 `i -> 16 `i `uc ]
+"160
+[; ;sdCard.c: 160:         response = SPI2_ExchangeByte(0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"161
+[; ;sdCard.c: 161:         do { LATBbits.LATB4 = 1; } while(0);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"162
+[; ;sdCard.c: 162:     } while (response == 0xFF);
+[e ( _SPI2_ExchangeByte (1 -> -> 2 `i `uc ]
+"163
+[; ;sdCard.c: 163:     if (verbose == 1) printf("Block Length Response: %x\r\n", response);
+[e ( _SPI2_ExchangeByte (1 -> -> 0 `i `uc ]
+"164
+[; ;sdCard.c: 164: 
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"165
+[; ;sdCard.c: 165: }
+[e ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"166
+[; ;sdCard.c: 166: 
+[e = _response ( _SPI2_ExchangeByte (1 -> -> 255 `i `uc ]
+"167
+[; ;sdCard.c: 167: 
+[e :U 901 ]
+{
+[e = . . _LATBbits 0 4 -> -> 1 `i `uc ]
+}
+[e :U 900 ]
+"168
+[; ;sdCard.c: 168: 
+}
+[e $ == -> _response `i -> 255 `i 895  ]
+[e :U 894 ]
+"169
+[; ;sdCard.c: 169: 
+[e $ ! == -> _verbose `i -> 1 `i 902  ]
+[e ( _printf , (. :s 3C -> _response `i ]
+[e :U 902 ]
+"171
+[; ;sdCard.c: 171: 
+[e :UE 872 ]
+}
+"179
+[; ;sdCard.c: 179:     for (i = 0; i < 512; i++) {
+[v _hexDumpBuffer `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _hexDumpBuffer ]
+[v _sdCardBuffer `*uc ~T0 @X0 1 r1 ]
+[f ]
+"181
+[; ;sdCard.c: 181:         if (i != 0 && i % 16 == 0) {
+[v _i `us ~T0 @X0 1 a ]
+"183
+[; ;sdCard.c: 183:             for (int j = i - 16; j < i; j++) {
+[e ( _printf :s 4C ]
+"185
+[; ;sdCard.c: 185:                     printf(".");
+{
+[e = _i -> -> 0 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 904  ]
+[e $U 905  ]
+[e :U 904 ]
+{
+"186
+[; ;sdCard.c: 186:                 } else {
+[e $ ! && != -> _i `ui -> -> 0 `i `ui == % -> _i `ui -> -> 8 `i `ui -> -> 0 `i `ui 907  ]
+[e ( _printf :s 5C ]
+[e :U 907 ]
+"187
+[; ;sdCard.c: 187:                     printf("%c", sdCardBuffer[j]);
+[e $ ! && != -> _i `ui -> -> 0 `i `ui == % -> _i `ui -> -> 16 `i `ui -> -> 0 `i `ui 908  ]
+{
+"188
+[; ;sdCard.c: 188:                 }
+[e ( _printf :s 6C ]
+"189
+[; ;sdCard.c: 189:             }
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> - -> _i `ui -> -> 16 `i `ui `i ]
+[e $U 912  ]
+[e :U 909 ]
+{
+"190
+[; ;sdCard.c: 190:             printf("\r\n");
+[e $ ! < -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i -> 32 `i 913  ]
+{
+"191
+[; ;sdCard.c: 191:         }
+[e ( _printf :s 7C ]
+"192
+[; ;sdCard.c: 192: 
+}
+[e $U 914  ]
+[e :U 913 ]
+{
+"193
+[; ;sdCard.c: 193:         printf("%02x ", sdCardBuffer[i]);
+[e ( _printf , (. :s 8C -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i ]
+"194
+[; ;sdCard.c: 194:     }
+}
+[e :U 914 ]
+"195
+[; ;sdCard.c: 195: 
+}
+[e ++ _j -> 1 `i ]
+[e :U 912 ]
+[e $ < -> _j `ui -> _i `ui 909  ]
+[e :U 910 ]
+}
+"196
+[; ;sdCard.c: 196:     printf("   ");
+[e ( _printf :s 9C ]
+"197
+[; ;sdCard.c: 197:     for (int j = i - 16; j < i; j++) {
+}
+[e :U 908 ]
+"199
+[; ;sdCard.c: 199:             printf(".");
+[e ( _printf , (. :s 10C -> *U + _sdCardBuffer * -> _i `ux -> -> # *U _sdCardBuffer `ui `ux `i ]
+"200
+[; ;sdCard.c: 200:         } else {
+}
+[e ++ _i -> -> 1 `i `us ]
+[e $ < -> _i `ui -> -> 512 `i `ui 904  ]
+[e :U 905 ]
+}
+"202
+[; ;sdCard.c: 202:         }
+[e ( _printf :s 11C ]
+"203
+[; ;sdCard.c: 203:     }
+{
+[v _j `i ~T0 @X0 1 a ]
+[e = _j -> - -> _i `ui -> -> 16 `i `ui `i ]
+[e $U 918  ]
+[e :U 915 ]
+{
+"204
+[; ;sdCard.c: 204:     printf("\r\n");
+[e $ ! < -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i -> 32 `i 919  ]
+{
+"205
+[; ;sdCard.c: 205: }
+[e ( _printf :s 12C ]
+"206
+}
+[e $U 920  ]
+[e :U 919 ]
+{
+"207
+[e ( _printf , (. :s 13C -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i ]
+"208
+}
+[e :U 920 ]
+"209
+}
+[e ++ _j -> 1 `i ]
+[e :U 918 ]
+[e $ < -> _j `ui -> _i `ui 915  ]
+[e :U 916 ]
+}
+"210
+[e ( _printf :s 14C ]
+"211
+[e :UE 903 ]
+}
+[p f _printf 13139972 ]
+[a 8C 37 99 0 ]
+[a 13C 37 99 0 ]
+[a 7C 46 0 ]
+[a 12C 46 0 ]
+[a 10C 37 48 50 120 32 0 ]
+[a 11C 32 32 32 0 ]
+[a 6C 32 32 0 ]
+[a 5C 32 0 ]
+[a 2C 67 77 68 49 44 32 73 110 105 116 32 82 101 115 112 111 110 115 101 58 32 37 120 13 10 0 ]
+[a 1C 67 77 68 48 44 32 82 101 115 101 116 32 82 101 115 112 111 110 115 101 58 32 37 120 13 10 0 ]
+[a 3C 66 108 111 99 107 32 76 101 110 103 116 104 32 82 101 115 112 111 110 115 101 58 32 37 120 13 10 0 ]
+[a 9C 13 10 0 ]
+[a 14C 13 10 0 ]
+[a 4C 13 10 10 0 ]

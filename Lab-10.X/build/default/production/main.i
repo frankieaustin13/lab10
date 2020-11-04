@@ -7,7 +7,6 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 20 "main.c"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
@@ -9130,18 +9129,15 @@ extern __attribute__((nonreentrant)) void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __attribute__((nonreentrant)) void _delay3(unsigned char);
 # 33 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 2 3
-# 49 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/device_config.h" 1
 # 50 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/pin_manager.h" 1
-# 108 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
-# 120 "./mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_IOC(void);
+# 1 "./mcc_generated_files/device_config.h" 1
 # 51 "./mcc_generated_files/mcc.h" 2
-
+# 1 "./mcc_generated_files/pin_manager.h" 1
+# 189 "./mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+# 201 "./mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_IOC(void);
+# 52 "./mcc_generated_files/mcc.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 1 3
 # 22 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9227,11 +9223,9 @@ typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
 # 144 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdint.h" 2 3
-# 52 "./mcc_generated_files/mcc.h" 2
-
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
 # 53 "./mcc_generated_files/mcc.h" 2
-
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdbool.h" 1 3
+# 54 "./mcc_generated_files/mcc.h" 2
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\conio.h" 1 3
 
 
@@ -9263,51 +9257,13 @@ extern __bit kbhit(void);
 
 extern char * cgets(char *);
 extern void cputs(const char *);
-# 54 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/epwm1.h" 1
-# 96 "./mcc_generated_files/epwm1.h"
-void EPWM1_Initialize(void);
-# 122 "./mcc_generated_files/epwm1.h"
-void EPWM1_LoadDutyValue(uint16_t dutyValue);
 # 55 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/tmr2.h" 1
-# 103 "./mcc_generated_files/tmr2.h"
-void TMR2_Initialize(void);
-# 132 "./mcc_generated_files/tmr2.h"
-void TMR2_StartTimer(void);
-# 164 "./mcc_generated_files/tmr2.h"
-void TMR2_StopTimer(void);
-# 199 "./mcc_generated_files/tmr2.h"
-uint8_t TMR2_ReadTimer(void);
-# 238 "./mcc_generated_files/tmr2.h"
-void TMR2_WriteTimer(uint8_t timerVal);
-# 290 "./mcc_generated_files/tmr2.h"
-void TMR2_LoadPeriodRegister(uint8_t periodVal);
-# 325 "./mcc_generated_files/tmr2.h"
-_Bool TMR2_HasOverflowOccured(void);
+# 1 "./mcc_generated_files/interrupt_manager.h" 1
+# 110 "./mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
 # 56 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/tmr0.h" 1
-# 100 "./mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "./mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "./mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "./mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "./mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "./mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 310 "./mcc_generated_files/tmr0.h"
-_Bool TMR0_HasOverflowOccured(void);
-# 57 "./mcc_generated_files/mcc.h" 2
-
-# 1 "./mcc_generated_files/eusart1.h" 1
-# 57 "./mcc_generated_files/eusart1.h"
+# 1 "./mcc_generated_files/spi2.h" 1
+# 54 "./mcc_generated_files/spi2.h"
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 1 3
 # 24 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\stdio.h" 3
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\include\\c99\\bits/alltypes.h" 1 3
@@ -9446,7 +9402,107 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 57 "./mcc_generated_files/eusart1.h" 2
+# 54 "./mcc_generated_files/spi2.h" 2
+
+
+
+
+
+typedef enum {
+    SPI2_DEFAULT
+} spi2_modes_t;
+
+void SPI2_Initialize(void);
+_Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration);
+void SPI2_Close(void);
+uint8_t SPI2_ExchangeByte(uint8_t data);
+void SPI2_ExchangeBlock(void *block, size_t blockSize);
+void SPI2_WriteBlock(void *block, size_t blockSize);
+void SPI2_ReadBlock(void *block, size_t blockSize);
+void SPI2_WriteByte(uint8_t byte);
+uint8_t SPI2_ReadByte(void);
+# 57 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/epwm1.h" 1
+# 96 "./mcc_generated_files/epwm1.h"
+void EPWM1_Initialize(void);
+# 122 "./mcc_generated_files/epwm1.h"
+void EPWM1_LoadDutyValue(uint16_t dutyValue);
+# 58 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/tmr2.h" 1
+# 103 "./mcc_generated_files/tmr2.h"
+void TMR2_Initialize(void);
+# 132 "./mcc_generated_files/tmr2.h"
+void TMR2_StartTimer(void);
+# 164 "./mcc_generated_files/tmr2.h"
+void TMR2_StopTimer(void);
+# 199 "./mcc_generated_files/tmr2.h"
+uint8_t TMR2_ReadTimer(void);
+# 238 "./mcc_generated_files/tmr2.h"
+void TMR2_WriteTimer(uint8_t timerVal);
+# 290 "./mcc_generated_files/tmr2.h"
+void TMR2_LoadPeriodRegister(uint8_t periodVal);
+# 325 "./mcc_generated_files/tmr2.h"
+_Bool TMR2_HasOverflowOccured(void);
+# 59 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/adc.h" 1
+# 72 "./mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+
+
+
+typedef struct
+{
+    adc_result_t adcResult1;
+    adc_result_t adcResult2;
+} adc_sync_double_result_t;
+# 95 "./mcc_generated_files/adc.h"
+typedef enum
+{
+    channel_AN0 = 0x0,
+    MIC_PIN = 0x4,
+    channel_CTMU = 0x1D,
+    channel_DAC = 0x1E,
+    channel_FVRBuf2 = 0x1F
+} adc_channel_t;
+# 137 "./mcc_generated_files/adc.h"
+void ADC_Initialize(void);
+# 167 "./mcc_generated_files/adc.h"
+void ADC_SelectChannel(adc_channel_t channel);
+# 194 "./mcc_generated_files/adc.h"
+void ADC_StartConversion(void);
+# 226 "./mcc_generated_files/adc.h"
+_Bool ADC_IsConversionDone(void);
+# 259 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversionResult(void);
+# 289 "./mcc_generated_files/adc.h"
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+# 317 "./mcc_generated_files/adc.h"
+void ADC_TemperatureAcquisitionDelay(void);
+# 60 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/tmr0.h" 1
+# 100 "./mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 129 "./mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 161 "./mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 197 "./mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "./mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
+# 272 "./mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "./mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 309 "./mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "./mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 345 "./mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 61 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
 typedef union {
     struct {
@@ -9477,17 +9533,50 @@ void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
 void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
 # 398 "./mcc_generated_files/eusart1.h"
 void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-# 58 "./mcc_generated_files/mcc.h" 2
-# 73 "./mcc_generated_files/mcc.h"
+# 62 "./mcc_generated_files/mcc.h" 2
+# 76 "./mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
-# 86 "./mcc_generated_files/mcc.h"
+# 89 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 20 "main.c" 2
+# 2 "main.c" 2
+# 1 "./sdCard.h" 1
+void SDCARD_ReadBlock(uint32_t addr, uint8_t sdCardBuffer[]);
+void SDCARD_WriteBlock(uint32_t addr, uint8_t sdCardBuffer[]);
+void SDCARD_Initialize(uint8_t verbose);
+void SDCARD_SetIdle(uint8_t verbose);
+uint8_t SDCARD_SetBlockLength(void);
+uint8_t SDCARD_PollWriteComplete(void);
 
+void hexDumpBuffer(uint8_t sdCardBuffer[]);
+# 3 "main.c" 2
 #pragma warning disable 520
 #pragma warning disable 1498
 
+void myTMR0ISR(void);
+uint32_t incrementAddress(uint32_t sdCardAddress);
+void printAscii();
 
+typedef enum {MIC_IDLE, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
+
+
+
+
+
+
+
+uint8_t sdCardBuffer[512];
+uint8_t sdCardBuffer1[512];
+uint8_t sdCardBuffer2[512];
+const uint8_t sin[] = {128, 159, 187, 213, 233, 248, 255, 255, 248, 233, 213, 187, 159, 128, 97, 69, 43, 23, 8, 1, 1, 8, 23, 43, 69, 97};
+
+
+uint8_t buffer1Full = 0;
+uint8_t buffer2Full = 0;
+uint8_t fillBuffer1 = 1;
+uint8_t startCollect = 0;
+uint8_t stopCollect = 0;
+uint8_t collecting = 0;
+uint16_t sampleRate = 1600;
 
 
 
@@ -9496,157 +9585,392 @@ void OSCILLATOR_Initialize(void);
 
 void main(void) {
 
-    uint8_t sin[32] = {128, 153, 177, 199, 219, 234, 246, 254, 255, 254, 246, 234, 219, 199, 177, 153, 128, 103, 79, 57, 37, 22, 10, 2, 0, 2, 10, 22, 37, 57, 79, 103};
-    uint8_t i;
-    uint16_t index;
-    char cmd;
-    uint8_t volumeAdjust = 1;
+    uint8_t status;
+    uint16_t i;
+    uint32_t sdCardAddress = 0x00000000;
+    char cmd, letter;
+
+    letter = '0';
 
     SYSTEM_Initialize();
-    EPWM1_LoadDutyValue(0);
+    do { LATBbits.LATB4 = 1; } while(0);
+
 
     TMR0_WriteTimer(0x0000);
     INTCONbits.TMR0IF = 0;
     while (INTCONbits.TMR0IF == 0);
 
-    printf("inLab 10\r\n");
-    printf("Analog waveform generator\r\n");
+    TMR0_SetInterruptHandler(myTMR0ISR);
+
+    (INTCONbits.GIE = 1);
+    (INTCONbits.PEIE = 1);
+
+    printAscii();
+
+    printf("Lab 09\r\n");
+    printf("SD card testing\r\n");
     printf("Dev'21\r\n");
-    printf("\r\n> ");
+    printf("No configuration of development board\r\n");
+
+    SPI2_Close();
+    SPI2_Open(SPI2_DEFAULT);
 
     for (;;) {
-
-        if ((EUSART1_is_rx_ready())) {
-            cmd = EUSART1_Read();
-            switch (cmd) {
-
-
-
-
-                case '?':
-                    printf("-------------------------------------------------\r\n");
-                    printf("-------------------------------------------------\r\n");
-                    printf("?: help menu\r\n");
-                    printf("o: k\r\n");
-                    printf("Z: Reset processor\r\n");
-                    printf("z: Clear the terminal\r\n");
-                    printf("+/-: increase/decrease volume\r\n");
-                    printf("s: step through sine wave table with PIC 8-bit PWM\r\n");
-                    printf("S: single step PWM duty cycle from 0%% to 100%%.\r\n");
-                    printf("p: Generate a sine wave using PWM + LPF\r\n");
-                    printf("-------------------------------------------------\r\n");
-                    break;
+        printf("> ");
+        while (!(EUSART1_is_rx_ready()));
+        cmd = EUSART1_Read();
+        printf("%c\r\n", cmd);
+        switch (cmd) {
 
 
 
 
-                case 'o':
-                    printf("o:	ok\r\n");
-                    break;
+            case '?':
+                printf("\r\n-------------------------------------------------\r\n");
+                printf("SD card address:  ");
+                printf("%04x", sdCardAddress >> 16);
+                printf(":");
+                printf("%04x", sdCardAddress & 0X0000FFFF);
+                printf("\r\n");
+                printf("-------------------------------------------------\r\n");
+                printf("?: help menu\r\n");
+                printf("o: k\r\n");
+                printf("Z: Reset processor\r\n");
+                printf("z: Clear the terminal\r\n");
+                printf("-------------------------------------------------\r\n");
+                printf("i: Initialize SD card\r\n");
+                printf("-------------------------------------------------\r\n");
+                printf("a/A decrease/increase read address\r\n");
+                printf("r: read a block of %d bytes from SD card\r\n", 512);
+                printf("1: write a perfect 26 value sine wave to the SD card\r\n", 512);
+                printf("-------------------------------------------------\r\n");
+                printf("+/- Increase/Decrease the sample rate by 10 us\r\n");
+                printf("W: Write microphone => SD card at 1600 us\r\n");
+                printf("s: spool memory to a csv file\r\n");
+                printf("-------------------------------------------------\r\n");
+                break;
 
 
 
 
-                case 'Z':
-                    for (i = 0; i < 40; i++) printf("\n");
-                    __asm("reset");
-                    break;
+            case 'o':
+                printf("o:	ok\r\n");
+                break;
 
 
 
 
-                case 'z':
-                    for (i = 0; i < 40; i++) printf("\n");
-                    break;
-
-
-                case '+':
-                    volumeAdjust -= 1;
-                    break;
-
-                case '-':
-                    volumeAdjust += 1;
-                    break;
+            case 'Z':
+                for (i = 0; i < 40; i++) printf("\n");
+                __asm("reset");
+                break;
 
 
 
 
-                case 'S':
-                    printf("Connect jumper over the RC2/LPF_in header pins.\r\n");
-                    printf("Connect Channel 1 scope probe to RC2.\r\n");
-                    printf("Connect Channel 2 scope probe to LPF_out.\r\n");
+            case 'z':
+                for (i = 0; i < 40; i++) printf("\n");
+                break;
 
-                    EPWM1_LoadDutyValue(0);
-                    printf("Currently generating a 0%% duty cycle PWM waveform on RC2.\r\n");
-                    printf("Press any key to change this to 100%.\r\n");
-                    while ((EUSART1_is_rx_ready()) == 0);
-                    (void) EUSART1_Read();
+            case '1': {
+                static uint8_t sinIndex = 0;
+                for (uint16_t i = 0; i < 512; i++) {
+                    sdCardBuffer[i] = sin[sinIndex];
+                    if (++sinIndex >= sizeof(sin))
+                        sinIndex = 0;
+                }
 
-                    EPWM1_LoadDutyValue(256);
-                    printf("Currently generating a 100%% duty cycle PWM waveform on RC2.\r\n");
-                    printf("Press any key to exit.\r\n");
-                    while ((EUSART1_is_rx_ready()) == 0);
-                    (void) EUSART1_Read();
+                SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
+                while ((status = SDCARD_PollWriteComplete()) == 0xFF);
 
-                    break;
+                printf("Write block sin wave values:\r\n");
+                printf("    Address:    ");
+                printf("%04x", sdCardAddress >> 16);
+                printf(":");
+                printf("%04x", sdCardAddress & 0X0000FFFF);
+                printf("\r\n");
+                printf("    Status:     %02x\r\n", status);
 
-
-
-
-
-                case 's':
-                    printf("Connect jumper over the RC2/LPF_in header pins.\r\n");
-                    printf("Connect Channel 1 scope probe to RC2.\r\n");
-                    printf("Connect Channel 2 scope probe to LPF_out.\r\n");
-                    printf("Press ""x"" to exit.\r\n");
-                    printf("Press any other key to step through sine table.\r\n\n");
-
-                    index = 0;
-                    do {
-                        EPWM1_LoadDutyValue(sin[index]);
-                        printf("Current LoadDutyValue = %d\r\n", sin[index]);
-                        while ((EUSART1_is_rx_ready()) == 0);
-                        index = (index + 1)&0b00011111;
-                    } while (EUSART1_Read() != 'x');
-
-                    EPWM1_LoadDutyValue(0);
-                    printf("Exit PWM\r\n");
-                    break;
-
-
-
-
-                case 'p':
-                    printf("Connect jumper over the RC2/LPF_in header pins.\r\n");
-                    printf("Connect Channel 1 scope probe to RC2.\r\n");
-                    printf("Connect Channel 2 scope probe to LPF_out.\r\n");
-                    printf("Press any key to exit.\r\n");
-
-                    while ((EUSART1_is_rx_ready()) == 0) {
-
-                        TMR0_WriteTimer(TMR0_ReadTimer() + 0xFFFF - 3200);
-                        INTCONbits.TMR0IF = 0;
-                        while (TMR0_HasOverflowOccured() == 0);
-
-
-                        EPWM1_LoadDutyValue(sin[index] >> volumeAdjust);
-                        index = (index + 1)&0b00011111;
-
-                    }
-
-                    EPWM1_LoadDutyValue(0);
-                    (void) EUSART1_Read();
-                    printf("Exit PWM\r\n");
-                    break;
-
-
-
-
-                default:
-                    printf("Unknown key %c\r\n", cmd);
-                    break;
+                sdCardAddress = incrementAddress(sdCardAddress);
             }
+                break;
 
+            case '+':
+                sampleRate = sampleRate + 160;
+                break;
+
+            case '-':
+                if (sampleRate > 320 ) {
+                    sampleRate = sampleRate - 160;
+                } else {
+                    sampleRate = sampleRate;
+                }
+                break;
+
+            case 'W': {
+                printf("Press any key to start recording audio and press any key to stop recording.");
+                while (!(EUSART1_is_rx_ready()));
+                EUSART1_Read();
+
+                while (!(EUSART1_is_rx_ready())) {
+                    if (buffer1Full) {
+                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        buffer1Full = 0;
+                        sdCardAddress = incrementAddress(sdCardAddress);
+                    }
+                    if (buffer2Full) {
+                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        buffer2Full = 0;
+                        sdCardAddress = incrementAddress(sdCardAddress);
+                    }
+                }
+                EUSART1_Read();
+                stopCollect = 1;
+
+                while (buffer1Full || buffer2Full || collecting) {
+                    if (buffer1Full) {
+                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        buffer1Full = 0;
+                        sdCardAddress = incrementAddress(sdCardAddress);
+                    }
+                    if (buffer2Full) {
+                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        buffer2Full = 0;
+                        sdCardAddress = incrementAddress(sdCardAddress);
+                    }
+                }
+            }
+                break;
+
+            case 's':
+
+                printf("You may terminate spooling at anytime with a key press.\r\n");
+                printf("To spool terminal contents into a file follow these instructions:\r\n");
+                printf("\r\n");
+                printf("Right mouse click on the upper left of the PuTTY window\r\n");
+                printf("Select:     Change settings...\r\n");
+                printf("Select:     Logging\r\n");
+                printf("Select:     Session logging: All session output\r\n");
+                printf("Log file name: Browse and provide a .csv extension to your file name\r\n");
+                printf("Select:     Apply\r\n");
+                printf("Press any key to start\r\n");
+
+                while (!(EUSART1_is_rx_ready()));
+                EUSART1_Read();
+
+                SDCARD_ReadBlock(sdCardAddress , sdCardBuffer);
+                sdCardAddress = incrementAddress(sdCardAddress);
+
+                uint16_t iterator = 0;
+                while ((!(EUSART1_is_rx_ready())) && (iterator != 512)) {
+                    uint16_t printVal = sdCardBuffer[iterator];
+                    printf("%d\r\n", printVal);
+                    iterator++;
+                }
+                if ((EUSART1_is_rx_ready()))
+                    EUSART1_Read();
+
+                printf("Spooled 512 out of the 512 blocks.\r\n");
+                printf("To close the file follow these instructions: \r\n");
+                printf("Right mouse click on the upper left of the PuTTY window\r\n");
+                printf("Select:     Change settings...\r\n");
+                printf("Select:     Logging\r\n");
+                printf("Select:     Session  logging: None\r\n");
+                printf("Select:     Apply \r\n");
+
+                break;
+
+
+
+
+
+
+            case 'i':
+                SPI2_Close();
+                SPI2_Open(SPI2_DEFAULT);
+                SDCARD_Initialize(1);
+                break;
+
+
+
+
+            case 'A':
+            case 'a':
+                if (cmd == 'a') {
+                    sdCardAddress -= 512;
+                    if (sdCardAddress >= 0x04000000) {
+                        printf("Underflowed to high address\r\n");
+                        sdCardAddress = 0x04000000 - 512;
+                    } else {
+                        printf("Decreased address\r\n");
+                    }
+                } else {
+                    sdCardAddress += 512;
+                    if (sdCardAddress >= 0x04000000) {
+                        printf("Overflowed to low address\r\n");
+                        sdCardAddress = 0x00000000;
+                    } else {
+                        printf("Increased address\r\n");
+                    }
+                }
+
+
+                printf("SD card address:  ");
+                printf("%04x", sdCardAddress >> 16);
+                printf(":");
+                printf("%04x", sdCardAddress & 0X0000FFFF);
+                printf("\r\n");
+                break;
+
+
+
+
+            case 'r':
+                SDCARD_ReadBlock(sdCardAddress, sdCardBuffer);
+                printf("Read block: \r\n");
+                printf("    Address:    ");
+                printf("%04x", sdCardAddress >> 16);
+                printf(":");
+                printf("%04x", sdCardAddress & 0X0000FFFF);
+                printf("\r\n");
+                hexDumpBuffer(sdCardBuffer);
+                break;
+
+
+
+
+            default:
+                printf("Unknown key %c\r\n", cmd);
+                break;
         }
     }
+}
+
+uint32_t incrementAddress(uint32_t sdCardAddress)
+{
+    sdCardAddress += 512;
+    if (sdCardAddress >= 0x04000000)
+        sdCardAddress = 0x00000000;
+    return sdCardAddress;
+}
+
+uint32_t decrementAddress(uint32_t sdCardAddress) {
+    sdCardAddress -= 512;
+    if (sdCardAddress >= 0x04000000)
+        sdCardAddress = 0x04000000 - 512;
+    return sdCardAddress;
+}
+# 331 "main.c"
+void myTMR0ISR(void) {
+    ADCON0bits.GO_NOT_DONE = 1;
+
+    TMR0_WriteTimer(0x10000 - (sampleRate - TMR0_ReadTimer()));
+    static uint16_t bufferIndex = 0;
+    static myTMR0states_t state = MIC_IDLE;
+    static uint8_t *buffer = sdCardBuffer1;
+
+    uint8_t mic = ADRESH;
+
+    switch(state) {
+        case MIC_IDLE:
+            if (startCollect == 1) {
+                collecting = 1;
+                state = MIC_ACQUIRE;
+                bufferIndex = 0;
+                buffer = sdCardBuffer1;
+                fillBuffer1 = 1;
+                startCollect = 1;
+            }
+            break;
+
+
+        case MIC_AWAIT_BUFFER:
+            if ((fillBuffer1 && buffer1Full) || (!fillBuffer1 && buffer2Full)) {
+                break;
+            }
+
+
+        case MIC_ACQUIRE:
+            buffer[bufferIndex++] = mic;
+
+            if(bufferIndex == 512) {
+                if (fillBuffer1) {
+                    buffer1Full = 1;
+                    buffer = sdCardBuffer2;
+                    if (buffer2Full)
+                        state = MIC_AWAIT_BUFFER;
+                } else {
+                    buffer2Full = 1;
+                    buffer = sdCardBuffer1;
+                    if (buffer1Full)
+                        state = MIC_AWAIT_BUFFER;
+                }
+                fillBuffer1 = !fillBuffer1;
+                bufferIndex = 0;
+                if (stopCollect) {
+                    collecting = 0;
+                    state = MIC_IDLE;
+                }
+            }
+
+            break;
+    }
+}
+
+void printAscii() {
+    printf("                                                                                \r\n");
+    printf("                                  777777777777                                  \r\n");
+    printf("                            7777IIIIIIIIIIIIII?I7777                            \r\n");
+    printf("                        777IIII77777777777777777IIIII777                        \r\n");
+    printf("                     77III7777IIIIIII?????IIIIIII7777II?777                     \r\n");
+    printf("                  77III777III???+++++++++++++++???III7777I?777                  \r\n");
+    printf("                77II777II???++++++++++++++++++++++++??II777III77                \r\n");
+    printf("              77II777II?+++++++++++++++++++++++++++++++??II77III77              \r\n");
+    printf("             7II77II??+++++++++++++++++++++++++++++++++++??II77I?77             \r\n");
+    printf("           77II77I??++++++++++++++++++++++++++++++++++++++++?II77II77           \r\n");
+    printf("          77I77II?+++++++++++++++++++++++++++++++++++++++++++??I77I?77          \r\n");
+    printf("         7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++?II7III7         \r\n");
+    printf("        7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++++?II7III7        \r\n");
+    printf("       7?III??++++++++++++++++++++++++++++++++++++++++++++++++++++?I7III7       \r\n");
+    printf("      7IIII?++=...........+++++++++++++++++++++++++++:..........=++?III?77      \r\n");
+    printf("     77I+=~.........................:+++++~.........................:=+I?77     \r\n");
+    printf("     7?I=~,.........................................................,~=III7     \r\n");
+    printf("    7III~,...........................................................,~II?77    \r\n");
+    printf("    7?II?+...........................................................+?III?7    \r\n");
+    printf("   77?II?+...........................+++++...........................+??II?77   \r\n");
+    printf("   7?II?+++..........................+++++..........................~++?II?I7   \r\n");
+    printf("   7?I??+++.........................+++++++.........................+++??I??7   \r\n");
+    printf("  77????+++~........................+++++++.........................++++???+77  \r\n");
+    printf("  77???+++++.......................+++++++++.......................+++++????77  \r\n");
+    printf("  7I???++++++.....................=++++++++++.....................++++++????I7  \r\n");
+    printf("  7I???++++++=...................~++++++++++++....................++++++???+I7  \r\n");
+    printf("  7I+?+++++++++.................+++++++++++++++.................+++++++++?+?I7  \r\n");
+    printf("  77+++++++++++++............=++++++++++++++++++++............++++++++++++++77  \r\n");
+    printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
+    printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
+    printf("   7I+++++++++++++..+++++++++++++++++++++++++++++++++++++++..+++++++++++=++I7   \r\n");
+    printf("   77+==++++++++++,..+++++++++++++++++++++++++++++++++++++...++++++++++===?77   \r\n");
+    printf("    7?===++++++++++...+++++++++++++++++++++++++++++++++++...++++++++++===+I7    \r\n");
+    printf("    77=~~=++++++++++...+++++++++++++++++++++++++++++++++...++++++++++=~~=?77    \r\n");
+    printf("     7I~~~=++++++++++:...+++++++++++++++++++++++++++++~...++++++++++=~~~+I7     \r\n");
+    printf("      7?~:~=+++++++++++...+++++++++++++++++++++++++++...+++++++++++=~:~+I7      \r\n");
+    printf("      77=:::=++++++++++++....+++++++++++++++++++++=...~+++++++++++=~::=?77      \r\n");
+    printf("       77=:,:=+++++++++++++.....+++++++++++++++.....+++++++++++++=:::~?77       \r\n");
+    printf("        77=:,:~++++++++++++++=...................:++++++++++++++~:,:~?77        \r\n");
+    printf("         77?:,,:=+++++++++++++++++...........+++++++++++++++++=~,,:+?77         \r\n");
+    printf("           7I~,,,~=++++++++++++++++++++++++++++++++++++++++++~:,,:+I7           \r\n");
+    printf("            77?:,,:~=++++++++++++++++++++++++++++++++++++++~:,,:+?77            \r\n");
+    printf("             77I~:,,:~=+++++++++++++++++++++++++++++++++=~:,,:~+I77             \r\n");
+    printf("               77I~:,,,:~=+++++++++++++++++++++++++++=~:,,,:~+I77               \r\n");
+    printf("                 77I?:,,,,:~==+++++++++++++++++++==~:,,,,:+?I77                 \r\n");
+    printf("                   777?=::,,,,::~~===========~~:::,,,::~+?777                   \r\n");
+    printf("                      777I?~:::,,,,,,,:,,,,,,,,,:::~+?I777                      \r\n");
+    printf("                         7777I??+~~~::::::~~~~++??I7777                         \r\n");
+    printf("                              777777IIIIIIII777777                              \r\n");
+    printf("                                                                                \r\n");
+    printf("                                                                                \r\n");
 }
