@@ -7,6 +7,7 @@
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
+# 19 "main.c"
 # 1 "./mcc_generated_files/mcc.h" 1
 # 49 "./mcc_generated_files/mcc.h"
 # 1 "C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\\pic\\include\\xc.h" 1 3
@@ -9444,6 +9445,28 @@ void TMR2_LoadPeriodRegister(uint8_t periodVal);
 # 325 "./mcc_generated_files/tmr2.h"
 _Bool TMR2_HasOverflowOccured(void);
 # 59 "./mcc_generated_files/mcc.h" 2
+# 1 "./mcc_generated_files/tmr0.h" 1
+# 100 "./mcc_generated_files/tmr0.h"
+void TMR0_Initialize(void);
+# 129 "./mcc_generated_files/tmr0.h"
+void TMR0_StartTimer(void);
+# 161 "./mcc_generated_files/tmr0.h"
+void TMR0_StopTimer(void);
+# 197 "./mcc_generated_files/tmr0.h"
+uint16_t TMR0_ReadTimer(void);
+# 236 "./mcc_generated_files/tmr0.h"
+void TMR0_WriteTimer(uint16_t timerVal);
+# 272 "./mcc_generated_files/tmr0.h"
+void TMR0_Reload(void);
+# 290 "./mcc_generated_files/tmr0.h"
+void TMR0_ISR(void);
+# 309 "./mcc_generated_files/tmr0.h"
+ void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
+# 327 "./mcc_generated_files/tmr0.h"
+extern void (*TMR0_InterruptHandler)(void);
+# 345 "./mcc_generated_files/tmr0.h"
+void TMR0_DefaultInterruptHandler(void);
+# 60 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/adc.h" 1
 # 72 "./mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
@@ -9479,28 +9502,6 @@ adc_result_t ADC_GetConversionResult(void);
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 317 "./mcc_generated_files/adc.h"
 void ADC_TemperatureAcquisitionDelay(void);
-# 60 "./mcc_generated_files/mcc.h" 2
-# 1 "./mcc_generated_files/tmr0.h" 1
-# 100 "./mcc_generated_files/tmr0.h"
-void TMR0_Initialize(void);
-# 129 "./mcc_generated_files/tmr0.h"
-void TMR0_StartTimer(void);
-# 161 "./mcc_generated_files/tmr0.h"
-void TMR0_StopTimer(void);
-# 197 "./mcc_generated_files/tmr0.h"
-uint16_t TMR0_ReadTimer(void);
-# 236 "./mcc_generated_files/tmr0.h"
-void TMR0_WriteTimer(uint16_t timerVal);
-# 272 "./mcc_generated_files/tmr0.h"
-void TMR0_Reload(void);
-# 290 "./mcc_generated_files/tmr0.h"
-void TMR0_ISR(void);
-# 309 "./mcc_generated_files/tmr0.h"
- void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-# 327 "./mcc_generated_files/tmr0.h"
-extern void (*TMR0_InterruptHandler)(void);
-# 345 "./mcc_generated_files/tmr0.h"
-void TMR0_DefaultInterruptHandler(void);
 # 61 "./mcc_generated_files/mcc.h" 2
 # 1 "./mcc_generated_files/eusart1.h" 1
 # 76 "./mcc_generated_files/eusart1.h"
@@ -9538,7 +9539,7 @@ void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
 void SYSTEM_Initialize(void);
 # 89 "./mcc_generated_files/mcc.h"
 void OSCILLATOR_Initialize(void);
-# 2 "main.c" 2
+# 20 "main.c" 2
 # 1 "./sdCard.h" 1
 void SDCARD_ReadBlock(uint32_t addr, uint8_t sdCardBuffer[]);
 void SDCARD_WriteBlock(uint32_t addr, uint8_t sdCardBuffer[]);
@@ -9548,7 +9549,7 @@ uint8_t SDCARD_SetBlockLength(void);
 uint8_t SDCARD_PollWriteComplete(void);
 
 void hexDumpBuffer(uint8_t sdCardBuffer[]);
-# 3 "main.c" 2
+# 21 "main.c" 2
 #pragma warning disable 520
 #pragma warning disable 1498
 
@@ -9556,26 +9557,23 @@ void myTMR0ISR(void);
 uint32_t incrementAddress(uint32_t sdCardAddress);
 void printAscii();
 
-typedef enum {MIC_IDLE, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
-
-
-
-
-
-
-
+typedef enum {IDLE, PLAY_AWAIT_BUFFER, PLAYBACK, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
+# 37 "main.c"
 uint8_t sdCardBuffer[512];
 uint8_t sdCardBuffer1[512];
 uint8_t sdCardBuffer2[512];
+uint32_t writeFailureTable[128];
+uint8_t writeFailureStatus[128];
 const uint8_t sin[] = {128, 159, 187, 213, 233, 248, 255, 255, 248, 233, 213, 187, 159, 128, 97, 69, 43, 23, 8, 1, 1, 8, 23, 43, 69, 97};
 
 
 uint8_t buffer1Full = 0;
 uint8_t buffer2Full = 0;
-uint8_t fillBuffer1 = 1;
 uint8_t startCollect = 0;
 uint8_t stopCollect = 0;
 uint8_t collecting = 0;
+uint8_t stopPlayback = 0;
+uint8_t doPlayback = 0;
 uint16_t sampleRate = 1600;
 
 
@@ -9588,6 +9586,8 @@ void main(void) {
     uint8_t status;
     uint16_t i;
     uint32_t sdCardAddress = 0x00000000;
+    uint32_t writeStartAddress = 0x00000000;
+    uint32_t writeEndAddress = 0x00000000;
     char cmd, letter;
 
     letter = '0';
@@ -9607,8 +9607,8 @@ void main(void) {
 
     printAscii();
 
-    printf("Lab 09\r\n");
-    printf("SD card testing\r\n");
+    printf("Lab 10\r\n");
+    printf("SD card + playback\r\n");
     printf("Dev'21\r\n");
     printf("No configuration of development board\r\n");
 
@@ -9627,11 +9627,13 @@ void main(void) {
 
             case '?':
                 printf("\r\n-------------------------------------------------\r\n");
-                printf("SD card address:  ");
+                printf("\tPlay length in blocks: %d\r\n", (writeEndAddress-writeStartAddress)>>9);
+                printf("\tsdCardAddress: ");
                 printf("%04x", sdCardAddress >> 16);
                 printf(":");
                 printf("%04x", sdCardAddress & 0X0000FFFF);
                 printf("\r\n");
+                printf("\tsample rate: %dus\r\n", sampleRate / 16);
                 printf("-------------------------------------------------\r\n");
                 printf("?: help menu\r\n");
                 printf("o: k\r\n");
@@ -9674,24 +9676,37 @@ void main(void) {
 
             case '1': {
                 static uint8_t sinIndex = 0;
-                for (uint16_t i = 0; i < 512; i++) {
-                    sdCardBuffer[i] = sin[sinIndex];
-                    if (++sinIndex >= sizeof(sin))
-                        sinIndex = 0;
+                uint32_t writeAddress = sdCardAddress;
+
+                while (!(EUSART1_is_rx_ready()));
+                EUSART1_Read();
+
+
+                for (uint8_t j = 0; j <128 && !(EUSART1_is_rx_ready()); j++ ){
+                    for (uint16_t i = 0; i < 512; i++) {
+                        sdCardBuffer[i] = sin[sinIndex];
+                        if (++sinIndex >= sizeof(sin))
+                            sinIndex = 0;
+
+                    }
+                    printf(".");
+                    SDCARD_WriteBlock(writeAddress, sdCardBuffer);
+                    while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                    writeAddress = incrementAddress(writeAddress);
                 }
 
-                SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
-                while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                writeEndAddress = writeAddress;
+                uint32_t storedCounter = writeAddress - sdCardAddress;
+                storedCounter >>= 9;
 
                 printf("Write block sin wave values:\r\n");
+                printf("Amount of blocks stored: %d\r\n", storedCounter) ;
                 printf("    Address:    ");
                 printf("%04x", sdCardAddress >> 16);
                 printf(":");
                 printf("%04x", sdCardAddress & 0X0000FFFF);
                 printf("\r\n");
                 printf("    Status:     %02x\r\n", status);
-
-                sdCardAddress = incrementAddress(sdCardAddress);
             }
                 break;
 
@@ -9707,23 +9722,68 @@ void main(void) {
                 }
                 break;
 
+            case 'P': {
+                uint32_t readAddress = writeStartAddress;
+                buffer1Full = 0;
+                buffer2Full = 0;
+                doPlayback = 1;
+                while (!(EUSART1_is_rx_ready()) && readAddress != writeEndAddress) {
+                    while (buffer1Full);
+                    SDCARD_ReadBlock(readAddress, sdCardBuffer1);
+                    buffer1Full = 1;
+                    readAddress = incrementAddress(readAddress);
+                    while (buffer2Full);
+                    SDCARD_ReadBlock(readAddress, sdCardBuffer2);
+                    buffer2Full = 1;
+                    readAddress = incrementAddress(readAddress);
+                }
+                if ((EUSART1_is_rx_ready())) {
+                    EUSART1_Read();
+                    stopPlayback = 1;
+                }
+                while (doPlayback);
+            }
+            break;
+
             case 'W': {
                 printf("Press any key to start recording audio and press any key to stop recording.");
                 while (!(EUSART1_is_rx_ready()));
                 EUSART1_Read();
+                writeStartAddress = sdCardAddress;
+                uint32_t writeAddress = sdCardAddress;
+                uint8_t failureIndex = 0;
+                startCollect = 1;
 
                 while (!(EUSART1_is_rx_ready())) {
                     if (buffer1Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        if ((status & 0x1F) != 0x5) {
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
+                            while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        }
                         buffer1Full = 0;
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        if ((status & 0x1F) != 0x5 && failureIndex < 128) {
+                            writeFailureTable[failureIndex] = writeAddress;
+                            writeFailureStatus[failureIndex] = status;
+                            failureIndex++;
+                        }
+                        writeAddress = incrementAddress(writeAddress);
                     }
                     if (buffer2Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        if ((status & 0x1F) != 0x5) {
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
+                            while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        }
                         buffer2Full = 0;
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        if ((status & 0x1F) != 0x5 && failureIndex < 128) {
+                            writeFailureTable[failureIndex] = writeAddress;
+                            writeFailureStatus[failureIndex] = status;
+                            failureIndex++;
+                        }
+                        writeAddress = incrementAddress(writeAddress);
                     }
                 }
                 EUSART1_Read();
@@ -9731,16 +9791,46 @@ void main(void) {
 
                 while (buffer1Full || buffer2Full || collecting) {
                     if (buffer1Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        if ((status & 0x1F) != 0x5) {
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
+                            while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        }
                         buffer1Full = 0;
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        if ((status & 0x1F) != 0x5 && failureIndex < 128) {
+                            writeFailureTable[failureIndex] = writeAddress;
+                            writeFailureStatus[failureIndex] = status;
+                            failureIndex++;
+                        }
+                        writeAddress = incrementAddress(writeAddress);
                     }
                     if (buffer2Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                         while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        if ((status & 0x1F) != 0x5) {
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
+                            while ((status = SDCARD_PollWriteComplete()) == 0xFF);
+                        }
                         buffer2Full = 0;
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        if ((status & 0x1F) != 0x5 && failureIndex < 128) {
+                            writeFailureTable[failureIndex] = writeAddress;
+                            writeFailureStatus[failureIndex] = status;
+                            failureIndex++;
+                        }
+                        writeAddress = incrementAddress(writeAddress);
+                    }
+                }
+                writeEndAddress = writeAddress;
+                printf ("\r\n");
+                if (failureIndex > 0) {
+                    printf ("Listing write failures: \r\n");
+                    for (uint8_t i = 0; i < failureIndex; i++) {
+                        uint32_t addr = writeFailureTable[i];
+                        printf("Status code: %d ---- Address: ", writeFailureStatus[i]);
+                        printf("%04x", addr >> 16);
+                        printf(":");
+                        printf("%04x\r\n", addr & 0X0000FFFF);
                     }
                 }
             }
@@ -9762,19 +9852,25 @@ void main(void) {
                 while (!(EUSART1_is_rx_ready()));
                 EUSART1_Read();
 
-                SDCARD_ReadBlock(sdCardAddress , sdCardBuffer);
-                sdCardAddress = incrementAddress(sdCardAddress);
+                uint32_t address = writeStartAddress;
+                uint32_t endAddress = writeEndAddress;
+                uint32_t numBlocks = (endAddress - address) >> 9;
+                uint32_t printedBlocks = 0;
 
-                uint16_t iterator = 0;
-                while ((!(EUSART1_is_rx_ready())) && (iterator != 512)) {
-                    uint16_t printVal = sdCardBuffer[iterator];
-                    printf("%d\r\n", printVal);
-                    iterator++;
+                while (!(EUSART1_is_rx_ready()) && address != endAddress) {
+                    SDCARD_ReadBlock(address, sdCardBuffer);
+                    address = incrementAddress(address);
+
+                    for (uint16_t i = 0; i != 512; i++) {
+                        uint16_t printVal = sdCardBuffer[i];
+                        printf("%d\r\n", printVal);
+                    }
+                    printedBlocks++;
                 }
                 if ((EUSART1_is_rx_ready()))
                     EUSART1_Read();
 
-                printf("Spooled 512 out of the 512 blocks.\r\n");
+                printf("Spooled %u out of the %u blocks.\r\n", printedBlocks, numBlocks);
                 printf("To close the file follow these instructions: \r\n");
                 printf("Right mouse click on the upper left of the PuTTY window\r\n");
                 printf("Select:     Change settings...\r\n");
@@ -9864,41 +9960,45 @@ uint32_t decrementAddress(uint32_t sdCardAddress) {
         sdCardAddress = 0x04000000 - 512;
     return sdCardAddress;
 }
-# 331 "main.c"
+# 451 "main.c"
 void myTMR0ISR(void) {
     ADCON0bits.GO_NOT_DONE = 1;
 
     TMR0_WriteTimer(0x10000 - (sampleRate - TMR0_ReadTimer()));
     static uint16_t bufferIndex = 0;
-    static myTMR0states_t state = MIC_IDLE;
+    static myTMR0states_t state = IDLE;
     static uint8_t *buffer = sdCardBuffer1;
+    uint8_t useBuffer1 = 1;
 
-    uint8_t mic = ADRESH;
+    uint16_t mic = ADRESH;
 
     switch(state) {
-        case MIC_IDLE:
-            if (startCollect == 1) {
+        case IDLE:
+            if (startCollect) {
                 collecting = 1;
                 state = MIC_ACQUIRE;
                 bufferIndex = 0;
                 buffer = sdCardBuffer1;
-                fillBuffer1 = 1;
+                useBuffer1 = 1;
                 startCollect = 1;
+            } else if (doPlayback) {
+                useBuffer1 = 1;
+                buffer = sdCardBuffer1;
+                bufferIndex = 0;
+                state = PLAYBACK;
             }
             break;
 
-
-        case MIC_AWAIT_BUFFER:
-            if ((fillBuffer1 && buffer1Full) || (!fillBuffer1 && buffer2Full)) {
+        case PLAY_AWAIT_BUFFER:
+            if ((useBuffer1 && buffer1Full) || (!useBuffer1 && buffer2Full)) {
                 break;
             }
 
-
-        case MIC_ACQUIRE:
-            buffer[bufferIndex++] = mic;
+        case PLAYBACK:
+            EPWM1_LoadDutyValue(buffer[bufferIndex++]);
 
             if(bufferIndex == 512) {
-                if (fillBuffer1) {
+                if (useBuffer1) {
                     buffer1Full = 1;
                     buffer = sdCardBuffer2;
                     if (buffer2Full)
@@ -9909,11 +10009,42 @@ void myTMR0ISR(void) {
                     if (buffer1Full)
                         state = MIC_AWAIT_BUFFER;
                 }
-                fillBuffer1 = !fillBuffer1;
+                useBuffer1 = !useBuffer1;
+                bufferIndex = 0;
+                if (stopPlayback) {
+                    state = IDLE;
+                    doPlayback = 0;
+                }
+            }
+            break;
+
+
+        case MIC_AWAIT_BUFFER:
+            if ((useBuffer1 && buffer1Full) || (!useBuffer1 && buffer2Full)) {
+                break;
+            }
+
+
+        case MIC_ACQUIRE:
+            buffer[bufferIndex++] = mic;
+
+            if(bufferIndex == 512) {
+                if (useBuffer1) {
+                    buffer1Full = 1;
+                    buffer = sdCardBuffer2;
+                    if (buffer2Full)
+                        state = MIC_AWAIT_BUFFER;
+                } else {
+                    buffer2Full = 1;
+                    buffer = sdCardBuffer1;
+                    if (buffer1Full)
+                        state = MIC_AWAIT_BUFFER;
+                }
+                useBuffer1 = !useBuffer1;
                 bufferIndex = 0;
                 if (stopCollect) {
                     collecting = 0;
-                    state = MIC_IDLE;
+                    state = IDLE;
                 }
             }
 
@@ -9922,55 +10053,40 @@ void myTMR0ISR(void) {
 }
 
 void printAscii() {
-    printf("                                                                                \r\n");
-    printf("                                  777777777777                                  \r\n");
-    printf("                            7777IIIIIIIIIIIIII?I7777                            \r\n");
-    printf("                        777IIII77777777777777777IIIII777                        \r\n");
-    printf("                     77III7777IIIIIII?????IIIIIII7777II?777                     \r\n");
-    printf("                  77III777III???+++++++++++++++???III7777I?777                  \r\n");
-    printf("                77II777II???++++++++++++++++++++++++??II777III77                \r\n");
-    printf("              77II777II?+++++++++++++++++++++++++++++++??II77III77              \r\n");
-    printf("             7II77II??+++++++++++++++++++++++++++++++++++??II77I?77             \r\n");
-    printf("           77II77I??++++++++++++++++++++++++++++++++++++++++?II77II77           \r\n");
-    printf("          77I77II?+++++++++++++++++++++++++++++++++++++++++++??I77I?77          \r\n");
-    printf("         7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++?II7III7         \r\n");
-    printf("        7?I7II?+++++++++++++++++++++++++++++++++++++++++++++++++?II7III7        \r\n");
-    printf("       7?III??++++++++++++++++++++++++++++++++++++++++++++++++++++?I7III7       \r\n");
-    printf("      7IIII?++=...........+++++++++++++++++++++++++++:..........=++?III?77      \r\n");
-    printf("     77I+=~.........................:+++++~.........................:=+I?77     \r\n");
-    printf("     7?I=~,.........................................................,~=III7     \r\n");
-    printf("    7III~,...........................................................,~II?77    \r\n");
-    printf("    7?II?+...........................................................+?III?7    \r\n");
-    printf("   77?II?+...........................+++++...........................+??II?77   \r\n");
-    printf("   7?II?+++..........................+++++..........................~++?II?I7   \r\n");
-    printf("   7?I??+++.........................+++++++.........................+++??I??7   \r\n");
-    printf("  77????+++~........................+++++++.........................++++???+77  \r\n");
-    printf("  77???+++++.......................+++++++++.......................+++++????77  \r\n");
-    printf("  7I???++++++.....................=++++++++++.....................++++++????I7  \r\n");
-    printf("  7I???++++++=...................~++++++++++++....................++++++???+I7  \r\n");
-    printf("  7I+?+++++++++.................+++++++++++++++.................+++++++++?+?I7  \r\n");
-    printf("  77+++++++++++++............=++++++++++++++++++++............++++++++++++++77  \r\n");
-    printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
-    printf("   7+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++?7   \r\n");
-    printf("   7I+++++++++++++..+++++++++++++++++++++++++++++++++++++++..+++++++++++=++I7   \r\n");
-    printf("   77+==++++++++++,..+++++++++++++++++++++++++++++++++++++...++++++++++===?77   \r\n");
-    printf("    7?===++++++++++...+++++++++++++++++++++++++++++++++++...++++++++++===+I7    \r\n");
-    printf("    77=~~=++++++++++...+++++++++++++++++++++++++++++++++...++++++++++=~~=?77    \r\n");
-    printf("     7I~~~=++++++++++:...+++++++++++++++++++++++++++++~...++++++++++=~~~+I7     \r\n");
-    printf("      7?~:~=+++++++++++...+++++++++++++++++++++++++++...+++++++++++=~:~+I7      \r\n");
-    printf("      77=:::=++++++++++++....+++++++++++++++++++++=...~+++++++++++=~::=?77      \r\n");
-    printf("       77=:,:=+++++++++++++.....+++++++++++++++.....+++++++++++++=:::~?77       \r\n");
-    printf("        77=:,:~++++++++++++++=...................:++++++++++++++~:,:~?77        \r\n");
-    printf("         77?:,,:=+++++++++++++++++...........+++++++++++++++++=~,,:+?77         \r\n");
-    printf("           7I~,,,~=++++++++++++++++++++++++++++++++++++++++++~:,,:+I7           \r\n");
-    printf("            77?:,,:~=++++++++++++++++++++++++++++++++++++++~:,,:+?77            \r\n");
-    printf("             77I~:,,:~=+++++++++++++++++++++++++++++++++=~:,,:~+I77             \r\n");
-    printf("               77I~:,,,:~=+++++++++++++++++++++++++++=~:,,,:~+I77               \r\n");
-    printf("                 77I?:,,,,:~==+++++++++++++++++++==~:,,,,:+?I77                 \r\n");
-    printf("                   777?=::,,,,::~~===========~~:::,,,::~+?777                   \r\n");
-    printf("                      777I?~:::,,,,,,,:,,,,,,,,,:::~+?I777                      \r\n");
-    printf("                         7777I??+~~~::::::~~~~++??I7777                         \r\n");
-    printf("                              777777IIIIIIII777777                              \r\n");
-    printf("                                                                                \r\n");
-    printf("                                                                                \r\n");
+    printf("............................................................\r\n");
+ printf(".....................?????????????????......................\r\n");
+ printf(".................?????????????????????????..................\r\n");
+ printf("..............???????????????????????????????...............\r\n");
+ printf("............???????????????????????????????????.............\r\n");
+ printf("..........???????????????????????????????????????...........\r\n");
+ printf(".........?????????????????????????????????????????..........\r\n");
+ printf(".......?????????????????????????????????????????????........\r\n");
+ printf("......???????????????????????????????????????????????.......\r\n");
+ printf(".....?????????????????????????????????????????????????......\r\n");
+ printf("....????:::::::::::?????????????????????:::::::::::????.....\r\n");
+ printf("...??::::::::::::::::::::?????????::::::::::::::::::::??....\r\n");
+ printf("...??:::::::::::::::::::::::::::::::::::::::::::::::::???...\r\n");
+ printf("..????::::::::::::::::::::::???::::::::::::::::::::::????...\r\n");
+ printf("..?????::::::::::::::::::::?????:::::::::::::::::::::?????..\r\n");
+ printf(".???????::::::::::::::::::???????:::::::::::::::::::??????..\r\n");
+ printf(".???????:::::::::::::::::?????????::::::::::::::::::??????..\r\n");
+ printf(".????????:::::::::::::::???????????:::::::::::::::????????..\r\n");
+ printf("..?????????::::::::::?????????????????::::::::::??????????..\r\n");
+ printf("..???????????????????????????????????????????????????????...\r\n");
+ printf("..???????????????????????????????????????????????????????...\r\n");
+ printf("...??????????????????????????????????????????????????????...\r\n");
+ printf("...?????????????????????????????????????????????????????....\r\n");
+ printf("....?????????????:::???????????????????:::??????????????....\r\n");
+ printf("....??????????????:::::?????????????:::::??????????????.....\r\n");
+ printf(".....??????????????:::::::???????:::::::??????????????......\r\n");
+ printf("......???????????????:::::::::::::::::???????????????.......\r\n");
+ printf(".......?????????????????:::::::::::?????????????????........\r\n");
+ printf(".........?????????????????????????????????????????..........\r\n");
+ printf("..........???????????????????????????????????????...........\r\n");
+ printf("............???????????????????????????????????.............\r\n");
+ printf("..............???????????????????????????????...............\r\n");
+ printf(".................?????????????????????????..................\r\n");
+ printf(".....................?????????????????......................\r\n");
+ printf("............................................................\r\n");
+
 }

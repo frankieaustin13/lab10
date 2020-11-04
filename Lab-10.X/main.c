@@ -102,7 +102,7 @@ void main(void) {
                 //--------------------------------------------
             case '?':
                 printf("\r\n-------------------------------------------------\r\n");
-                printf("\tPlay length in blocks: %d\r\n", (writeEndAddress-writeStartAddress)>>9)
+                printf("\tPlay length in blocks: %d\r\n", (writeEndAddress-writeStartAddress)>>9);
                 printf("\tsdCardAddress: ");
                 printf("%04x", sdCardAddress >> 16);
                 printf(":");
@@ -159,14 +159,15 @@ void main(void) {
                
                 for (uint8_t j = 0; j <128 && !EUSART1_DataReady; j++ ){ 
                     for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
-                        writeAddress[i] = sin[sinIndex];
+                        sdCardBuffer[i] = sin[sinIndex];
                         if (++sinIndex >= SINE_WAVE_ARRAY_LENGTH)
-                            sinIndex = sinIndex + 1 ;
+                            sinIndex = 0;
                         
                     }
-                    writeAddress = incrementAddress(writeAddress); 
-                    SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
+                    printf(".");
+                    SDCARD_WriteBlock(writeAddress, sdCardBuffer);
                     while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                    writeAddress = incrementAddress(writeAddress); 
                 }
                                 
                 writeEndAddress = writeAddress;

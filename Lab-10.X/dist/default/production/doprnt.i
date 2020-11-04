@@ -918,7 +918,37 @@ static int dtoa(FILE *fp, long long d)
 
     return pad(fp, &dbuf[i], w);
 }
-# 645 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\sources\\c99\\common\\doprnt.c"
+# 615 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\sources\\c99\\common\\doprnt.c"
+static int utoa(FILE *fp, unsigned long long d)
+{
+    int i, p, w;
+    unsigned long long n;
+
+
+    if (!(prec < 0)) {
+        flags &= ~(1 << 1);
+    }
+    p = (0 < prec) ? prec : 1;
+    w = width;
+
+
+    n = d;
+    i = sizeof(dbuf) - 1;
+    dbuf[i] = '\0';
+    while (i && (n || (0 < p) || ((0 < w) && (flags & (1 << 1))))) {
+        --i;
+        dbuf[i] = '0' + (n % 10);
+        --p;
+        --w;
+        n = n / 10;
+    }
+
+
+    return pad(fp, &dbuf[i], w);
+}
+
+
+
 static int xtoa(FILE *fp, unsigned long long d, char x)
 {
     int c, i, p, w;
@@ -1045,6 +1075,14 @@ static int vfpfcnvrt(FILE *fp, char *fmt[], va_list ap)
             ll = (long long)(*(int *)__va_arg(*(int **)ap, (int)0));
 
             return dtoa(fp, ll);
+        }
+# 1204 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\sources\\c99\\common\\doprnt.c"
+        if (*fmt[0] == 'u') {
+
+            ++*fmt;
+            llu = (unsigned long long)(*(unsigned int *)__va_arg(*(unsigned int **)ap, (unsigned int)0));
+
+            return utoa(fp, llu);
         }
 # 1296 "C:\\Program Files\\Microchip\\xc8\\v2.30\\pic\\sources\\c99\\common\\doprnt.c"
         if ((*fmt[0] == 'x') || (*fmt[0] == 'X')) {

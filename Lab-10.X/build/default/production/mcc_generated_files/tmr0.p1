@@ -824,8 +824,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/tmr0.c: 91:     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
 [e ( _TMR0_SetInterruptHandler (1 &U _TMR0_DefaultInterruptHandler ]
 "94
-[; ;mcc_generated_files/tmr0.c: 94:     T0CON = 0x97;
-[e = _T0CON -> -> 151 `i `uc ]
+[; ;mcc_generated_files/tmr0.c: 94:     T0CON = 0x9F;
+[e = _T0CON -> -> 159 `i `uc ]
 "95
 [; ;mcc_generated_files/tmr0.c: 95: }
 [e :UE 829 ]

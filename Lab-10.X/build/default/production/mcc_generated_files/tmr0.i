@@ -9281,7 +9281,7 @@ void TMR0_Initialize(void)
     TMR0_SetInterruptHandler(TMR0_DefaultInterruptHandler);
 
 
-    T0CON = 0x97;
+    T0CON = 0x9F;
 }
 
 void TMR0_StartTimer(void)
