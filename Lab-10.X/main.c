@@ -25,7 +25,7 @@ void myTMR0ISR(void);
 uint32_t incrementAddress(uint32_t sdCardAddress);
 void printAscii();
 
-typedef enum  {MIC_IDLE, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
+typedef enum  {IDLE, PLAY_AWAIT_BUFFER, PLAYBACK, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
 
 #define BLOCK_SIZE          512
 #define RATE                1600
@@ -44,10 +44,11 @@ const uint8_t sin[] = {128,	159,	187,	213,	233,	248,	255,	255,	248,	233,	213,	18
 
 uint8_t buffer1Full = false;
 uint8_t buffer2Full = false;
-uint8_t fillBuffer1 = true;
 uint8_t startCollect = false;
 uint8_t stopCollect = false;
 uint8_t collecting = false;
+uint8_t stopPlayback = false;
+uint8_t doPlayback = false;
 uint16_t sampleRate = 1600;   
 
 
@@ -188,45 +189,69 @@ void main(void) {
                     sampleRate = sampleRate; 
                 }
                 break; 
+                
+            case 'P': {
+                uint32_t readAddress = writeStartAddress;
+                buffer1Full = false;
+                buffer2Full = false;
+                doPlayback = true;
+                while (!EUSART1_DataReady && readAddress != writeEndAddress) {
+                    while (buffer1Full);
+                    SDCARD_ReadBlock(readAddress, sdCardBuffer1);
+                    buffer1Full = true;
+                    readAddress = incrementAddress(readAddress);
+                    while (buffer2Full);
+                    SDCARD_ReadBlock(readAddress, sdCardBuffer2);
+                    buffer2Full = true;
+                    readAddress = incrementAddress(readAddress);
+                }
+                if (EUSART1_DataReady) {
+                    EUSART1_Read();
+                    stopPlayback = true;
+                }
+                while (doPlayback); // wait for it to finish
+            }
+            break;
             
             case 'W': {
                 printf("Press any key to start recording audio and press any key to stop recording.");
                 while (!EUSART1_DataReady);
                 EUSART1_Read(); // throw away key
                 writeStartAddress = sdCardAddress;
+                uint32_t writeAddress = sdCardAddress;
                 uint8_t failureIndex = 0;
                 startCollect = true;
                 // enter loop; await key press or flag
                 while (!EUSART1_DataReady) {
                     if (buffer1Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         if ((status & 0x1F) != 0x5) {
-                            SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         }
                         buffer1Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
-                            writeFailureTable[failureIndex] = sdCardAddress;
+                            writeFailureTable[failureIndex] = writeAddress;
                             writeFailureStatus[failureIndex] = status;
                             failureIndex++;
                         }
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        writeAddress = incrementAddress(writeAddress);
                     }
                     if (buffer2Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         if ((status & 0x1F) != 0x5) {
-                            SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         }
                         buffer2Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
-                            writeFailureTable[failureIndex] = sdCardAddress;
+                            writeFailureTable[failureIndex] = writeAddress;
                             writeFailureStatus[failureIndex] = status;
                             failureIndex++;
                         }
-                        sdCardAddress = incrementAddress(sdCardAddress);                        
+                        writeAddress = incrementAddress(writeAddress);                        
                     }
                 }
                 EUSART1_Read(); // discard
@@ -234,37 +259,37 @@ void main(void) {
                 // wait until the ISR is finished (should gather last block of data)
                 while (buffer1Full || buffer2Full || collecting) {
                     if (buffer1Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         if ((status & 0x1F) != 0x5) {
-                            SDCARD_WriteBlock(sdCardAddress, sdCardBuffer1);
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         }
                         buffer1Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
-                            writeFailureTable[failureIndex] = sdCardAddress;
+                            writeFailureTable[failureIndex] = writeAddress;
                             writeFailureStatus[failureIndex] = status;
                             failureIndex++;
                         }
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        writeAddress = incrementAddress(writeAddress);
                     }
                     if (buffer2Full) {
-                        SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                        SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         if ((status & 0x1F) != 0x5) {
-                            SDCARD_WriteBlock(sdCardAddress, sdCardBuffer2);
+                            SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                         }
                         buffer2Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
-                            writeFailureTable[failureIndex] = sdCardAddress;
+                            writeFailureTable[failureIndex] = writeAddress;
                             writeFailureStatus[failureIndex] = status;
                             failureIndex++;
                         }
-                        sdCardAddress = incrementAddress(sdCardAddress);
+                        writeAddress = incrementAddress(writeAddress);
                     }
                 }
-                writeEndAddress = sdCardAddress;
+                writeEndAddress = writeAddress;
                 printf ("\r\n");
                 if (failureIndex > 0) {
                     printf ("Listing write failures: \r\n");
@@ -421,35 +446,39 @@ void myTMR0ISR(void) {
     // tell main that we have a new value
     TMR0_WriteTimer(0x10000 - (sampleRate - TMR0_ReadTimer()));
     static uint16_t bufferIndex = 0; 
-    static myTMR0states_t state = MIC_IDLE; 
+    static myTMR0states_t state = IDLE; 
     static uint8_t *buffer = sdCardBuffer1;
+    uint8_t useBuffer1 = true;
    
     uint16_t mic = ADRESH; 
     
     switch(state) { 
-        case MIC_IDLE: 
-            if (startCollect == true) {
+        case IDLE: 
+            if (startCollect) {
                 collecting = true;
                 state = MIC_ACQUIRE; 
                 bufferIndex = 0; 
                 buffer = sdCardBuffer1;
-                fillBuffer1 = true;
+                useBuffer1 = true;
                 startCollect = true;
+            } else if (doPlayback) {
+                useBuffer1 = true;
+                buffer = sdCardBuffer1;
+                bufferIndex = 0;
+                state = PLAYBACK;
             }
             break; 
-
-            // This state should never be encountered; but just in case
-        case MIC_AWAIT_BUFFER:
-            if ((fillBuffer1 && buffer1Full) || (!fillBuffer1 && buffer2Full)) {
+        
+        case PLAY_AWAIT_BUFFER:
+            if ((useBuffer1 && buffer1Full) || (!useBuffer1 && buffer2Full)) {
                 break; // keep waiting
             }
-            // fall through
-            
-        case MIC_ACQUIRE: 
-            buffer[bufferIndex++] = mic; 
+            // fallthrough
+        case PLAYBACK:
+            EPWM1_LoadDutyValue(buffer[bufferIndex++]); 
             
             if(bufferIndex == 512) {
-                if (fillBuffer1) {
+                if (useBuffer1) {
                     buffer1Full = true;
                     buffer = sdCardBuffer2;
                     if (buffer2Full)
@@ -460,11 +489,42 @@ void myTMR0ISR(void) {
                     if (buffer1Full)
                         state = MIC_AWAIT_BUFFER;
                 }
-                fillBuffer1 = !fillBuffer1;
+                useBuffer1 = !useBuffer1;
+                bufferIndex = 0;
+                if (stopPlayback) {
+                    state = IDLE;
+                    doPlayback = false;
+                }
+            }
+            break;
+
+            // This state should never be encountered; but just in case
+        case MIC_AWAIT_BUFFER:
+            if ((useBuffer1 && buffer1Full) || (!useBuffer1 && buffer2Full)) {
+                break; // keep waiting
+            }
+            // fall through
+            
+        case MIC_ACQUIRE: 
+            buffer[bufferIndex++] = mic; 
+            
+            if(bufferIndex == 512) {
+                if (useBuffer1) {
+                    buffer1Full = true;
+                    buffer = sdCardBuffer2;
+                    if (buffer2Full)
+                        state = MIC_AWAIT_BUFFER;
+                } else {
+                    buffer2Full = true;
+                    buffer = sdCardBuffer1;
+                    if (buffer1Full)
+                        state = MIC_AWAIT_BUFFER;
+                }
+                useBuffer1 = !useBuffer1;
                 bufferIndex = 0;
                 if (stopCollect) {
                     collecting = false;
-                    state = MIC_IDLE;
+                    state = IDLE;
                 }
             }
 
