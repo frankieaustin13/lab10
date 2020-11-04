@@ -82,8 +82,8 @@ void main(void) {
 
     printAscii();
     
-    printf("Lab 09\r\n");
-    printf("SD card testing\r\n");
+    printf("Lab 10\r\n");
+    printf("SD card + playback\r\n");
     printf("Dev'21\r\n");
     printf("No configuration of development board\r\n"); // print a nice command prompt    
     
@@ -102,12 +102,13 @@ void main(void) {
                 //--------------------------------------------
             case '?':
                 printf("\r\n-------------------------------------------------\r\n");
-                printf("SD card address:  ");
+                printf("\tPlay length in blocks: %d\r\n", (writeEndAddress-writeStartAddress)>>9)
+                printf("\tsdCardAddress: ");
                 printf("%04x", sdCardAddress >> 16);
                 printf(":");
                 printf("%04x", sdCardAddress & 0X0000FFFF);
                 printf("\r\n");
-                printf("Sample rate: %d\r\n", sampleRate);
+                printf("\tsample rate: %dus\r\n", sampleRate);
                 printf("-------------------------------------------------\r\n");
                 printf("?: help menu\r\n");
                 printf("o: k\r\n");
