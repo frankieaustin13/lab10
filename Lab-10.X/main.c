@@ -63,7 +63,6 @@ void main(void) {
     uint32_t sdCardAddress = 0x00000000;
     uint32_t writeStartAddress = 0x00000000;
     uint32_t writeEndAddress = 0x00000000;
-    uint32_t sinNextAddress = 0x00000000;
     char cmd, letter;
 
     letter = '0';
@@ -109,7 +108,7 @@ void main(void) {
                 printf(":");
                 printf("%04x", sdCardAddress & 0X0000FFFF);
                 printf("\r\n");
-                printf("\tsample rate: %dus\r\n", sampleRate);
+                printf("\tsample rate: %dus\r\n", sampleRate / 16);
                 printf("-------------------------------------------------\r\n");
                 printf("?: help menu\r\n");
                 printf("o: k\r\n");
@@ -152,30 +151,37 @@ void main(void) {
                 
             case '1': {
                 static uint8_t sinIndex = 0;
-                for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
-                    sdCardBuffer[i] = sin[sinIndex];
-                    if (++sinIndex >= SINE_WAVE_ARRAY_LENGTH)
-                        sinIndex = 0;
+                uint32_t writeAddress = sdCardAddress; 
+                
+                while (!EUSART1_DataReady);
+                EUSART1_Read(); // throw away key
+                
+               
+                for (uint8_t j = 0; j <128 && !EUSART1_DataReady; j++ ){ 
+                    for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
+                        writeAddress[i] = sin[sinIndex];
+                        if (++sinIndex >= SINE_WAVE_ARRAY_LENGTH)
+                            sinIndex = sinIndex + 1 ;
+                        
+                    }
+                    writeAddress = incrementAddress(writeAddress); 
+                    SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
+                    while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
                 }
                                 
-                SDCARD_WriteBlock(sdCardAddress, sdCardBuffer);
-                while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-
+                writeEndAddress = writeAddress;
+                uint32_t  storedCounter = writeAddress - sdCardAddress;
+                storedCounter >>= 9; 
+  
                 printf("Write block sin wave values:\r\n");
+                printf("Amount of blocks stored: %d\r\n", storedCounter) ; 
                 printf("    Address:    ");
                 printf("%04x", sdCardAddress >> 16);
                 printf(":");
                 printf("%04x", sdCardAddress & 0X0000FFFF);
                 printf("\r\n");
                 printf("    Status:     %02x\r\n", status);
-
-                if (sdCardAddress != sinNextAddress) {
-                    writeStartAddress = sdCardAddress;
-                } 
-                sdCardAddress = incrementAddress(sdCardAddress);
-                writeEndAddress = sdCardAddress;
-                sinNextAddress = sdCardAddress;
-            }                
+            }                                
                 break;
             
             case '+': 
