@@ -152,37 +152,33 @@ void main(void) {
                 
             case '1': {
                 static uint8_t sinIndex = 0;
-                uint32_t writeAddress = sdCardAddress; 
+                static uint32_t writeAddress = 0x00000000; 
+                writeStartAddress = sdCardAddress;
                 
-                printAddress(writeAddress);
+                //printAddress(writeAddress);
                 
-                for (uint8_t j = 0; j < 128 && !EUSART1_DataReady; j++){ 
+                //for (uint8_t j = 0; j < 128 && !EUSART1_DataReady; j++){ 
                     for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
                         sdCardBuffer[i] = sin[sinIndex];
                         if (++sinIndex >= SINE_WAVE_ARRAY_LENGTH)
                             sinIndex = 0;
                     }
-                    do {
+                    //do {
                         SDCARD_WriteBlock(writeAddress, sdCardBuffer);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                    } while (status != 5);
+                    //} while (status != 5);
                     //printf("%X\r", j);
                     writeAddress = incrementAddress(writeAddress); 
-                }
-                if (EUSART1_DataReady)
-                    EUSART1_Read();
+                //}
+                //if (EUSART1_DataReady)
+                    //EUSART1_Read();
                                 
                 writeEndAddress = writeAddress;
-                uint32_t  storedCounter = writeAddress - sdCardAddress;
-                storedCounter >>= 9; 
   
                 printf("Write block sin wave values:\r\n");
-                printf("Amount of blocks stored: %d\r\n", storedCounter) ; 
-                printf("    Address:    ");
-                printf("%04x", sdCardAddress >> 16);
-                printf(":");
-                printf("%04x", sdCardAddress & 0X0000FFFF);
-                printf("\r\n");
+                printf("Amount of blocks stored: %d\r\n", (writeEndAddress - writeStartAddress)>>9); 
+                printAddress(writeStartAddress);
+                printAddress(writeEndAddress);
                 printf("    Status:     %02x\r\n", status);
             }                                
                 break;
@@ -464,7 +460,7 @@ void myTMR0ISR(void) {
     static uint16_t bufferIndex = 0; 
     static myTMR0states_t state = IDLE; 
     static uint8_t *buffer = sdCardBuffer1;
-    uint8_t useBuffer1 = true;
+    static uint8_t useBuffer1 = true;
    
     uint16_t mic = ADRESH; 
     
@@ -497,14 +493,14 @@ void myTMR0ISR(void) {
             
             if(bufferIndex == 512) {
                 if (useBuffer1) {
-                    buffer1Full = true;
+                    buffer1Full = false;
                     buffer = sdCardBuffer2;
-                    if (buffer2Full)
+                    if (!buffer2Full)
                         state = MIC_AWAIT_BUFFER;
                 } else {
-                    buffer2Full = true;
+                    buffer2Full = false;
                     buffer = sdCardBuffer1;
-                    if (buffer1Full)
+                    if (!buffer1Full)
                         state = MIC_AWAIT_BUFFER;
                 }
                 useBuffer1 = !useBuffer1;
