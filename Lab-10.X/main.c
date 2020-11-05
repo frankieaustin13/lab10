@@ -24,13 +24,12 @@
 void myTMR0ISR(void);
 void printAddress(uint32_t address);
 uint32_t incrementAddress(uint32_t sdCardAddress);
+void microSecondDelay(uint16_t us);
 void printAscii();
 
 typedef enum  {IDLE, PLAY_AWAIT_BUFFER, PLAYBACK, MIC_AWAIT_BUFFER, MIC_ACQUIRE} myTMR0states_t;
 
 #define BLOCK_SIZE          512
-#define RATE                1600
-#define MAX_NUM_BLOCKS      4
 #define NUM_WRITE_FAILURES  128
 
 // Large arrays need to be defined as global even though you may only need to 
@@ -40,8 +39,6 @@ uint8_t sdCardBuffer1[BLOCK_SIZE];
 uint8_t sdCardBuffer2[BLOCK_SIZE];
 uint32_t writeFailureTable[NUM_WRITE_FAILURES]; // store previous n write failures
 uint8_t writeFailureStatus[NUM_WRITE_FAILURES];
-const uint8_t sin[] = {128,	159,	187,	213,	233,	248,	255,	255,	248,	233,	213,	187,	159,	128,	97,	69,	43,	23,	8,	1,	1,	8,	23,	43,	69,	97};
-#define SINE_WAVE_ARRAY_LENGTH sizeof(sin)
 
 uint8_t buffer1Full = false;
 uint8_t buffer2Full = false;
@@ -64,10 +61,10 @@ void main(void) {
     uint32_t sdCardAddress = 0x00000000;
     uint32_t writeStartAddress = 0x00000000;
     uint32_t writeEndAddress = 0x00000000;
-    char cmd, letter;
-
-    letter = '0';
-
+    char cmd;
+    const uint8_t sin[] = {128,	159, 187, 213, 233, 248, 255, 255, 248, 233, 213, 187, 159, 128, 97, 69, 43, 23, 8, 1, 1, 8, 23, 43, 69, 97};
+    #define SINE_WAVE_ARRAY_LENGTH sizeof(sin)
+    
     SYSTEM_Initialize();
     CS_SetHigh();
 
@@ -157,29 +154,31 @@ void main(void) {
                 
                 //printAddress(writeAddress);
                 
-                //for (uint8_t j = 0; j < 128 && !EUSART1_DataReady; j++){ 
+                for (uint8_t j = 0; j < 128 && !EUSART1_DataReady; j++){ 
+                    uint8_t timeout = 0;
                     for (uint16_t i = 0; i < BLOCK_SIZE; i++) {
                         sdCardBuffer[i] = sin[sinIndex];
                         if (++sinIndex >= SINE_WAVE_ARRAY_LENGTH)
                             sinIndex = 0;
                     }
-                    //do {
+                    do {
                         SDCARD_WriteBlock(writeAddress, sdCardBuffer);
                         while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                    //} while (status != 5);
-                    //printf("%X\r", j);
+                        if (timeout++ == 30)
+                            break; // give up
+                    } while (status != 5);
+                    printf("%d\r", j);
+                    microSecondDelay(51200);
                     writeAddress = incrementAddress(writeAddress); 
-                //}
-                //if (EUSART1_DataReady)
-                    //EUSART1_Read();
+                }
+                if (EUSART1_DataReady)
+                    EUSART1_Read();
                                 
                 writeEndAddress = writeAddress;
   
-                printf("Write block sin wave values:\r\n");
                 printf("Amount of blocks stored: %d\r\n", (writeEndAddress - writeStartAddress)>>9); 
                 printAddress(writeStartAddress);
                 printAddress(writeEndAddress);
-                printf("    Status:     %02x\r\n", status);
             }                                
                 break;
             
@@ -196,6 +195,8 @@ void main(void) {
                 break; 
                 
             case 'P': {
+                if (writeStartAddress == writeEndAddress)
+                    break; // don't play if nothing selected
                 uint32_t readAddress = writeStartAddress;
                 buffer1Full = false;
                 buffer2Full = false;
@@ -231,11 +232,11 @@ void main(void) {
                 // enter loop; await key press or flag
                 while (!EUSART1_DataReady) {
                     if (buffer1Full) {
-                        SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
-                        while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                        if ((status & 0x1F) != 0x5) {
+                        for (uint8_t timeout = 0; timeout < 10; timeout++) {
                             SDCARD_WriteBlock(writeAddress, sdCardBuffer1);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                            if ((status & 0x1F) == 0x5)
+                                break;
                         }
                         buffer1Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
@@ -244,13 +245,14 @@ void main(void) {
                             failureIndex++;
                         }
                         writeAddress = incrementAddress(writeAddress);
+                        microSecondDelay(sampleRate >> 2);
                     }
                     if (buffer2Full) {
-                        SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
-                        while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
-                        if ((status & 0x1F) != 0x5) {
+                        for (uint8_t timeout = 0; timeout < 10; timeout++) {
                             SDCARD_WriteBlock(writeAddress, sdCardBuffer2);
                             while ((status = SDCARD_PollWriteComplete()) == WRITE_NOT_COMPLETE);
+                            if ((status & 0x1F) == 0x5)
+                                break;
                         }
                         buffer2Full = false;
                         if ((status & 0x1F) != 0x5 && failureIndex < NUM_WRITE_FAILURES) {
@@ -258,7 +260,8 @@ void main(void) {
                             writeFailureStatus[failureIndex] = status;
                             failureIndex++;
                         }
-                        writeAddress = incrementAddress(writeAddress);                        
+                        writeAddress = incrementAddress(writeAddress);
+                        microSecondDelay(sampleRate >> 2);                        
                     }
                 }
                 EUSART1_Read(); // discard
@@ -329,7 +332,6 @@ void main(void) {
                 
                 uint32_t address = writeStartAddress;
                 uint32_t endAddress = writeEndAddress;
-                uint32_t numBlocks = (endAddress - address) >> 9;
                 uint32_t printedBlocks = 0;
                 
                 while (!EUSART1_DataReady && address != endAddress) {
@@ -345,7 +347,8 @@ void main(void) {
                 if (EUSART1_DataReady)
                     EUSART1_Read();
                
-                printf("Spooled %u out of the %u blocks.\r\n", printedBlocks, numBlocks); 
+                printf("Spooled %u out of the ", printedBlocks); 
+                printf("%u blocks.\r\n", (writeEndAddress - writeStartAddress) >> 9);
                 printf("To close the file follow these instructions: \r\n");          
                 printf("Right mouse click on the upper left of the PuTTY window\r\n"); 
                 printf("Select:     Change settings...\r\n"); 
@@ -441,6 +444,21 @@ void printAddress(uint32_t address)
     printf("\r\n");
 }
 
+void microSecondDelay(uint16_t us) {
+    for (uint16_t i = 0; i < us; i++) {
+        asm("NOP"); // 1
+        asm("NOP"); // 2
+        asm("NOP"); // 3
+        asm("NOP"); // 4
+        asm("NOP"); // 5
+        asm("NOP"); // 6
+        asm("NOP"); // 7
+        asm("NOP"); // 8
+        asm("NOP"); // 9
+        asm("NOP"); // 10
+    }
+}
+
 //----------------------------------------------
 // As configured, we are hoping to get a toggle
 // every 100us - this will require some work.
@@ -484,7 +502,7 @@ void myTMR0ISR(void) {
             break; 
         
         case PLAY_AWAIT_BUFFER:
-            if ((useBuffer1 && buffer1Full) || (!useBuffer1 && buffer2Full)) {
+            if ((useBuffer1 && !buffer1Full) || (!useBuffer1 && !buffer2Full)) {
                 break; // keep waiting
             }
             // fallthrough

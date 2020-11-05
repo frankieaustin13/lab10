@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F5768 `(v ~T0 @X0 0 tf ]
+[v F5770 `(v ~T0 @X0 0 tf ]
 "12746 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12746: extern volatile unsigned char ADCON1 __attribute__((address(0xFC1)));
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
@@ -17,8 +17,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _ADCON0 `Vuc ~T0 @X0 0 e@4034 ]
 "83 mcc_generated_files/adc.c
 [; ;mcc_generated_files/adc.c: 83: void ADC_SelectChannel(adc_channel_t channel)
-[c E5751 0 4 29 30 31 .. ]
-[n E5751 . channel_AN0 MIC_PIN channel_CTMU channel_DAC channel_FVRBuf2  ]
+[c E5753 0 4 29 30 31 .. ]
+[n E5753 . channel_AN0 MIC_PIN channel_CTMU channel_DAC channel_FVRBuf2  ]
 "12820 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 12820:     struct {
 [s S623 :1 `uc 1 :1 `uc 1 ]
@@ -799,7 +799,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "60 mcc_generated_files/adc.c
 [; ;mcc_generated_files/adc.c: 60: void (*ADC_InterruptHandler)(void);
-[v _ADC_InterruptHandler `*F5768 ~T0 @X0 1 e ]
+[v _ADC_InterruptHandler `*F5770 ~T0 @X0 1 e ]
 "62
 [; ;mcc_generated_files/adc.c: 62: void ADC_Initialize(void)
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
@@ -829,14 +829,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "83
 [; ;mcc_generated_files/adc.c: 83: void ADC_SelectChannel(adc_channel_t channel)
-[v _ADC_SelectChannel `(v ~T0 @X0 1 ef1`E5751 ]
+[v _ADC_SelectChannel `(v ~T0 @X0 1 ef1`E5753 ]
 "84
 [; ;mcc_generated_files/adc.c: 84: {
 {
 [e :U _ADC_SelectChannel ]
 "83
 [; ;mcc_generated_files/adc.c: 83: void ADC_SelectChannel(adc_channel_t channel)
-[v _channel `E5751 ~T0 @X0 1 r1 ]
+[v _channel `E5753 ~T0 @X0 1 r1 ]
 "84
 [; ;mcc_generated_files/adc.c: 84: {
 [f ]
@@ -899,14 +899,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "110
 [; ;mcc_generated_files/adc.c: 110: adc_result_t ADC_GetConversion(adc_channel_t channel)
-[v _ADC_GetConversion `(us ~T0 @X0 1 ef1`E5751 ]
+[v _ADC_GetConversion `(us ~T0 @X0 1 ef1`E5753 ]
 "111
 [; ;mcc_generated_files/adc.c: 111: {
 {
 [e :U _ADC_GetConversion ]
 "110
 [; ;mcc_generated_files/adc.c: 110: adc_result_t ADC_GetConversion(adc_channel_t channel)
-[v _channel `E5751 ~T0 @X0 1 r1 ]
+[v _channel `E5753 ~T0 @X0 1 r1 ]
 "111
 [; ;mcc_generated_files/adc.c: 111: {
 [f ]

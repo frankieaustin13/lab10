@@ -48,8 +48,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _SSP2CON1bits `VS172 ~T0 @X0 0 e@3948 ]
 "72 mcc_generated_files/spi2.c
 [; ;mcc_generated_files/spi2.c: 72: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration)
-[c E353 0 .. ]
-[n E353 . SPI2_DEFAULT  ]
+[c E355 0 .. ]
+[n E355 . SPI2_DEFAULT  ]
 "3427 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 3427: extern volatile unsigned char SSP2CON2 __attribute__((address(0xF6B)));
 [v _SSP2CON2 `Vuc ~T0 @X0 0 e@3947 ]
@@ -848,14 +848,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "72
 [; ;mcc_generated_files/spi2.c: 72: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration)
-[v _SPI2_Open `(a ~T0 @X0 1 ef1`E353 ]
+[v _SPI2_Open `(a ~T0 @X0 1 ef1`E355 ]
 "73
 [; ;mcc_generated_files/spi2.c: 73: {
 {
 [e :U _SPI2_Open ]
 "72
 [; ;mcc_generated_files/spi2.c: 72: _Bool SPI2_Open(spi2_modes_t spi2UniqueConfiguration)
-[v _spi2UniqueConfiguration `E353 ~T0 @X0 1 r1 ]
+[v _spi2UniqueConfiguration `E355 ~T0 @X0 1 r1 ]
 "73
 [; ;mcc_generated_files/spi2.c: 73: {
 [f ]

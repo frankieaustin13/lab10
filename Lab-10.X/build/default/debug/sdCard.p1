@@ -17,7 +17,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "66 ./mcc_generated_files/spi2.h
 [; ;./mcc_generated_files/spi2.h: 66: uint8_t SPI2_ExchangeByte(uint8_t data);
 [v _SPI2_ExchangeByte `(uc ~T0 @X0 0 ef1`uc ]
-"111 C:\Program Files\Microchip\xc8\v2.20\pic\include\c99\stdio.h
+"111 C:\Program Files\Microchip\xc8\v2.30\pic\include\c99\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 54: __asm("ANSELA equ 0F38h");
@@ -1173,133 +1173,133 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _printf , (. :s 3C -> _response `i ]
 [e :U 902 ]
 "171
-[; ;sdCard.c: 171: 
+[; ;sdCard.c: 171: void hexDumpBuffer(uint8_t sdCardBuffer[]) {
 [e :UE 872 ]
 }
-"179
-[; ;sdCard.c: 179:     for (i = 0; i < 512; i++) {
+"177
+[; ;sdCard.c: 177:     for (i = 0; i < 512; i++) {
 [v _hexDumpBuffer `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _hexDumpBuffer ]
 [v _sdCardBuffer `*uc ~T0 @X0 1 r1 ]
 [f ]
-"181
-[; ;sdCard.c: 181:         if (i != 0 && i % 16 == 0) {
+"179
+[; ;sdCard.c: 179:         if (i != 0 && i % 16 == 0) {
 [v _i `us ~T0 @X0 1 a ]
-"183
-[; ;sdCard.c: 183:             for (int j = i - 16; j < i; j++) {
+"181
+[; ;sdCard.c: 181:             for (int j = i - 16; j < i; j++) {
 [e ( _printf :s 4C ]
-"185
-[; ;sdCard.c: 185:                     printf(".");
+"183
+[; ;sdCard.c: 183:                     printf(".");
 {
 [e = _i -> -> 0 `i `us ]
 [e $ < -> _i `ui -> -> 512 `i `ui 904  ]
 [e $U 905  ]
 [e :U 904 ]
 {
-"186
-[; ;sdCard.c: 186:                 } else {
+"184
+[; ;sdCard.c: 184:                 } else {
 [e $ ! && != -> _i `ui -> -> 0 `i `ui == % -> _i `ui -> -> 8 `i `ui -> -> 0 `i `ui 907  ]
 [e ( _printf :s 5C ]
 [e :U 907 ]
-"187
-[; ;sdCard.c: 187:                     printf("%c", sdCardBuffer[j]);
+"185
+[; ;sdCard.c: 185:                     printf("%c", sdCardBuffer[j]);
 [e $ ! && != -> _i `ui -> -> 0 `i `ui == % -> _i `ui -> -> 16 `i `ui -> -> 0 `i `ui 908  ]
 {
-"188
-[; ;sdCard.c: 188:                 }
+"186
+[; ;sdCard.c: 186:                 }
 [e ( _printf :s 6C ]
-"189
-[; ;sdCard.c: 189:             }
+"187
+[; ;sdCard.c: 187:             }
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> - -> _i `ui -> -> 16 `i `ui `i ]
 [e $U 912  ]
 [e :U 909 ]
 {
-"190
-[; ;sdCard.c: 190:             printf("\r\n");
+"188
+[; ;sdCard.c: 188:             printf("\r\n");
 [e $ ! < -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i -> 32 `i 913  ]
 {
-"191
-[; ;sdCard.c: 191:         }
+"189
+[; ;sdCard.c: 189:         }
 [e ( _printf :s 7C ]
-"192
-[; ;sdCard.c: 192: 
+"190
+[; ;sdCard.c: 190: 
 }
 [e $U 914  ]
 [e :U 913 ]
 {
-"193
-[; ;sdCard.c: 193:         printf("%02x ", sdCardBuffer[i]);
+"191
+[; ;sdCard.c: 191:         printf("%02x ", sdCardBuffer[i]);
 [e ( _printf , (. :s 8C -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i ]
-"194
-[; ;sdCard.c: 194:     }
+"192
+[; ;sdCard.c: 192:     }
 }
 [e :U 914 ]
-"195
-[; ;sdCard.c: 195: 
+"193
+[; ;sdCard.c: 193: 
 }
 [e ++ _j -> 1 `i ]
 [e :U 912 ]
 [e $ < -> _j `ui -> _i `ui 909  ]
 [e :U 910 ]
 }
-"196
-[; ;sdCard.c: 196:     printf("   ");
+"194
+[; ;sdCard.c: 194:     printf("   ");
 [e ( _printf :s 9C ]
-"197
-[; ;sdCard.c: 197:     for (int j = i - 16; j < i; j++) {
+"195
+[; ;sdCard.c: 195:     for (int j = i - 16; j < i; j++) {
 }
 [e :U 908 ]
-"199
-[; ;sdCard.c: 199:             printf(".");
+"197
+[; ;sdCard.c: 197:             printf(".");
 [e ( _printf , (. :s 10C -> *U + _sdCardBuffer * -> _i `ux -> -> # *U _sdCardBuffer `ui `ux `i ]
-"200
-[; ;sdCard.c: 200:         } else {
+"198
+[; ;sdCard.c: 198:         } else {
 }
 [e ++ _i -> -> 1 `i `us ]
 [e $ < -> _i `ui -> -> 512 `i `ui 904  ]
 [e :U 905 ]
 }
-"202
-[; ;sdCard.c: 202:         }
+"200
+[; ;sdCard.c: 200:         }
 [e ( _printf :s 11C ]
-"203
-[; ;sdCard.c: 203:     }
+"201
+[; ;sdCard.c: 201:     }
 {
 [v _j `i ~T0 @X0 1 a ]
 [e = _j -> - -> _i `ui -> -> 16 `i `ui `i ]
 [e $U 918  ]
 [e :U 915 ]
 {
-"204
-[; ;sdCard.c: 204:     printf("\r\n");
+"202
+[; ;sdCard.c: 202:     printf("\r\n");
 [e $ ! < -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i -> 32 `i 919  ]
 {
-"205
-[; ;sdCard.c: 205: }
+"203
+[; ;sdCard.c: 203: }
 [e ( _printf :s 12C ]
-"206
+"204
 }
 [e $U 920  ]
 [e :U 919 ]
 {
-"207
+"205
 [e ( _printf , (. :s 13C -> *U + _sdCardBuffer * -> _j `x -> -> # *U _sdCardBuffer `i `x `i ]
-"208
+"206
 }
 [e :U 920 ]
-"209
+"207
 }
 [e ++ _j -> 1 `i ]
 [e :U 918 ]
 [e $ < -> _j `ui -> _i `ui 915  ]
 [e :U 916 ]
 }
-"210
+"208
 [e ( _printf :s 14C ]
-"211
+"209
 [e :UE 903 ]
 }
 [p f _printf 13139972 ]

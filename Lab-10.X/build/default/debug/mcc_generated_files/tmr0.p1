@@ -1,5 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F5762 `(v ~T0 @X0 0 tf ]
+[v F5764 `(v ~T0 @X0 0 tf ]
 "15338 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 15338:     struct {
 [s S744 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -40,19 +40,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16161
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 16161: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS800 ~T0 @X0 0 e@4082 ]
-[v F5755 `(v ~T0 @X0 0 tf ]
+[v F5757 `(v ~T0 @X0 0 tf ]
 "309 mcc_generated_files/tmr0.h
 [; ;mcc_generated_files/tmr0.h: 309:  void TMR0_SetInterruptHandler(void (* InterruptHandler)(void));
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F5755 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 0 ef1`*F5757 ]
 "345
 [; ;mcc_generated_files/tmr0.h: 345: void TMR0_DefaultInterruptHandler(void);
 [v _TMR0_DefaultInterruptHandler `(v ~T0 @X0 0 ef ]
 "15332 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 15332: extern volatile unsigned char T0CON __attribute__((address(0xFD5)));
 [v _T0CON `Vuc ~T0 @X0 0 e@4053 ]
-[v F5776 `(v ~T0 @X0 0 tf ]
 [v F5778 `(v ~T0 @X0 0 tf ]
 [v F5780 `(v ~T0 @X0 0 tf ]
+[v F5782 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -790,7 +790,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "58 mcc_generated_files/tmr0.c
 [; ;mcc_generated_files/tmr0.c: 58: void (*TMR0_InterruptHandler)(void);
-[v _TMR0_InterruptHandler `*F5762 ~T0 @X0 1 e ]
+[v _TMR0_InterruptHandler `*F5764 ~T0 @X0 1 e ]
 "60
 [; ;mcc_generated_files/tmr0.c: 60: volatile uint16_t timer0ReloadVal;
 [v _timer0ReloadVal `Vus ~T0 @X0 1 e ]
@@ -954,7 +954,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _TMR0L -> _timer0ReloadVal `uc ]
 "147
 [; ;mcc_generated_files/tmr0.c: 147:     if(TMR0_InterruptHandler)
-[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F5776 836  ]
+[e $ ! != _TMR0_InterruptHandler -> -> 0 `i `*F5778 836  ]
 "148
 [; ;mcc_generated_files/tmr0.c: 148:     {
 {
@@ -971,10 +971,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "156
 [; ;mcc_generated_files/tmr0.c: 156: void TMR0_SetInterruptHandler(void (* InterruptHandler)(void)){
-[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F5778 ]
+[v _TMR0_SetInterruptHandler `(v ~T0 @X0 1 ef1`*F5780 ]
 {
 [e :U _TMR0_SetInterruptHandler ]
-[v _InterruptHandler `*F5780 ~T0 @X0 1 r1 ]
+[v _InterruptHandler `*F5782 ~T0 @X0 1 r1 ]
 [f ]
 "157
 [; ;mcc_generated_files/tmr0.c: 157:     TMR0_InterruptHandler = InterruptHandler;

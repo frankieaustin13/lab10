@@ -7,9 +7,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;mcc_generated_files/eusart1.h: 76: typedef union {
 [u S831 `S832 1 `uc 1 ]
 [n S831 . . status ]
-[v F6095 `(v ~T0 @X0 0 tf ]
 [v F6097 `(v ~T0 @X0 0 tf ]
 [v F6099 `(v ~T0 @X0 0 tf ]
+[v F6101 `(v ~T0 @X0 0 tf ]
 "11611 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 11611: extern volatile unsigned char BAUDCON1 __attribute__((address(0xFB8)));
 [v _BAUDCON1 `Vuc ~T0 @X0 0 e@4024 ]
@@ -25,24 +25,24 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10647
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 10647: extern volatile unsigned char SPBRGH1 __attribute__((address(0xFB0)));
 [v _SPBRGH1 `Vuc ~T0 @X0 0 e@4016 ]
-[v F6082 `(v ~T0 @X0 0 tf ]
+[v F6084 `(v ~T0 @X0 0 tf ]
 "362 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 362: void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void));
-[v _EUSART1_SetFramingErrorHandler `(v ~T0 @X0 0 ef1`*F6082 ]
+[v _EUSART1_SetFramingErrorHandler `(v ~T0 @X0 0 ef1`*F6084 ]
 "62 mcc_generated_files/eusart1.c
 [; ;mcc_generated_files/eusart1.c: 62: void EUSART1_DefaultFramingErrorHandler(void);
 [v _EUSART1_DefaultFramingErrorHandler `(v ~T0 @X0 0 ef ]
-[v F6086 `(v ~T0 @X0 0 tf ]
+[v F6088 `(v ~T0 @X0 0 tf ]
 "380 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 380: void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void));
-[v _EUSART1_SetOverrunErrorHandler `(v ~T0 @X0 0 ef1`*F6086 ]
+[v _EUSART1_SetOverrunErrorHandler `(v ~T0 @X0 0 ef1`*F6088 ]
 "63 mcc_generated_files/eusart1.c
 [; ;mcc_generated_files/eusart1.c: 63: void EUSART1_DefaultOverrunErrorHandler(void);
 [v _EUSART1_DefaultOverrunErrorHandler `(v ~T0 @X0 0 ef ]
-[v F6090 `(v ~T0 @X0 0 tf ]
+[v F6092 `(v ~T0 @X0 0 tf ]
 "398 mcc_generated_files/eusart1.h
 [; ;mcc_generated_files/eusart1.h: 398: void EUSART1_SetErrorHandler(void (* interruptHandler)(void));
-[v _EUSART1_SetErrorHandler `(v ~T0 @X0 0 ef1`*F6090 ]
+[v _EUSART1_SetErrorHandler `(v ~T0 @X0 0 ef1`*F6092 ]
 "64 mcc_generated_files/eusart1.c
 [; ;mcc_generated_files/eusart1.c: 64: void EUSART1_DefaultErrorHandler(void);
 [v _EUSART1_DefaultErrorHandler `(v ~T0 @X0 0 ef ]
@@ -117,12 +117,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "10413
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 10413: extern volatile unsigned char TXREG1 __attribute__((address(0xFAD)));
 [v _TXREG1 `Vuc ~T0 @X0 0 e@4013 ]
-[v F6121 `(v ~T0 @X0 0 tf ]
 [v F6123 `(v ~T0 @X0 0 tf ]
-[v F6126 `(v ~T0 @X0 0 tf ]
+[v F6125 `(v ~T0 @X0 0 tf ]
 [v F6128 `(v ~T0 @X0 0 tf ]
-[v F6131 `(v ~T0 @X0 0 tf ]
+[v F6130 `(v ~T0 @X0 0 tf ]
 [v F6133 `(v ~T0 @X0 0 tf ]
+[v F6135 `(v ~T0 @X0 0 tf ]
 "54 C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h
 [; ;C:/Program Files (x86)/Microchip/MPLABX/v5.40/packs/Microchip/PIC18F-K_DFP/1.4.87/xc8\pic\include\proc\pic18f26k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -863,13 +863,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _eusart1RxLastError `VS831 ~T0 @X0 1 e ]
 "58
 [; ;mcc_generated_files/eusart1.c: 58: void (*EUSART1_FramingErrorHandler)(void);
-[v _EUSART1_FramingErrorHandler `*F6095 ~T0 @X0 1 e ]
+[v _EUSART1_FramingErrorHandler `*F6097 ~T0 @X0 1 e ]
 "59
 [; ;mcc_generated_files/eusart1.c: 59: void (*EUSART1_OverrunErrorHandler)(void);
-[v _EUSART1_OverrunErrorHandler `*F6097 ~T0 @X0 1 e ]
+[v _EUSART1_OverrunErrorHandler `*F6099 ~T0 @X0 1 e ]
 "60
 [; ;mcc_generated_files/eusart1.c: 60: void (*EUSART1_ErrorHandler)(void);
-[v _EUSART1_ErrorHandler `*F6099 ~T0 @X0 1 e ]
+[v _EUSART1_ErrorHandler `*F6101 ~T0 @X0 1 e ]
 "66
 [; ;mcc_generated_files/eusart1.c: 66: void EUSART1_Initialize(void)
 [v _EUSART1_Initialize `(v ~T0 @X0 1 ef ]
@@ -1128,10 +1128,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "166
 [; ;mcc_generated_files/eusart1.c: 166: void EUSART1_SetFramingErrorHandler(void (* interruptHandler)(void)){
-[v _EUSART1_SetFramingErrorHandler `(v ~T0 @X0 1 ef1`*F6121 ]
+[v _EUSART1_SetFramingErrorHandler `(v ~T0 @X0 1 ef1`*F6123 ]
 {
 [e :U _EUSART1_SetFramingErrorHandler ]
-[v _interruptHandler `*F6123 ~T0 @X0 1 r1 ]
+[v _interruptHandler `*F6125 ~T0 @X0 1 r1 ]
 [f ]
 "167
 [; ;mcc_generated_files/eusart1.c: 167:     EUSART1_FramingErrorHandler = interruptHandler;
@@ -1142,10 +1142,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "170
 [; ;mcc_generated_files/eusart1.c: 170: void EUSART1_SetOverrunErrorHandler(void (* interruptHandler)(void)){
-[v _EUSART1_SetOverrunErrorHandler `(v ~T0 @X0 1 ef1`*F6126 ]
+[v _EUSART1_SetOverrunErrorHandler `(v ~T0 @X0 1 ef1`*F6128 ]
 {
 [e :U _EUSART1_SetOverrunErrorHandler ]
-[v _interruptHandler `*F6128 ~T0 @X0 1 r1 ]
+[v _interruptHandler `*F6130 ~T0 @X0 1 r1 ]
 [f ]
 "171
 [; ;mcc_generated_files/eusart1.c: 171:     EUSART1_OverrunErrorHandler = interruptHandler;
@@ -1156,10 +1156,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 "174
 [; ;mcc_generated_files/eusart1.c: 174: void EUSART1_SetErrorHandler(void (* interruptHandler)(void)){
-[v _EUSART1_SetErrorHandler `(v ~T0 @X0 1 ef1`*F6131 ]
+[v _EUSART1_SetErrorHandler `(v ~T0 @X0 1 ef1`*F6133 ]
 {
 [e :U _EUSART1_SetErrorHandler ]
-[v _interruptHandler `*F6133 ~T0 @X0 1 r1 ]
+[v _interruptHandler `*F6135 ~T0 @X0 1 r1 ]
 [f ]
 "175
 [; ;mcc_generated_files/eusart1.c: 175:     EUSART1_ErrorHandler = interruptHandler;

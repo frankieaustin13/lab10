@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Z:/adit/EENG383/lab10/Lab-10.X/main.c</file>
+            <file>file:/C:/Users/Zachary/MPLABXProjects/lab10/Lab-10.X/mcc_generated_files/interrupt_manager.c</file>
+            <file>file:/C:/Users/Zachary/MPLABXProjects/lab10/Lab-10.X/main.c</file>
+            <file>file:/C:/Users/Zachary/MPLABXProjects/lab10/Lab-10.X/sdCard.c</file>
+            <file>file:/C:/Users/Zachary/MPLABXProjects/lab10/Lab-10.X/mcc_generated_files/interrupt_manager.h</file>
+            <file>file:/C:/Users/Zachary/MPLABXProjects/lab10/Lab-10.X/mcc_generated_files/spi2.c</file>
         </group>
     </open-files>
 </project-private>
